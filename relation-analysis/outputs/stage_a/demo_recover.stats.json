@@ -1,0 +1,12 @@
+{
+  "num_examples": 3,
+  "by_kind": {
+    "geometric": 2,
+    "semantic": 1
+  },
+  "by_predicate": {
+    "on": 1,
+    "holding": 1,
+    "around/near": 1
+  }
+}

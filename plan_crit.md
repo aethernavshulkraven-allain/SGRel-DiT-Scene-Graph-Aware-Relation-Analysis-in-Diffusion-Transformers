@@ -21,11 +21,11 @@ Below is the step-by-step version.
 **A1. Start from Visual Genome triples**
 
 Each annotation gives a triplet
-((o_i, r_{ij}, o_j)) = (subject, relation, object).
+$$(o_i, r_{ij}, o_j) = (\text{subject}, \text{relation}, \text{object}).$$
 
 For each triple:
 
-* keep the **object categories** (o_i, o_j) and **relation label** (r_{ij}) (one of ~24 classes),
+* keep the **object categories** $(o_i, o_j)$ and **relation label** $(r_{ij})$ (one of ~24 classes),
 * optionally filter to a subset of relations (geometric vs semantic).
 
 VG is standard for VRD / HOI; many VRD / diffusion works use it or its derivatives. ([ACM Digital Library][1])
@@ -36,7 +36,7 @@ Turn each triple into a simple prompt for SD3, e.g.
 
 * `"a photo of <o_i> <r_ij_phrase> <o_j> on a plain background"`
 
-Here (r_{ij}) label is discrete (`on`, `under`, `left of`, `holding`, …), while the phrase is its natural-language surface form.
+Here $(r_{ij})$ label is discrete (`on`, `under`, `left of`, `holding`, …), while the phrase is its natural-language surface form.
 
 **A3. Define “concept tokens” per example**
 
@@ -71,23 +71,23 @@ For each prompt:
 
 **B2. ConceptAttention side stream**
 
-At each DiT block (\ell):
+At each DiT block $\ell$:
 
-1. Encode each concept word with the same T5 encoder as the prompt → initial embeddings (e^{(0)}*{o_i}, e^{(0)}*{r_{ij}}, e^{(0)}_{o_j}).
-2. For layer (\ell), layer-norm and project concepts with the **text** Q/K/V matrices of that block (as in ConceptAttention). ([OpenReview][3])
+1. Encode each concept word with the same T5 encoder as the prompt → initial embeddings $(e^{(0)}_{o_i}, e^{(0)}_{r_{ij}}, e^{(0)}_{o_j})$.
+2. For layer $\ell$, layer-norm and project concepts with the **text** Q/K/V matrices of that block (as in ConceptAttention). ([OpenReview][3])
 3. Concatenate **image** and **concept** K/V, and run attention where **concept queries attend to image+concept**, but image/text ignore concepts. This yields updated concept outputs at each block.
 4. Cache:
 
-   * image token outputs (o^{\text{img}}_{\ell}(x,y)),
-   * concept token outputs (o^{\text{concept}}*{\ell}(c)) for (c\in{o_i,r*{ij},o_j}).
+   * image token outputs $(o^{\text{img}}_{\ell}(x,y))$,
+   * concept token outputs $(o^{\text{concept}}_{\ell}(c))$ for $c \in \{o_i, r_{ij}, o_j\}$.
 
 **B3. Concept saliency maps**
 
-For each layer (\ell), concept (c), compute saliency map
+For each layer $\ell$, concept $c$, compute saliency map
 
-[
-S_{\ell,c}(x,y) = \langle o^{\text{img}}*{\ell}(x,y),, o^{\text{concept}}*{\ell}(c)\rangle
-]
+$$
+S_{\ell,c}(x,y) = \langle o^{\text{img}}_{\ell}(x,y), o^{\text{concept}}_{\ell}(c)\rangle
+$$
 
 as in ConceptAttention; this gives a high-quality spatial map for each concept. ([OpenReview][3])
 
@@ -109,41 +109,41 @@ Pick a small subset of DiT blocks:
 
 This mirrors what interpretability papers do when probing DiT/UNet at several depths. ([OpenReview][3])
 
-For each chosen block (\ell) you have three saliency maps:
+For each chosen block $\ell$ you have three saliency maps:
 
-* (S_{\ell, o_i}(x,y)),
-* (S_{\ell, r_{ij}}(x,y)) (optional here),
-* (S_{\ell, o_j}(x,y)).
+* $S_{\ell, o_i}(x,y)$,
+* $S_{\ell, r_{ij}}(x,y)$ (optional here),
+* $S_{\ell, o_j}(x,y)$.
 
 ### C2. Analytic geometric features per block
 
 Normalize saliencies:
 
-[
+$$
 \tilde S_{\ell,c}(x,y)=\frac{S_{\ell,c}(x,y)}{\sum_{x,y}S_{\ell,c}(x,y)}.
-]
+$$
 
-For each block (\ell) and pair ((o_i,o_j)) compute:
+For each block $\ell$ and pair $(o_i,o_j)$ compute:
 
 * Centers
-  ( (x_i,y_i) = \sum_{x,y}(x,y)\tilde S_{\ell,o_i}(x,y) ),
-  ( (x_j,y_j) = \sum_{x,y}(x,y)\tilde S_{\ell,o_j}(x,y) ).
+  $$ (x_i,y_i) = \sum_{x,y}(x,y)\tilde S_{\ell,o_i}(x,y), $$
+  $$ (x_j,y_j) = \sum_{x,y}(x,y)\tilde S_{\ell,o_j}(x,y). $$
 * Offsets
-  (\Delta x = x_i - x_j), (\Delta y = y_i - y_j).
+  $\Delta x = x_i - x_j$, $\Delta y = y_i - y_j$.
 * Spread / size from second moments or bounding box of high-saliency region.
 * Overlap / IoU between the two maps:
-  [
+  $$
   \text{Overlap} = \sum_{x,y}\min\big(\tilde S_{\ell,o_i},\tilde S_{\ell,o_j}\big).
-  ]
+  $$
 * Distance between supports (for “touching / near”).
 
-Optionally add a few scalar stats of the relation map (S_{\ell,r_{ij}}), like its overlap with each object map.
+Optionally add a few scalar stats of the relation map $S_{\ell,r_{ij}}$, like its overlap with each object map.
 
 Collect them into a low-dimensional feature vector
 
-[
+$$
 z_{\ell} \in \mathbb{R}^{d} \quad (\text{say } d \approx 10\text{–}20)
-]
+$$
 
 per example and per block.
 
@@ -151,17 +151,17 @@ per example and per block.
 
 For geometric relations only:
 
-* Input: (z_{\ell})
+* Input: $z_{\ell}$
 * Output: distribution over geometric relation classes (left_of, right_of, on, under, in, overlapping, near, none).
-* Loss: cross-entropy with label (r_{ij}^{\text{prompt}}).
+* Loss: cross-entropy with label $r_{ij}^{\text{prompt}}$.
 
 Two design options:
 
 1. **One MLP per layer**:
-   Train separate small MLPs (f_\ell) on data from block (\ell).
-   Compare validation accuracy (Acc_\ell) across layers.
+   Train separate small MLPs $f_\ell$ on data from block $\ell$.
+   Compare validation accuracy $\text{Acc}_\ell$ across layers.
 2. **Shared MLP + layer index**:
-   Concatenate one-hot or embedding of layer index into (z_\ell) and train a single MLP, then evaluate accuracy restricted to each layer.
+   Concatenate one-hot or embedding of layer index into $z_\ell$ and train a single MLP, then evaluate accuracy restricted to each layer.
 
 In both cases, blocks with higher accuracy on geometric relations are **structural for geometry**.
 
@@ -179,25 +179,25 @@ Diff-VRD treats **relation embeddings** as continuous variables and learns a dif
 
 We adapt this to SD3 + ConceptAttention:
 
-1. For each block (\ell), extract:
+1. For each block $\ell$, extract:
 
-   * concept outputs (o^{\text{concept}}*{\ell}(o_i)), (o^{\text{concept}}*{\ell}(o_j)),
+   * concept outputs $o^{\text{concept}}_{\ell}(o_i)$, $o^{\text{concept}}_{\ell}(o_j)$,
    * optionally pooled image features in the saliency region of each object,
-   * relation text embedding (T5 embedding of (r_{ij})).
+   * relation text embedding (T5 embedding of $r_{ij}$).
 2. Concatenate these to form a conditioning vector
 
-   [
-   h_{\ell} = [o^{\text{concept}}*{\ell}(o_i), o^{\text{concept}}*{\ell}(o_j), \text{pooled image features}, \text{relation text embedding}]
-   ]
-3. Define a **1D diffusion process** over a relation latent (z_t) (small dimension, e.g. 128), conditioned on (h_\ell) as in Diff-VRD:
+   $$
+   h_{\ell} = [o^{\text{concept}}_{\ell}(o_i), o^{\text{concept}}_{\ell}(o_j), \text{pooled image features}, \text{relation text embedding}]
+   $$
+3. Define a **1D diffusion process** over a relation latent $z_t$ (small dimension, e.g. 128), conditioned on $h_\ell$ as in Diff-VRD:
 
-   * forward: Gaussian noise schedule on (z),
-   * reverse: small DiT/MLP predicting noise given ((z_t, t, h_\ell)).
-4. Train this tower so that the final denoised (z_0) is close to a **target relation embedding**, for example:
+   * forward: Gaussian noise schedule on $z$,
+   * reverse: small DiT/MLP predicting noise given $(z_t, t, h_\ell)$.
+4. Train this tower so that the final denoised $z_0$ is close to a **target relation embedding**, for example:
 
    * the text embedding of the predicate,
    * or a teacher embedding from a pretrained VRD / HOI model.
-5. Add a linear classifier on (z_0) to predict the semantic relation class and train with cross-entropy jointly.
+5. Add a linear classifier on $z_0$ to predict the semantic relation class and train with cross-entropy jointly.
 
 DIFFUSIONHOI uses diffusion features to detect HOI by learning relation prompts in embedding space and conditioning generation/detection on them. ([Proceedings NeurIPS][4])
 Our tower is similar in spirit but:
@@ -209,7 +209,7 @@ Our tower is similar in spirit but:
 
 To probe layer importance, repeat this for different subsets of blocks:
 
-* “early-tower”: use (h_{\ell}) from early layers only (e.g. 2, 4).
+* “early-tower”: use $h_{\ell}$ from early layers only (e.g. 2, 4).
 * “mid-tower”: use mid layers (8,12).
 * “late-tower”: use late layers (16,20).
 
@@ -225,18 +225,18 @@ This is analogous to “where is knowledge stored” analyses for transformers, 
 
 From both branches we get per-layer scores:
 
-* geometric branch: (Acc^{\text{geom}}_\ell) from the analytic-feature MLPs,
+* geometric branch: $\text{Acc}^{\text{geom}}_\ell$ from the analytic-feature MLPs,
 * semantic branch: contribution of each layer to relation tower accuracy (via ablations or tower variants).
 
 We can define an overall **structural importance score** per block
 
-[
+$$
 \text{StructScore}(\ell) =
-\alpha, Acc^{\text{geom}}*\ell +
-\beta, Acc^{\text{sem}}*\ell
-]
+\alpha \cdot \text{Acc}^{\text{geom}}_\ell +
+\beta \cdot \text{Acc}^{\text{sem}}_\ell
+$$
 
-with weights (\alpha,\beta) depending on how much you care about geometric vs semantic relations.
+with weights $(\alpha,\beta)$ depending on how much you care about geometric vs semantic relations.
 
 Blocks with highest StructScore are then tagged as **structural relation layers**.
 
@@ -248,19 +248,19 @@ Optionally validate this by a small B-LoRA style experiment: add LoRA only on th
 
 For each example you should persist:
 
-* prompt and VG triple ((o_i,r_{ij},o_j)),
+* prompt and VG triple $(o_i,r_{ij},o_j)$,
 * concept token indices,
-* for each chosen block (\ell):
+* for each chosen block $\ell$:
 
-  * saliency maps (S_{\ell,o_i}, S_{\ell,r_{ij}}, S_{\ell,o_j}),
-  * analytic features (z_\ell),
-  * concept outputs (o^{\text{concept}}_{\ell}(\cdot)),
+  * saliency maps $(S_{\ell,o_i}, S_{\ell,r_{ij}}, S_{\ell,o_j})$,
+  * analytic features $z_\ell$,
+  * concept outputs $o^{\text{concept}}_{\ell}(\cdot)$,
   * simple graph descriptor (2-node + 1-edge mini-graph).
 
 This “relation analysis dataset” is then the base for the later step:
 
-* use a **graph encoder** (SGDiff-style) to embed richer scene graphs into a vector (g), ([Medium][6])
-* feed (g) into the **structural layers identified above** via LoRA modulation (global conditioning or extra tokens),
+* use a **graph encoder** (SGDiff-style) to embed richer scene graphs into a vector $g$, ([Medium][6])
+* feed $g$ into the **structural layers identified above** via LoRA modulation (global conditioning or extra tokens),
 * train these LoRA adapters so SD3 respects full scene graphs, not just single relations.
 
 We do not implement this now, but the current pipeline is built so that extending to that is natural.
