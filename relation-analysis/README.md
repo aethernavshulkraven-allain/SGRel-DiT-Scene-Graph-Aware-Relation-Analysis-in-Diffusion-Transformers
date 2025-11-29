@@ -61,6 +61,42 @@ Output JSONL schema (one per example):
 }
 ```
 
+---
+
+# Stage B – ConceptAttention tracer (Flux-small)
+
+Implements B1–B3 from `plan_crit.md`: run Flux-small with a ConceptAttention side-stream, log per-layer image/concept outputs, and compute saliency maps.
+
+## Quick start (prototype)
+
+```bash
+cd relation-analysis
+python scripts/run_stage_b.py \
+  --input outputs/stage_a/vg_stage_a.jsonl \
+  --output-dir outputs/stage_b/runs/smoke \
+  --max-examples 2 \
+  --steps 4 \
+  --device cuda \
+  --dtype bfloat16
+```
+
+What it does:
+- Loads Flux-small (`black-forest-labs/FLUX.1-schnell` by default).
+- Encodes concepts via the T5 encoder, projects with the transformer's text context embedder.
+- Monkey-patches each Flux transformer block to run a ConceptAttention step (queries = concepts; keys/values = image+concept) and logs dot-product saliency per block.
+- Saves traces to `.pt` files under `outputs/stage_b/runs/...` (one file per example with layerwise saliency; optionally concept states).
+
+Files added:
+- `relation_analysis/stage_b/config.py`: run config.
+- `relation_analysis/stage_b/concepts.py`: concept encoding helpers.
+- `relation_analysis/stage_b/tracer.py`: ConceptAttention tracer + saliency computation.
+- `relation_analysis/stage_b/runner.py`: orchestrates Flux pipeline + tracer.
+- `scripts/run_stage_b.py`: CLI wrapper.
+
+Notes:
+- This is lightweight and keeps generation unchanged; ConceptAttention runs as a side-stream using the transformer's text projections.
+- Storing concept states can be large; enable with `--store-concept-states` if needed.
+- Downsampling for saliency maps can be added via `StageBConfig.downsample_saliency` if storage becomes an issue.
 ## Notes
 
 - Designed to stay lightweight (stdlib only) so it runs near the smallest Flux/SD3 stacks.
