@@ -1,10 +1,9 @@
-## 0. High-level pipeline
+## 0. High-level pipeline ok
 
 We build a **relation-analysis pipeline** with two branches:
 
 1. **Geometric relations branch**
    Use ConceptAttention on SD3 to get saliency maps for concepts, extract **analytic geometric features**, train a small MLP to classify geometric relations, and use per-layer accuracy to identify **structural layers**.
-
 2. **Semantic / non-geometric relations branch**
    For relations that depend on pose, semantics, or interaction (hold, wear, ride, look-at), build a **small diffusion-style relation tower** on top of SD3 features + ConceptAttention concept streams, inspired by Diff-VRD and DIFFUSIONHOI. Use its performance per layer to see where semantic relations live.
 
@@ -161,7 +160,6 @@ Two design options:
 1. **One MLP per layer**:
    Train separate small MLPs (f_\ell) on data from block (\ell).
    Compare validation accuracy (Acc_\ell) across layers.
-
 2. **Shared MLP + layer index**:
    Concatenate one-hot or embedding of layer index into (z_\ell) and train a single MLP, then evaluate accuracy restricted to each layer.
 
@@ -186,23 +184,19 @@ We adapt this to SD3 + ConceptAttention:
    * concept outputs (o^{\text{concept}}*{\ell}(o_i)), (o^{\text{concept}}*{\ell}(o_j)),
    * optionally pooled image features in the saliency region of each object,
    * relation text embedding (T5 embedding of (r_{ij})).
-
 2. Concatenate these to form a conditioning vector
 
    [
    h_{\ell} = [o^{\text{concept}}*{\ell}(o_i), o^{\text{concept}}*{\ell}(o_j), \text{pooled image features}, \text{relation text embedding}]
    ]
-
 3. Define a **1D diffusion process** over a relation latent (z_t) (small dimension, e.g. 128), conditioned on (h_\ell) as in Diff-VRD:
 
    * forward: Gaussian noise schedule on (z),
    * reverse: small DiT/MLP predicting noise given ((z_t, t, h_\ell)).
-
 4. Train this tower so that the final denoised (z_0) is close to a **target relation embedding**, for example:
 
    * the text embedding of the predicate,
    * or a teacher embedding from a pretrained VRD / HOI model.
-
 5. Add a linear classifier on (z_0) to predict the semantic relation class and train with cross-entropy jointly.
 
 DIFFUSIONHOI uses diffusion features to detect HOI by learning relation prompts in embedding space and conditioning generation/detection on them. ([Proceedings NeurIPS][4])
@@ -273,9 +267,9 @@ We do not implement this now, but the current pipeline is built so that extendin
 
 ---
 
-[1]: https://dl.acm.org/doi/abs/10.1145/3240508.3240668?utm_source=chatgpt.com "Context-Dependent Diffusion Network for Visual ..."
-[2]: https://arxiv.org/pdf/2502.04320?utm_source=chatgpt.com "Diffusion Transformers Learn Highly Interpretable Features"
-[3]: https://openreview.net/pdf/0c0d18d37b37dcea402702c826f6d94c4e4b4b4e.pdf?utm_source=chatgpt.com "Diffusion Transformers Learn Highly Interpretable Features"
-[4]: https://proceedings.neurips.cc/paper_files/paper/2024/hash/2a54def490213ee10631b991c5acc6b5-Abstract-Conference.html?utm_source=chatgpt.com "Human-Object Interaction Detection Collaborated with ..."
-[5]: https://arxiv.org/abs/2504.12100?utm_source=chatgpt.com "Generalized Visual Relation Detection with Diffusion Models"
-[6]: https://medium.com/digital-mind/diffusion-transformer-and-rectified-flow-for-conditional-image-generation-997075c12e2f?utm_source=chatgpt.com "Diffusion Transformer and Rectified Flow ..."
+[1]: https://dl.acm.org/doi/abs/10.1145/3240508.3240668?utm_source=chatgpt.com
+[2]: https://arxiv.org/pdf/2502.04320?utm_source=chatgpt.com
+[3]: https://openreview.net/pdf/0c0d18d37b37dcea402702c826f6d94c4e4b4b4e.pdf?utm_source=chatgpt.com
+[4]: https://proceedings.neurips.cc/paper_files/paper/2024/hash/2a54def490213ee10631b991c5acc6b5-Abstract-Conference.html?utm_source=chatgpt.com
+[5]: https://arxiv.org/abs/2504.12100?utm_source=chatgpt.com
+[6]: https://medium.com/digital-mind/diffusion-transformer-and-rectified-flow-for-conditional-image-generation-997075c12e2f?utm_source=chatgpt.com
