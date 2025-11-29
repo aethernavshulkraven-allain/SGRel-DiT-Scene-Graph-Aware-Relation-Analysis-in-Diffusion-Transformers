@@ -1,14 +1,49 @@
-# Python
+# Datasets
+SGDiff/datasets/
+*/data/
+data/
+*.h5
+*.hdf5
+
+# Checkpoints and models
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+SGDiff/pretrained/
+SGDiff/pretrained_model.ckpt
+checkpoints/
+
+# Large experiment outputs
+SGDiff/experiments/
+SGDiff/test_results/
+diffusers/examples/
+
+# Huggingface cache
+huggingface/
+.cache/
 __pycache__/
+
+# Python
 *.pyc
 *.pyo
 *.egg-info/
+dist/
+build/
 
-# Outputs
-outputs/
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large image outputs
 experiments/
-results/
-
-# Cache
-.cache/
-*.cache
+test_results/
+outputs/
