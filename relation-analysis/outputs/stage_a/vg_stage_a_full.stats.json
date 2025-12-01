@@ -1,0 +1,33 @@
+{
+  "num_examples": 1342859,
+  "by_kind": {
+    "geometric": 1099522,
+    "semantic": 243337
+  },
+  "by_predicate": {
+    "on": 668005,
+    "wearing": 140590,
+    "around/near": 67126,
+    "behind": 40452,
+    "holding": 37909,
+    "in": 231977,
+    "above": 54393,
+    "in front of": 13367,
+    "below": 23187,
+    "looking at": 6541,
+    "sitting on": 13893,
+    "touching": 1133,
+    "using": 1759,
+    "drinking": 647,
+    "pushing": 430,
+    "hanging from": 13810,
+    "carrying": 4799,
+    "riding": 7580,
+    "standing on": 7647,
+    "right of": 401,
+    "left of": 614,
+    "eating": 4507,
+    "playing with": 914,
+    "pulling": 1178
+  }
+}

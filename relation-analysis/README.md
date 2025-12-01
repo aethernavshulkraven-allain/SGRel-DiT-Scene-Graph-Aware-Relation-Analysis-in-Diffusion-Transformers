@@ -71,6 +71,9 @@ Implements B1–B3 from `plan_crit.md`: run Flux-small with a ConceptAttention s
 
 ```bash
 cd relation-analysis
+# install runtime deps (once)
+pip install -e ../diffusers[torch] httpx
+
 python scripts/run_stage_b.py \
   --input outputs/stage_a/vg_stage_a.jsonl \
   --output-dir outputs/stage_b/runs/smoke \

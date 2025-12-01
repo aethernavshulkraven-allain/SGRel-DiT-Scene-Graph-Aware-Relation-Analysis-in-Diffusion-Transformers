@@ -5,8 +5,13 @@ import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = PROJECT_ROOT.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
+# Make local diffusers importable if not installed
+local_diffusers = REPO_ROOT / "diffusers" / "src"
+if local_diffusers.exists() and str(local_diffusers) not in sys.path:
+    sys.path.insert(0, str(local_diffusers))
 
 from relation_analysis.stage_b.config import StageBConfig
 from relation_analysis.stage_b.runner import StageBRunner
