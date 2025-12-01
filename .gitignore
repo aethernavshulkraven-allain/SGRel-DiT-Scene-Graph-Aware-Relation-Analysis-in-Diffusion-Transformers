@@ -8,7 +8,7 @@ data/
 # Checkpoints and models
 *.ckpt
 *.pth
-*.pt
+# *.pt
 *.safetensors
 SGDiff/pretrained/
 SGDiff/pretrained_model.ckpt

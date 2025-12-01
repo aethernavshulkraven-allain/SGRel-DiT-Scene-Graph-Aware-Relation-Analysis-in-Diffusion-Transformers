@@ -1,0 +1,1 @@
+{"triple": {"subject": "tree trunk", "predicate": "on", "object": "sidewalk", "relation_type": "geometric", "source_image_id": 1, "source_relationship_id": 15931}, "prompt": "a photo of tree trunk on sidewalk on a plain background", "concepts": ["tree trunk", "on", "sidewalk"], "template_id": "simple_v1"}
