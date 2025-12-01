@@ -19,3 +19,18 @@ class StageBConfig:
     store_saliency: bool = True
     store_concept_states: bool = False  # set True if you want to keep per-layer concept outputs
     downsample_saliency: Optional[int] = None  # e.g., 8 to shrink maps spatially
+    average_timesteps: bool = True  # average saliency across diffusion steps
+    layer_groups: dict = None  # e.g., {"early": [0,1,2,3,4,5], "mid": [...], "late": [...]}
+    average_layer_groups: bool = True  # average per-layer saliency into group maps
+    height: int = 1024
+    width: int = 1024
+    enable_cpu_offload: bool = False
+
+    def resolved_layer_groups(self, num_layers: int = 19) -> dict:
+        if self.layer_groups is not None:
+            return self.layer_groups
+        return {
+            "early": list(range(0, max(1, num_layers // 3))),
+            "mid": list(range(num_layers // 3, 2 * num_layers // 3)),
+            "late": list(range(2 * num_layers // 3, num_layers)),
+        }

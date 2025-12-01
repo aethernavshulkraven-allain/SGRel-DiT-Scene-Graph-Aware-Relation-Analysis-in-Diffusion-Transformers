@@ -30,6 +30,11 @@ def parse_args():
     p.add_argument("--seed", type=int, default=0, help="Random seed")
     p.add_argument("--store-concept-states", action="store_true", help="Persist concept states per layer (larger files)")
     p.add_argument("--downsample-saliency", type=int, default=None, help="Keep every Nth token in saliency to shrink output size")
+    p.add_argument("--no-average-timesteps", action="store_true", help="Do not average saliency across timesteps")
+    p.add_argument("--no-average-layer-groups", action="store_true", help="Do not average saliency into layer groups")
+    p.add_argument("--height", type=int, default=1024, help="Output image height")
+    p.add_argument("--width", type=int, default=1024, help="Output image width")
+    p.add_argument("--cpu-offload", action="store_true", help="Enable sequential CPU offload to save GPU memory")
     return p.parse_args()
 
 
@@ -47,6 +52,11 @@ def main():
         output_dir=Path(args.output_dir),
         store_concept_states=args.store_concept_states,
         downsample_saliency=args.downsample_saliency,
+        average_timesteps=not args.no_average_timesteps,
+        average_layer_groups=not args.no_average_layer_groups,
+        height=args.height,
+        width=args.width,
+        enable_cpu_offload=args.cpu_offload,
     )
     runner = StageBRunner(cfg)
     runner.run()

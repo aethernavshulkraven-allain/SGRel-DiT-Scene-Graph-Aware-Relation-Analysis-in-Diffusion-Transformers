@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from typing import List
+from typing import Dict, List
 
 import torch
 from diffusers import FluxPipeline
@@ -54,7 +54,10 @@ class StageBRunner:
             self.config.model_id,
             torch_dtype=self.dtype,
         )
-        pipe = pipe.to(self.device)
+        if self.config.enable_cpu_offload:
+            pipe.enable_sequential_cpu_offload()
+        else:
+            pipe = pipe.to(self.device)
         pipe.set_progress_bar_config(disable=True)
         return pipe
 
@@ -90,6 +93,7 @@ class StageBRunner:
                 concept_states=concept_states,
                 record_concepts=self.config.store_concept_states,
                 downsample=self.config.downsample_saliency,
+                pipeline=pipe,
             ) as tracer:
                 _ = pipe(
                     prompt=ex.prompt,
@@ -97,14 +101,43 @@ class StageBRunner:
                     guidance_scale=self.config.guidance_scale,
                     generator=gen,
                     output_type="latent",
+                    height=self.config.height,
+                    width=self.config.width,
                 )
 
-        records = []
-        for rec in tracer.records:
-            item = {"layer": rec.layer, "saliency": rec.saliency}
-            if self.config.store_concept_states:
-                item["concept_states"] = rec.concept_states
-            records.append(item)
+        records = tracer.records
+        payload = {"meta": meta}
+        payload["layers"] = [
+            {
+                "layer": rec.layer,
+                "timestep": rec.timestep,
+                "call_index": rec.call_index,
+                "saliency": rec.saliency,
+                **({"concept_states": rec.concept_states} if self.config.store_concept_states else {}),
+            }
+            for rec in records
+        ]
 
-        payload = {"meta": meta, "layers": records}
+        # Aggregate over timesteps and layer groups if configured.
+        if self.config.average_timesteps or self.config.average_layer_groups:
+            per_layer: Dict[int, List[torch.Tensor]] = {}
+            for rec in records:
+                per_layer.setdefault(rec.layer, []).append(rec.saliency)
+            layer_means: Dict[int, torch.Tensor] = {}
+            for layer, items in per_layer.items():
+                stack = torch.stack(items)
+                if self.config.average_timesteps:
+                    stack = stack.mean(dim=0)
+                layer_means[layer] = stack
+            if self.config.average_layer_groups:
+                groups = self.config.resolved_layer_groups(num_layers=len(per_layer))
+                group_maps = {}
+                for name, layers in groups.items():
+                    selected = [layer_means[l] for l in layers if l in layer_means]
+                    if selected:
+                        group_maps[name] = torch.stack(selected).mean(dim=0)
+                payload["group_saliency"] = group_maps
+            else:
+                payload["layer_saliency"] = layer_means
+
         torch.save(payload, out_dir / f"example_{idx:05d}.pt")

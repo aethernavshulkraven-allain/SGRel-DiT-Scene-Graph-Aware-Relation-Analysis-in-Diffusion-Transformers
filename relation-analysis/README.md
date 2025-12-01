@@ -80,13 +80,15 @@ python scripts/run_stage_b.py \
   --max-examples 2 \
   --steps 4 \
   --device cuda \
-  --dtype bfloat16
+  --dtype bfloat16 \
+  --height 768 --width 768 \
+  --cpu-offload
 ```
 
 What it does:
 - Loads Flux-small (`black-forest-labs/FLUX.1-schnell` by default).
 - Encodes concepts via the T5 encoder, projects with the transformer's text context embedder.
-- Monkey-patches each Flux transformer block to run a ConceptAttention step (queries = concepts; keys/values = image+concept) and logs dot-product saliency per block.
+- Monkey-patches each Flux transformer block to run a ConceptAttention step (queries = concepts; keys/values = image+concept) and logs dot-product saliency per block and per diffusion step.
 - Saves traces to `.pt` files under `outputs/stage_b/runs/...` (one file per example with layerwise saliency; optionally concept states).
 
 Files added:
@@ -100,6 +102,8 @@ Notes:
 - This is lightweight and keeps generation unchanged; ConceptAttention runs as a side-stream using the transformer's text projections.
 - Storing concept states can be large; enable with `--store-concept-states` if needed.
 - Downsampling for saliency maps can be added via `StageBConfig.downsample_saliency` if storage becomes an issue.
+- Aggregation: by default saliency is averaged over timesteps, then averaged into layer groups (early/mid/late). Use `--no-average-timesteps` / `--no-average-layer-groups` to keep raw per-timestep/per-layer saliency.
+- If you hit GPU OOM, reduce `--height/--width` (defaults 1024) and/or enable `--cpu-offload`.
 ## Notes
 
 - Designed to stay lightweight (stdlib only) so it runs near the smallest Flux/SD3 stacks.

@@ -46,12 +46,14 @@ Thumbs.db
 # Large image outputs
 experiments/
 test_results/
-outputs/
-relation-analysis/outputs/
+# outputs/
+# relation-analysis/outputs/
 # Keep Stage A artifacts under relation-analysis
 # !relation-analysis/outputs/
 # !relation-analysis/outputs/stage_a/
 # !relation-analysis/outputs/stage_a/**
 
 # Large JSONL dataset files
-*.jsonl
+# *.jsonl
+relation-analysis/outputs/stage_a/vg_stage_a_full.jsonl
+!relation-analysis/outputs/stage_b/runs/sample10/example_00000.pt

@@ -54,6 +54,8 @@ def compute_saliency(image_states: torch.Tensor, concept_states: torch.Tensor) -
 class LayerRecord:
     layer: int
     saliency: torch.Tensor  # (num_concepts, img_tokens)
+    timestep: Optional[float] = None
+    call_index: int = 0
     concept_states: Optional[torch.Tensor] = None
 
 
@@ -64,13 +66,22 @@ class ConceptAttentionTracer(contextlib.AbstractContextManager):
     - record saliency per block.
     """
 
-    def __init__(self, transformer, concept_states: torch.Tensor, record_concepts: bool = False, downsample: Optional[int] = None):
+    def __init__(
+        self,
+        transformer,
+        concept_states: torch.Tensor,
+        record_concepts: bool = False,
+        downsample: Optional[int] = None,
+        pipeline=None,
+    ):
         self.transformer = transformer
         self.concept_states = concept_states
         self.record_concepts = record_concepts
         self.downsample = downsample
+        self.pipeline = pipeline
         self.records: List[LayerRecord] = []
         self._orig_forwards: List[Any] = []
+        self._call_counter = 0
 
     def __enter__(self):
         for idx, block in enumerate(self.transformer.transformer_blocks):
@@ -85,7 +96,13 @@ class ConceptAttentionTracer(contextlib.AbstractContextManager):
                     if self.downsample and self.downsample > 1:
                         sal = sal[..., :: self.downsample]
                     sal = sal.detach().cpu()
-                    rec = LayerRecord(layer=i, saliency=sal.squeeze(0))
+                    rec = LayerRecord(
+                        layer=i,
+                        saliency=sal.squeeze(0),
+                        timestep=getattr(self.pipeline, "_current_timestep", None) if self.pipeline else None,
+                        call_index=self._call_counter,
+                    )
+                    self._call_counter += 1
                     if self.record_concepts:
                         rec.concept_states = concept_out.detach().cpu()
                     self.records.append(rec)
