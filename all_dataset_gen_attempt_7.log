@@ -1,0 +1,971 @@
+Loading data from /home/namanb/SBILab/CSE677/Project/SGRel-DiT-Scene-Graph-Aware-Relation-Analysis-in-Diffusion-Transformers/relation-analysis/outputs/stage_a/vg_stage_a_full.jsonl...
+Organizing by predicate:   0%|          | 0/1342859 [00:00<?, ?it/s]Organizing by predicate:  22%|██▏       | 299288/1342859 [00:00<00:00, 2992761.55it/s]Organizing by predicate:  55%|█████▍    | 734352/1342859 [00:00<00:00, 3791422.93it/s]Organizing by predicate:  84%|████████▍ | 1133979/1342859 [00:00<00:00, 3884909.48it/s]Organizing by predicate: 100%|██████████| 1342859/1342859 [00:00<00:00, 3896415.95it/s]
+
+Found 24 predicates:
+  above               :  54393 samples
+  around/near         :  67126 samples
+  behind              :  40452 samples
+  below               :  23187 samples
+  carrying            :   4799 samples
+  drinking            :    647 samples ⚠️  (will oversample 647 samples to reach 700)
+  eating              :   4507 samples
+  hanging from        :  13810 samples
+  holding             :  37909 samples
+  in                  : 231977 samples
+  in front of         :  13367 samples
+  left of             :    614 samples ⚠️  (will oversample 614 samples to reach 700)
+  looking at          :   6541 samples
+  on                  : 668005 samples
+  playing with        :    914 samples
+  pulling             :   1178 samples
+  pushing             :    430 samples ⚠️  (will oversample 430 samples to reach 700)
+  riding              :   7580 samples
+  right of            :    401 samples ⚠️  (will oversample 401 samples to reach 700)
+  sitting on          :  13893 samples
+  standing on         :   7647 samples
+  touching            :   1133 samples
+  using               :   1759 samples
+  wearing             : 140590 samples
+
+⚠️  WARNING: 4 classes have fewer than 700 samples.
+   These classes will be oversampled (with shuffling) to reach the target count.
+   Small classes: drinking (647), left of (614), pushing (430), right of (401)
+
+🎯 Generating all 24 classes
+
+Generating datasets for: ['early_layers', 'middle_layers', 'late_layers']
+Using 4 GPUs with 175 samples per GPU per class
+Output directory: /home/namanb/SBILab/CSE677/Project/saliency_datasets
+
+
+================================================================================
+Processing early_layers: layers [0, 1, 2, 3, 4, 5, 6]
+================================================================================
+
+✓ Skipping above - already has 700 samples
+✓ Skipping around/near - already has 700 samples
+✓ Skipping behind - already has 700 samples
+✓ Skipping below - already has 700 samples
+✓ Skipping carrying - already has 700 samples
+✓ Skipping drinking - already has 700 samples
+✓ Skipping eating - already has 700 samples
+✓ Skipping hanging from - already has 700 samples
+✓ Skipping holding - already has 700 samples
+✓ Skipping in - already has 700 samples
+✓ Skipping in front of - already has 700 samples
+✓ Skipping left of - already has 700 samples
+✓ Skipping looking at - already has 700 samples
+✓ Skipping on - already has 700 samples
+✓ Skipping playing with - already has 700 samples
+✓ Skipping pulling - already has 700 samples
+✓ Skipping pushing - already has 700 samples
+✓ Skipping riding - already has 700 samples
+✓ Skipping right of - already has 700 samples
+✓ Skipping sitting on - already has 700 samples
+✓ Skipping standing on - already has 700 samples
+✓ Skipping touching - already has 700 samples
+✓ Skipping using - already has 700 samples
+✓ Skipping wearing - already has 700 samples
+
+✓ All classes already completed for early_layers!
+
+================================================================================
+Processing middle_layers: layers [7, 8, 9, 10, 11, 12]
+================================================================================
+
+✓ Skipping above - already has 700 samples
+✓ Skipping around/near - already has 700 samples
+✓ Skipping behind - already has 700 samples
+✓ Skipping below - already has 700 samples
+✓ Skipping carrying - already has 700 samples
+✓ Skipping drinking - already has 700 samples
+✓ Skipping eating - already has 700 samples
+✓ Skipping hanging from - already has 700 samples
+✓ Skipping holding - already has 700 samples
+✓ Skipping in - already has 700 samples
+✓ Skipping in front of - already has 700 samples
+✓ Skipping left of - already has 700 samples
+✓ Skipping looking at - already has 700 samples
+
+📝 Resuming generation for 11 remaining classes
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+`torch_dtype` is deprecated! Use `dtype` instead!
+[GPU 0] Starting worker on cuda:0
+[GPU 0] Loading ConceptAttentionFluxPipeline...
+Init model
+Loading checkpoint
+Init AE
+[GPU 0] on             :   0%|          | 0/175 [00:00<?, ?it/s]Generating 'a photo of shade on sidewalk on a plain background' with seed 0
+
+0it [00:00, ?it/s][A
+1it [00:00,  3.13it/s][A
+2it [00:00,  4.39it/s][A
+3it [00:00,  4.14it/s][A
+4it [00:01,  4.02it/s][A4it [00:01,  4.00it/s]
+[GPU 1] Starting worker on cuda:1
+[GPU 1] Loading ConceptAttentionFluxPipeline...
+Init model
+Loading checkpoint
+Init AE
+
+[GPU 1] on             :   0%|          | 0/175 [00:00<?, ?it/s][AGenerating 'a photo of lint on floor on a plain background' with seed 500
+0it [00:00, ?it/s]1it [00:00,  2.84it/s]2it [00:00,  4.14it/s]3it [00:00,  4.00it/s]4it [00:01,  3.93it/s]4it [00:01,  3.85it/s]
+[GPU 2] Starting worker on cuda:2
+[GPU 2] Loading ConceptAttentionFluxPipeline...
+Init model
+Loading checkpoint
+Init AE
+
+
+[GPU 2] on             :   0%|          | 0/175 [00:00<?, ?it/s][A[AGenerating 'a photo of words on boat on a plain background' with seed 1000
+0it [00:00, ?it/s]1it [00:00,  3.26it/s]2it [00:00,  4.51it/s]3it [00:00,  4.19it/s]4it [00:00,  4.05it/s]4it [00:00,  4.05it/s]
+[GPU 3] Starting worker on cuda:3
+[GPU 3] Loading ConceptAttentionFluxPipeline...
+Init model
+Loading checkpoint
+Init AE
+
+
+
+[GPU 3] on             :   0%|          | 0/175 [00:00<?, ?it/s][A[A[AGenerating 'a photo of item on table on a plain background' with seed 1500
+0it [00:00, ?it/s]1it [00:00,  3.16it/s]2it [00:00,  4.41it/s]3it [00:00,  4.13it/s]4it [00:01,  4.00it/s]4it [00:01,  3.99it/s]
+[GPU 0] on             :   0%|          | 0/175 [00:19<?, ?it/s, saved=sample_0000.pt][GPU 0] on             :   1%|          | 1/175 [00:19<56:51, 19.61s/it, saved=sample_0000.pt]Done in 19.6s.
+Generating 'a photo of sign on building on a plain background' with seed 1
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.59it/s][A
+3it [00:00,  4.23it/s][A
+4it [00:00,  4.06it/s][A4it [00:00,  4.26it/s]
+
+[GPU 1] on             :   0%|          | 0/175 [00:20<?, ?it/s, saved=sample_0500.pt][A
+[GPU 1] on             :   1%|          | 1/175 [00:20<59:33, 20.54s/it, saved=sample_0500.pt][ADone in 20.5s.
+Generating 'a photo of bag on desk on a plain background' with seed 501
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.55it/s]3it [00:00,  4.20it/s]4it [00:00,  4.04it/s]4it [00:00,  4.24it/s]
+
+
+[GPU 2] on             :   0%|          | 0/175 [00:18<?, ?it/s, saved=sample_1000.pt][A[A
+
+[GPU 2] on             :   1%|          | 1/175 [00:18<53:46, 18.54s/it, saved=sample_1000.pt][A[ADone in 18.5s.
+Generating 'a photo of words on boat on a plain background' with seed 1001
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]4it [00:00,  4.03it/s]4it [00:00,  4.24it/s]
+
+
+
+[GPU 3] on             :   0%|          | 0/175 [00:18<?, ?it/s, saved=sample_1500.pt][A[A[A
+
+
+[GPU 3] on             :   1%|          | 1/175 [00:18<52:38, 18.15s/it, saved=sample_1500.pt][A[A[ADone in 18.1s.
+Generating 'a photo of metallic on chair on a plain background' with seed 1501
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.22it/s]
+[GPU 0] on             :   1%|          | 1/175 [00:37<56:51, 19.61s/it, saved=sample_0001.pt][GPU 0] on             :   1%|          | 2/175 [00:37<53:58, 18.72s/it, saved=sample_0001.pt]Done in 18.1s.
+Generating 'a photo of tree trunk on sidewalk on a plain background' with seed 2
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.58it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.06it/s][A4it [00:00,  4.26it/s]
+
+[GPU 1] on             :   1%|          | 1/175 [00:38<59:33, 20.54s/it, saved=sample_0501.pt][A
+[GPU 1] on             :   1%|          | 2/175 [00:38<55:05, 19.11s/it, saved=sample_0501.pt][ADone in 18.1s.
+Generating 'a photo of mug on desk on a plain background' with seed 502
+0it [00:00, ?it/s]1it [00:00,  6.19it/s]2it [00:00,  4.56it/s]3it [00:00,  4.21it/s]4it [00:00,  4.04it/s]4it [00:00,  4.24it/s]
+
+
+[GPU 2] on             :   1%|          | 1/175 [00:36<53:46, 18.54s/it, saved=sample_1001.pt][A[A
+
+[GPU 2] on             :   1%|          | 2/175 [00:36<51:39, 17.92s/it, saved=sample_1001.pt][A[ADone in 17.4s.
+Generating 'a photo of sandals on sandals on a plain background' with seed 1002
+0it [00:00, ?it/s]1it [00:00,  6.22it/s]2it [00:00,  4.59it/s]3it [00:00,  4.23it/s]4it [00:00,  4.02it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :   1%|          | 1/175 [00:35<52:38, 18.15s/it, saved=sample_1501.pt][A[A[A
+
+
+[GPU 3] on             :   1%|          | 2/175 [00:35<51:23, 17.82s/it, saved=sample_1501.pt][A[A[ADone in 17.6s.
+Generating 'a photo of outlet on wall on a plain background' with seed 1502
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.53it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.22it/s]
+[GPU 0] on             :   1%|          | 2/175 [00:54<53:58, 18.72s/it, saved=sample_0002.pt][GPU 0] on             :   2%|▏         | 3/175 [00:54<51:42, 18.04s/it, saved=sample_0002.pt]Done in 17.2s.
+Generating 'a photo of parking meter on sidewalk on a plain background' with seed 3
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.25it/s][A
+2it [00:00,  4.58it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.06it/s][A4it [00:00,  4.26it/s]
+
+[GPU 1] on             :   1%|          | 2/175 [00:56<55:05, 19.11s/it, saved=sample_0502.pt][A
+[GPU 1] on             :   2%|▏         | 3/175 [00:56<53:05, 18.52s/it, saved=sample_0502.pt][ADone in 17.8s.
+Generating 'a photo of computer on desk on a plain background' with seed 503
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]
+
+[GPU 2] on             :   1%|          | 2/175 [00:52<51:39, 17.92s/it, saved=sample_1002.pt][A[A
+
+[GPU 2] on             :   2%|▏         | 3/175 [00:52<49:57, 17.43s/it, saved=sample_1002.pt][A[ADone in 16.8s.
+Generating 'a photo of luggage on floor on a plain background' with seed 1003
+0it [00:00, ?it/s]2it [00:00,  4.55it/s]1it [00:00,  6.20it/s]3it [00:00,  4.20it/s]2it [00:00,  4.57it/s]4it [00:00,  4.04it/s]4it [00:00,  4.24it/s]
+3it [00:00,  4.22it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+
+
+[GPU 3] on             :   1%|          | 2/175 [00:53<51:23, 17.82s/it, saved=sample_1502.pt][A[A[A
+
+
+[GPU 3] on             :   2%|▏         | 3/175 [00:53<50:29, 17.61s/it, saved=sample_1502.pt][A[A[ADone in 17.3s.
+Generating 'a photo of carpet on floor on a plain background' with seed 1503
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] on             :   2%|▏         | 3/175 [01:12<51:42, 18.04s/it, saved=sample_0003.pt][GPU 0] on             :   2%|▏         | 4/175 [01:12<50:33, 17.74s/it, saved=sample_0003.pt]Done in 17.3s.
+Generating 'a photo of bike on sidewalk on a plain background' with seed 4
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.23it/s][A
+2it [00:00,  4.58it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   2%|▏         | 3/175 [01:10<49:57, 17.43s/it, saved=sample_1003.pt][A[A
+
+[GPU 2] on             :   2%|▏         | 4/175 [01:10<49:45, 17.46s/it, saved=sample_1003.pt][A[A
+[GPU 1] on             :   2%|▏         | 3/175 [01:14<53:05, 18.52s/it, saved=sample_0503.pt][A
+[GPU 1] on             :   2%|▏         | 4/175 [01:14<52:05, 18.28s/it, saved=sample_0503.pt][ADone in 17.5s.
+Generating 'a photo of luggage on floor on a plain background' with seed 1004
+0it [00:00, ?it/s]Done in 17.9s.
+Generating 'a photo of telephone on desk on a plain background' with seed 504
+0it [00:00, ?it/s]1it [00:00,  6.19it/s]1it [00:00,  6.19it/s]2it [00:00,  4.57it/s]2it [00:00,  4.55it/s]3it [00:00,  4.22it/s]3it [00:00,  4.20it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+
+
+
+[GPU 3] on             :   2%|▏         | 3/175 [01:09<50:29, 17.61s/it, saved=sample_1503.pt][A[A[A
+
+
+[GPU 3] on             :   2%|▏         | 4/175 [01:09<49:20, 17.31s/it, saved=sample_1503.pt][A[A[ADone in 16.8s.
+Generating 'a photo of writing on board on a plain background' with seed 1504
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.54it/s]3it [00:00,  4.18it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] on             :   2%|▏         | 4/175 [01:29<50:33, 17.74s/it, saved=sample_0004.pt][GPU 0] on             :   3%|▎         | 5/175 [01:29<49:18, 17.41s/it, saved=sample_0004.pt]Done in 16.8s.
+Generating 'a photo of shirt on man on a plain background' with seed 5
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.22it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   2%|▏         | 4/175 [01:26<49:45, 17.46s/it, saved=sample_1004.pt][A[A
+
+[GPU 2] on             :   3%|▎         | 5/175 [01:26<48:21, 17.07s/it, saved=sample_1004.pt][A[ADone in 16.3s.
+Generating 'a photo of railing on deck on a plain background' with seed 1005
+0it [00:00, ?it/s]1it [00:00,  6.19it/s]2it [00:00,  4.56it/s]
+[GPU 1] on             :   2%|▏         | 4/175 [01:31<52:05, 18.28s/it, saved=sample_0504.pt][A
+[GPU 1] on             :   3%|▎         | 5/175 [01:31<50:36, 17.86s/it, saved=sample_0504.pt][A3it [00:00,  4.21it/s]Done in 17.1s.
+Generating 'a photo of pen on desk on a plain background' with seed 505
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]4it [00:00,  4.05it/s]4it [00:00,  4.24it/s]
+2it [00:00,  4.54it/s]3it [00:00,  4.20it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :   2%|▏         | 4/175 [01:27<49:20, 17.31s/it, saved=sample_1504.pt][A[A[A
+
+
+[GPU 3] on             :   3%|▎         | 5/175 [01:27<49:39, 17.52s/it, saved=sample_1504.pt][A[A[ADone in 17.9s.
+Generating 'a photo of item on table on a plain background' with seed 1505
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] on             :   3%|▎         | 5/175 [01:45<49:18, 17.41s/it, saved=sample_0005.pt][GPU 0] on             :   3%|▎         | 6/175 [01:45<48:30, 17.22s/it, saved=sample_0005.pt]Done in 16.8s.
+Generating 'a photo of crosswalk on road on a plain background' with seed 6
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.23it/s][A
+2it [00:00,  4.58it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   3%|▎         | 5/175 [01:43<48:21, 17.07s/it, saved=sample_1005.pt][A[A
+
+[GPU 2] on             :   3%|▎         | 6/175 [01:43<47:53, 17.01s/it, saved=sample_1005.pt][A[ADone in 16.9s.
+Generating 'a photo of rug on floor on a plain background' with seed 1006
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.56it/s]3it [00:00,  4.21it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] on             :   3%|▎         | 5/175 [01:49<50:36, 17.86s/it, saved=sample_0505.pt][A
+[GPU 1] on             :   3%|▎         | 6/175 [01:49<50:08, 17.80s/it, saved=sample_0505.pt][ADone in 17.7s.
+Generating 'a photo of mouse on desk on a plain background' with seed 506
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.01it/s]4it [00:00,  4.22it/s]
+
+
+
+[GPU 3] on             :   3%|▎         | 5/175 [01:44<49:39, 17.52s/it, saved=sample_1505.pt][A[A[A
+
+
+[GPU 3] on             :   3%|▎         | 6/175 [01:44<48:53, 17.36s/it, saved=sample_1505.pt][A[A[ADone in 17.0s.
+Generating 'a photo of writing on board on a plain background' with seed 1506
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.54it/s]3it [00:00,  4.18it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] on             :   3%|▎         | 6/175 [02:02<48:30, 17.22s/it, saved=sample_0006.pt][GPU 0] on             :   4%|▍         | 7/175 [02:02<47:56, 17.12s/it, saved=sample_0006.pt]Done in 16.9s.
+Generating 'a photo of telephone on desk on a plain background' with seed 7
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.24it/s][A
+2it [00:00,  4.58it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   3%|▎         | 6/175 [02:00<47:53, 17.01s/it, saved=sample_1006.pt][A[A
+
+[GPU 2] on             :   4%|▍         | 7/175 [02:00<47:08, 16.84s/it, saved=sample_1006.pt][A[ADone in 16.5s.
+Generating 'a photo of tv on stand on a plain background' with seed 1007
+0it [00:00, ?it/s]1it [00:00,  6.19it/s]2it [00:00,  4.56it/s]3it [00:00,  4.21it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] on             :   3%|▎         | 6/175 [02:06<50:08, 17.80s/it, saved=sample_0506.pt][A
+[GPU 1] on             :   4%|▍         | 7/175 [02:06<49:14, 17.59s/it, saved=sample_0506.pt][ADone in 17.1s.
+Generating 'a photo of cup on desk on a plain background' with seed 507
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.20it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+
+
+
+[GPU 3] on             :   3%|▎         | 6/175 [02:02<48:53, 17.36s/it, saved=sample_1506.pt][A[A[A
+
+
+[GPU 3] on             :   4%|▍         | 7/175 [02:02<48:36, 17.36s/it, saved=sample_1506.pt][A[A[ADone in 17.3s.
+Generating 'a photo of socket on wall on a plain background' with seed 1507
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.54it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] on             :   4%|▍         | 7/175 [02:19<47:56, 17.12s/it, saved=sample_0007.pt][GPU 0] on             :   5%|▍         | 8/175 [02:19<47:19, 17.00s/it, saved=sample_0007.pt]Done in 16.7s.
+Generating 'a photo of outlet on wall on a plain background' with seed 8
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.04it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   4%|▍         | 7/175 [02:16<47:08, 16.84s/it, saved=sample_1007.pt][A[A
+
+[GPU 2] on             :   5%|▍         | 8/175 [02:16<46:48, 16.82s/it, saved=sample_1007.pt][A[ADone in 16.7s.
+Generating 'a photo of breadbox on shelf on a plain background' with seed 1008
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.57it/s]3it [00:00,  4.21it/s]4it [00:00,  4.05it/s]4it [00:00,  4.24it/s]
+
+[GPU 1] on             :   4%|▍         | 7/175 [02:23<49:14, 17.59s/it, saved=sample_0507.pt][A
+[GPU 1] on             :   5%|▍         | 8/175 [02:23<48:47, 17.53s/it, saved=sample_0507.pt][ADone in 17.4s.
+Generating 'a photo of telephone on desk on a plain background' with seed 508
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.04it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :   4%|▍         | 7/175 [02:18<48:36, 17.36s/it, saved=sample_1507.pt][A[A[A
+
+
+[GPU 3] on             :   5%|▍         | 8/175 [02:18<47:33, 17.09s/it, saved=sample_1507.pt][A[A[ADone in 16.5s.
+Generating 'a photo of book on table on a plain background' with seed 1508
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.54it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] on             :   5%|▍         | 8/175 [02:36<47:19, 17.00s/it, saved=sample_0008.pt][GPU 0] on             :   5%|▌         | 9/175 [02:36<46:58, 16.98s/it, saved=sample_0008.pt]Done in 16.9s.
+Generating 'a photo of plug on wall on a plain background' with seed 9
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   5%|▍         | 8/175 [02:33<46:48, 16.82s/it, saved=sample_1008.pt][A[A
+
+[GPU 2] on             :   5%|▌         | 9/175 [02:33<46:03, 16.65s/it, saved=sample_1008.pt][A[ADone in 16.2s.
+Generating 'a photo of switch on wall on a plain background' with seed 1009
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]2it [00:00,  4.57it/s]3it [00:00,  4.21it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] on             :   5%|▍         | 8/175 [02:40<48:47, 17.53s/it, saved=sample_0508.pt][A
+[GPU 1] on             :   5%|▌         | 9/175 [02:40<47:52, 17.30s/it, saved=sample_0508.pt][ADone in 16.8s.
+Generating 'a photo of baby on picture on a plain background' with seed 509
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.20it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :   5%|▍         | 8/175 [02:35<47:33, 17.09s/it, saved=sample_1508.pt][A[A[A
+
+
+[GPU 3] on             :   5%|▌         | 9/175 [02:35<47:04, 17.02s/it, saved=sample_1508.pt][A[A[ADone in 16.8s.
+Generating 'a photo of awning on building on a plain background' with seed 1509
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] on             :   5%|▌         | 9/175 [02:52<46:58, 16.98s/it, saved=sample_0009.pt][GPU 0] on             :   6%|▌         | 10/175 [02:52<46:08, 16.78s/it, saved=sample_0009.pt]Done in 16.3s.
+Generating 'a photo of pen on desk on a plain background' with seed 10
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   5%|▌         | 9/175 [02:49<46:03, 16.65s/it, saved=sample_1009.pt][A[A
+
+[GPU 2] on             :   6%|▌         | 10/175 [02:49<45:23, 16.51s/it, saved=sample_1009.pt][A[ADone in 16.2s.
+Generating 'a photo of utensil on wall on a plain background' with seed 1010
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.56it/s]3it [00:00,  4.20it/s]4it [00:00,  4.03it/s]4it [00:00,  4.24it/s]
+
+[GPU 1] on             :   5%|▌         | 9/175 [02:57<47:52, 17.30s/it, saved=sample_0509.pt][A
+[GPU 1] on             :   6%|▌         | 10/175 [02:57<47:25, 17.24s/it, saved=sample_0509.pt][ADone in 17.1s.
+Generating 'a photo of scissors on desk on a plain background' with seed 510
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.01it/s]4it [00:00,  4.22it/s]
+
+
+
+[GPU 3] on             :   5%|▌         | 9/175 [02:52<47:04, 17.02s/it, saved=sample_1509.pt][A[A[A
+
+
+[GPU 3] on             :   6%|▌         | 10/175 [02:52<46:20, 16.85s/it, saved=sample_1509.pt][A[A[ADone in 16.4s.
+Generating 'a photo of man on sidewalk on a plain background' with seed 1510
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.54it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] on             :   6%|▌         | 10/175 [03:09<46:08, 16.78s/it, saved=sample_0010.pt][GPU 0] on             :   6%|▋         | 11/175 [03:09<45:43, 16.73s/it, saved=sample_0010.pt]Done in 16.6s.
+Generating 'a photo of cable on floor on a plain background' with seed 11
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   6%|▌         | 10/175 [03:05<45:23, 16.51s/it, saved=sample_1010.pt][A[A
+
+[GPU 2] on             :   6%|▋         | 11/175 [03:05<44:51, 16.41s/it, saved=sample_1010.pt][A[ADone in 16.2s.
+Generating 'a photo of cabinet on wall on a plain background' with seed 1011
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.58it/s]3it [00:00,  4.22it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] on             :   6%|▌         | 10/175 [03:14<47:25, 17.24s/it, saved=sample_0510.pt][A
+[GPU 1] on             :   6%|▋         | 11/175 [03:14<46:50, 17.13s/it, saved=sample_0510.pt][ADone in 16.9s.
+Generating 'a photo of book on desk on a plain background' with seed 511
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :   6%|▌         | 10/175 [03:09<46:20, 16.85s/it, saved=sample_1510.pt][A[A[A
+
+
+[GPU 3] on             :   6%|▋         | 11/175 [03:09<46:08, 16.88s/it, saved=sample_1510.pt][A[A[ADone in 16.9s.
+Generating 'a photo of brick on building on a plain background' with seed 1511
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] on             :   6%|▋         | 11/175 [03:25<45:43, 16.73s/it, saved=sample_0011.pt][GPU 0] on             :   7%|▋         | 12/175 [03:25<45:10, 16.63s/it, saved=sample_0011.pt]Done in 16.4s.
+Generating 'a photo of cable on floor on a plain background' with seed 12
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   6%|▋         | 11/175 [03:22<44:51, 16.41s/it, saved=sample_1011.pt][A[A
+
+[GPU 2] on             :   7%|▋         | 12/175 [03:22<44:55, 16.54s/it, saved=sample_1011.pt][A[ADone in 16.8s.
+Generating 'a photo of table on floor on a plain background' with seed 1012
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.21it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] on             :   6%|▋         | 11/175 [03:32<46:50, 17.13s/it, saved=sample_0511.pt][A
+[GPU 1] on             :   7%|▋         | 12/175 [03:32<46:50, 17.24s/it, saved=sample_0511.pt][ADone in 17.5s.
+Generating 'a photo of orange cloth on chair on a plain background' with seed 512
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :   6%|▋         | 11/175 [03:25<46:08, 16.88s/it, saved=sample_1511.pt][A[A[A
+
+
+[GPU 3] on             :   7%|▋         | 12/175 [03:25<45:20, 16.69s/it, saved=sample_1511.pt][A[A[ADone in 16.2s.
+Generating 'a photo of parking meter on sidewalk on a plain background' with seed 1512
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.54it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] on             :   7%|▋         | 12/175 [03:43<45:10, 16.63s/it, saved=sample_0012.pt][GPU 0] on             :   7%|▋         | 13/175 [03:43<45:34, 16.88s/it, saved=sample_0012.pt]Done in 17.4s.
+Generating 'a photo of bag on desk on a plain background' with seed 13
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.23it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   7%|▋         | 12/175 [03:38<44:55, 16.54s/it, saved=sample_1012.pt][A[A
+
+[GPU 2] on             :   7%|▋         | 13/175 [03:38<44:40, 16.55s/it, saved=sample_1012.pt][A[ADone in 16.5s.
+Generating 'a photo of rug on floor on a plain background' with seed 1013
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.23it/s]4it [00:00,  4.01it/s]4it [00:00,  4.23it/s]
+
+[GPU 1] on             :   7%|▋         | 12/175 [03:48<46:50, 17.24s/it, saved=sample_0512.pt][A
+[GPU 1] on             :   7%|▋         | 13/175 [03:48<46:17, 17.14s/it, saved=sample_0512.pt][ADone in 16.9s.
+Generating 'a photo of mouse on pad on a plain background' with seed 513
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :   7%|▋         | 12/175 [03:42<45:20, 16.69s/it, saved=sample_1512.pt][A[A[A
+
+
+[GPU 3] on             :   7%|▋         | 13/175 [03:42<45:21, 16.80s/it, saved=sample_1512.pt][A[A[ADone in 17.0s.
+Generating 'a photo of wastebasket on sidewalk on a plain background' with seed 1513
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  3.98it/s]4it [00:00,  4.19it/s]
+[GPU 0] on             :   7%|▋         | 13/175 [03:59<45:34, 16.88s/it, saved=sample_0013.pt][GPU 0] on             :   8%|▊         | 14/175 [03:59<44:46, 16.69s/it, saved=sample_0013.pt]Done in 16.2s.
+Generating 'a photo of computer on wall on a plain background' with seed 14
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   7%|▋         | 13/175 [03:55<44:40, 16.55s/it, saved=sample_1013.pt][A[A
+
+[GPU 2] on             :   8%|▊         | 14/175 [03:55<44:09, 16.46s/it, saved=sample_1013.pt][A[ADone in 16.2s.
+Generating 'a photo of two art works on wall on a plain background' with seed 1014
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] on             :   7%|▋         | 13/175 [04:06<46:17, 17.14s/it, saved=sample_0513.pt][A
+[GPU 1] on             :   8%|▊         | 14/175 [04:06<46:00, 17.14s/it, saved=sample_0513.pt][ADone in 17.1s.
+Generating 'a photo of jacket on chair on a plain background' with seed 514
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :   7%|▋         | 13/175 [03:58<45:21, 16.80s/it, saved=sample_1513.pt][A[A[A
+
+
+[GPU 3] on             :   8%|▊         | 14/175 [03:58<44:49, 16.70s/it, saved=sample_1513.pt][A[A[ADone in 16.4s.
+Generating 'a photo of line on intersection on a plain background' with seed 1514
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] on             :   8%|▊         | 14/175 [04:15<44:46, 16.69s/it, saved=sample_0014.pt][GPU 0] on             :   9%|▊         | 15/175 [04:15<44:13, 16.58s/it, saved=sample_0014.pt]Done in 16.3s.
+Generating 'a photo of picture on wall on a plain background' with seed 15
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   8%|▊         | 14/175 [04:11<44:09, 16.46s/it, saved=sample_1014.pt][A[A
+
+[GPU 2] on             :   9%|▊         | 15/175 [04:11<43:22, 16.26s/it, saved=sample_1014.pt][A[ADone in 15.8s.
+Generating 'a photo of rug on floor on a plain background' with seed 1015
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]4it [00:00,  4.06it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] on             :   8%|▊         | 14/175 [04:22<46:00, 17.14s/it, saved=sample_0514.pt][A
+[GPU 1] on             :   9%|▊         | 15/175 [04:22<45:18, 16.99s/it, saved=sample_0514.pt][ADone in 16.6s.
+Generating 'a photo of calendar on photo on a plain background' with seed 515
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :   8%|▊         | 14/175 [04:15<44:49, 16.70s/it, saved=sample_1514.pt][A[A[A
+
+
+[GPU 3] on             :   9%|▊         | 15/175 [04:15<44:38, 16.74s/it, saved=sample_1514.pt][A[A[ADone in 16.8s.
+Generating 'a photo of stop light on corner on a plain background' with seed 1515
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] on             :   9%|▊         | 15/175 [04:31<44:13, 16.58s/it, saved=sample_0015.pt][GPU 0] on             :   9%|▉         | 16/175 [04:31<43:29, 16.41s/it, saved=sample_0015.pt]Done in 16.0s.
+Generating 'a photo of telephone on desk on a plain background' with seed 16
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.23it/s][A
+2it [00:00,  4.59it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   9%|▊         | 15/175 [04:27<43:22, 16.26s/it, saved=sample_1015.pt][A[A
+
+[GPU 2] on             :   9%|▉         | 16/175 [04:27<43:00, 16.23s/it, saved=sample_1015.pt][A[ADone in 16.1s.
+Generating 'a photo of pillows on couch is grey on a plain background' with seed 1016
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]4it [00:00,  4.03it/s]4it [00:00,  4.24it/s]
+
+[GPU 1] on             :   9%|▊         | 15/175 [04:39<45:18, 16.99s/it, saved=sample_0515.pt][A
+[GPU 1] on             :   9%|▉         | 16/175 [04:39<44:58, 16.97s/it, saved=sample_0515.pt][ADone in 16.9s.
+Generating 'a photo of book on desk on a plain background' with seed 516
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.20it/s]4it [00:00,  4.04it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :   9%|▊         | 15/175 [04:32<44:38, 16.74s/it, saved=sample_1515.pt][A[A[A
+
+
+[GPU 3] on             :   9%|▉         | 16/175 [04:32<44:05, 16.64s/it, saved=sample_1515.pt][A[A[ADone in 16.4s.
+Generating 'a photo of wastebasket on curb on a plain background' with seed 1516
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] on             :   9%|▉         | 16/175 [04:48<43:29, 16.41s/it, saved=sample_0016.pt][GPU 0] on             :  10%|▉         | 17/175 [04:48<43:33, 16.54s/it, saved=sample_0016.pt]Done in 16.8s.
+Generating 'a photo of photos on wall on a plain background' with seed 17
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] on             :   9%|▉         | 16/175 [04:42<43:00, 16.23s/it, saved=sample_1016.pt][A[A
+
+[GPU 2] on             :  10%|▉         | 17/175 [04:42<42:18, 16.07s/it, saved=sample_1016.pt][A[ADone in 15.7s.
+Generating 'a photo of rug on floor on a plain background' with seed 1017
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.57it/s]3it [00:00,  4.21it/s]4it [00:00,  4.06it/s]4it [00:00,  4.26it/s]
+
+[GPU 1] on             :   9%|▉         | 16/175 [04:56<44:58, 16.97s/it, saved=sample_0516.pt][A
+[GPU 1] on             :  10%|▉         | 17/175 [04:56<44:17, 16.82s/it, saved=sample_0516.pt][ADone in 16.4s.
+Generating 'a photo of photo on desk on a plain background' with seed 517
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.04it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :   9%|▉         | 16/175 [04:48<44:05, 16.64s/it, saved=sample_1516.pt][A[A[A
+
+
+[GPU 3] on             :  10%|▉         | 17/175 [04:48<43:48, 16.64s/it, saved=sample_1516.pt][A[A[ADone in 16.6s.
+Generating 'a photo of awning on building on a plain background' with seed 1517
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] on             :  10%|▉         | 17/175 [05:05<43:33, 16.54s/it, saved=sample_0017.pt][GPU 0] on             :  10%|█         | 18/175 [05:05<43:09, 16.49s/it, saved=sample_0017.pt]Done in 16.4s.
+Generating 'a photo of cables on floor on a plain background' with seed 18
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+
+[GPU 2] on             :  10%|▉         | 17/175 [04:58<42:18, 16.07s/it, saved=sample_1017.pt][A[A
+
+[GPU 2] on             :  10%|█         | 18/175 [04:58<41:54, 16.01s/it, saved=sample_1017.pt][A[A
+4it [00:00,  4.06it/s][A4it [00:00,  4.25it/s]
+Done in 15.8s.
+Generating 'a photo of painting on wall on a plain background' with seed 1018
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] on             :  10%|▉         | 17/175 [05:13<44:17, 16.82s/it, saved=sample_0517.pt][A
+[GPU 1] on             :  10%|█         | 18/175 [05:13<44:32, 17.02s/it, saved=sample_0517.pt][ADone in 17.5s.
+Generating 'a photo of cpu on floor on a plain background' with seed 518
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.55it/s]3it [00:00,  4.20it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :  10%|▉         | 17/175 [05:04<43:48, 16.64s/it, saved=sample_1517.pt][A[A[A
+
+
+[GPU 3] on             :  10%|█         | 18/175 [05:04<43:10, 16.50s/it, saved=sample_1517.pt][A[A[ADone in 16.2s.
+Generating 'a photo of entrance on corner on a plain background' with seed 1518
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] on             :  10%|█         | 18/175 [05:21<43:09, 16.49s/it, saved=sample_0018.pt][GPU 0] on             :  11%|█         | 19/175 [05:21<42:52, 16.49s/it, saved=sample_0018.pt]Done in 16.5s.
+Generating 'a photo of picture on dividing screen on a plain background' with seed 19
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+
+[GPU 2] on             :  10%|█         | 18/175 [05:14<41:54, 16.01s/it, saved=sample_1018.pt][A[A
+
+[GPU 2] on             :  11%|█         | 19/175 [05:14<41:31, 15.97s/it, saved=sample_1018.pt][A[A
+2it [00:00,  4.57it/s][ADone in 15.8s.
+Generating 'a photo of tiles on floor on a plain background' with seed 1019
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]
+3it [00:00,  4.22it/s][A2it [00:00,  4.57it/s]
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+3it [00:00,  4.22it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] on             :  10%|█         | 18/175 [05:30<44:32, 17.02s/it, saved=sample_0518.pt][A
+[GPU 1] on             :  11%|█         | 19/175 [05:30<43:51, 16.87s/it, saved=sample_0518.pt][ADone in 16.5s.
+Generating 'a photo of telephone on desk on a plain background' with seed 519
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.04it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :  10%|█         | 18/175 [05:22<43:10, 16.50s/it, saved=sample_1518.pt][A[A[A
+
+
+[GPU 3] on             :  11%|█         | 19/175 [05:22<43:34, 16.76s/it, saved=sample_1518.pt][A[A[ADone in 17.3s.
+Generating 'a photo of line on road on a plain background' with seed 1519
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+
+
+[GPU 2] on             :  11%|█         | 19/175 [05:30<41:31, 15.97s/it, saved=sample_1019.pt][A[A
+
+[GPU 2] on             :  11%|█▏        | 20/175 [05:30<41:29, 16.06s/it, saved=sample_1019.pt][A[ADone in 16.2s.
+Generating 'a photo of picture frame on wall on a plain background' with seed 1020
+0it [00:00, ?it/s][GPU 0] on             :  11%|█         | 19/175 [05:38<42:52, 16.49s/it, saved=sample_0019.pt][GPU 0] on             :  11%|█▏        | 20/175 [05:38<42:57, 16.63s/it, saved=sample_0019.pt]1it [00:00,  6.19it/s]Done in 16.9s.
+Generating 'a photo of telephone on table on a plain background' with seed 20
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A2it [00:00,  4.57it/s]
+2it [00:00,  4.58it/s][A3it [00:00,  4.22it/s]
+3it [00:00,  4.22it/s][A4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+4it [00:00,  4.06it/s][A4it [00:00,  4.26it/s]
+
+[GPU 1] on             :  11%|█         | 19/175 [05:46<43:51, 16.87s/it, saved=sample_0519.pt][A
+[GPU 1] on             :  11%|█▏        | 20/175 [05:46<43:26, 16.81s/it, saved=sample_0519.pt][ADone in 16.7s.
+Generating 'a photo of magazine on desk on a plain background' with seed 520
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :  11%|█         | 19/175 [05:38<43:34, 16.76s/it, saved=sample_1519.pt][A[A[A
+
+
+[GPU 3] on             :  11%|█▏        | 20/175 [05:38<43:13, 16.73s/it, saved=sample_1519.pt][A[A[ADone in 16.6s.
+Generating 'a photo of line on road on a plain background' with seed 1520
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+
+
+[GPU 2] on             :  11%|█▏        | 20/175 [05:46<41:29, 16.06s/it, saved=sample_1020.pt][A[A
+
+[GPU 2] on             :  12%|█▏        | 21/175 [05:46<40:59, 15.97s/it, saved=sample_1020.pt][A[ADone in 15.7s.
+Generating 'a photo of telephone on table on a plain background' with seed 1021
+0it [00:00, ?it/s]1it [00:00,  6.21it/s][GPU 0] on             :  11%|█▏        | 20/175 [05:54<42:57, 16.63s/it, saved=sample_0020.pt][GPU 0] on             :  12%|█▏        | 21/175 [05:54<42:12, 16.45s/it, saved=sample_0020.pt]2it [00:00,  4.57it/s]Done in 16.0s.
+Generating 'a photo of carpet on floor on a plain background' with seed 21
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A3it [00:00,  4.22it/s]
+2it [00:00,  4.57it/s][A4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.06it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] on             :  11%|█▏        | 20/175 [06:03<43:26, 16.81s/it, saved=sample_0520.pt][A
+[GPU 1] on             :  12%|█▏        | 21/175 [06:03<43:00, 16.75s/it, saved=sample_0520.pt][ADone in 16.6s.
+Generating 'a photo of rolodex on desk on a plain background' with seed 521
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.54it/s]3it [00:00,  4.20it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :  11%|█▏        | 20/175 [05:55<43:13, 16.73s/it, saved=sample_1520.pt][A[A[A
+
+
+[GPU 3] on             :  12%|█▏        | 21/175 [05:55<42:48, 16.68s/it, saved=sample_1520.pt][A[A[ADone in 16.5s.
+Generating 'a photo of see windows. on building on a plain background' with seed 1521
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]
+
+[GPU 2] on             :  12%|█▏        | 21/175 [06:02<40:59, 15.97s/it, saved=sample_1021.pt][A[A
+
+[GPU 2] on             :  13%|█▎        | 22/175 [06:02<40:45, 15.98s/it, saved=sample_1021.pt][A[A4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+Done in 16.0s.
+Generating 'a photo of painting on wall on a plain background' with seed 1022
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]2it [00:00,  4.57it/s][GPU 0] on             :  12%|█▏        | 21/175 [06:10<42:12, 16.45s/it, saved=sample_0021.pt][GPU 0] on             :  13%|█▎        | 22/175 [06:10<41:51, 16.42s/it, saved=sample_0021.pt]3it [00:00,  4.22it/s]Done in 16.3s.
+Generating 'a photo of pillow on couch on a plain background' with seed 22
+
+0it [00:00, ?it/s][A4it [00:00,  4.06it/s]4it [00:00,  4.25it/s]
+
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.06it/s][A4it [00:00,  4.26it/s]
+
+[GPU 1] on             :  12%|█▏        | 21/175 [06:19<43:00, 16.75s/it, saved=sample_0521.pt][A
+[GPU 1] on             :  13%|█▎        | 22/175 [06:19<42:10, 16.54s/it, saved=sample_0521.pt][ADone in 16.0s.
+Generating 'a photo of cup on desk on a plain background' with seed 522
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.04it/s]4it [00:00,  4.23it/s]
+
+
+[GPU 2] on             :  13%|█▎        | 22/175 [06:17<40:45, 15.98s/it, saved=sample_1022.pt][A[A
+
+[GPU 2] on             :  13%|█▎        | 23/175 [06:17<39:47, 15.71s/it, saved=sample_1022.pt][A[A
+
+
+[GPU 3] on             :  12%|█▏        | 21/175 [06:11<42:48, 16.68s/it, saved=sample_1521.pt][A[A[A
+
+
+[GPU 3] on             :  13%|█▎        | 22/175 [06:11<42:11, 16.55s/it, saved=sample_1521.pt][A[A[ADone in 15.0s.
+Generating 'a photo of shadow on floor on a plain background' with seed 1023
+0it [00:00, ?it/s]Done in 16.2s.
+Generating 'a photo of see windows. on building on a plain background' with seed 1522
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]1it [00:00,  6.15it/s]2it [00:00,  4.57it/s]2it [00:00,  4.53it/s]3it [00:00,  4.22it/s]3it [00:00,  4.18it/s]4it [00:00,  4.06it/s]4it [00:00,  4.25it/s]
+[GPU 0] on             :  13%|█▎        | 22/175 [06:26<41:51, 16.42s/it, saved=sample_0022.pt][GPU 0] on             :  13%|█▎        | 23/175 [06:26<40:49, 16.12s/it, saved=sample_0022.pt]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+Done in 15.4s.
+Generating 'a photo of pillow on couch on a plain background' with seed 23
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] on             :  13%|█▎        | 22/175 [06:35<42:10, 16.54s/it, saved=sample_0522.pt][A
+[GPU 1] on             :  13%|█▎        | 23/175 [06:35<41:40, 16.45s/it, saved=sample_0522.pt][ADone in 16.2s.
+Generating 'a photo of hard drive on floor on a plain background' with seed 523
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+
+[GPU 2] on             :  13%|█▎        | 23/175 [06:32<39:47, 15.71s/it, saved=sample_1023.pt][A[A
+
+[GPU 2] on             :  14%|█▎        | 24/175 [06:32<39:07, 15.55s/it, saved=sample_1023.pt][A[ADone in 15.1s.
+Generating 'a photo of shadow on floor on a plain background' with seed 1024
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.58it/s]3it [00:00,  4.22it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+
+
+[GPU 3] on             :  13%|█▎        | 22/175 [06:28<42:11, 16.55s/it, saved=sample_1522.pt][A[A[A
+
+
+[GPU 3] on             :  13%|█▎        | 23/175 [06:28<41:55, 16.55s/it, saved=sample_1522.pt][A[A[ADone in 16.5s.
+Generating 'a photo of taxi on road on a plain background' with seed 1523
+0it [00:00, ?it/s][GPU 0] on             :  13%|█▎        | 23/175 [06:42<40:49, 16.12s/it, saved=sample_0023.pt][GPU 0] on             :  14%|█▎        | 24/175 [06:42<40:19, 16.02s/it, saved=sample_0023.pt]1it [00:00,  6.16it/s]Done in 15.8s.
+Generating 'a photo of teddy bear on couch on a plain background' with seed 24
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A2it [00:00,  4.53it/s]
+2it [00:00,  4.57it/s][A3it [00:00,  4.18it/s]
+3it [00:00,  4.21it/s][A4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+
+4it [00:00,  4.06it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] on             :  13%|█▎        | 23/175 [06:51<41:40, 16.45s/it, saved=sample_0523.pt][A
+[GPU 1] on             :  14%|█▎        | 24/175 [06:51<41:00, 16.29s/it, saved=sample_0523.pt][ADone in 15.9s.
+Generating 'a photo of mouse on pad on a plain background' with seed 524
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]
+
+[GPU 2] on             :  14%|█▎        | 24/175 [06:48<39:07, 15.55s/it, saved=sample_1024.pt][A[A
+
+[GPU 2] on             :  14%|█▍        | 25/175 [06:48<38:44, 15.50s/it, saved=sample_1024.pt][A[ADone in 15.3s.
+Generating 'a photo of shadow on floor on a plain background' with seed 1025
+0it [00:00, ?it/s]3it [00:00,  4.19it/s]1it [00:00,  6.20it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+[GPU 0] on             :  14%|█▎        | 24/175 [06:57<40:19, 16.02s/it, saved=sample_0024.pt][GPU 0] on             :  14%|█▍        | 25/175 [06:57<39:38, 15.86s/it, saved=sample_0024.pt]Done in 15.4s.
+Generating 'a photo of table top on table on a plain background' with seed 25
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.22it/s][A
+
+
+[GPU 3] on             :  13%|█▎        | 23/175 [06:44<41:55, 16.55s/it, saved=sample_1523.pt][A[A[A
+
+
+[GPU 3] on             :  14%|█▎        | 24/175 [06:44<41:16, 16.40s/it, saved=sample_1523.pt][A[A[ADone in 16.0s.
+Generating 'a photo of suv on road on a plain background' with seed 1524
+0it [00:00, ?it/s]
+2it [00:00,  4.57it/s][A1it [00:00,  6.15it/s]
+3it [00:00,  4.22it/s][A2it [00:00,  4.53it/s]
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+
+
+[GPU 2] on             :  14%|█▍        | 25/175 [07:03<38:44, 15.50s/it, saved=sample_1025.pt][A[A
+
+[GPU 2] on             :  15%|█▍        | 26/175 [07:03<38:22, 15.45s/it, saved=sample_1025.pt][A[ADone in 15.3s.
+Generating 'a photo of shadow on floor on a plain background' with seed 1026
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]
+[GPU 1] on             :  14%|█▎        | 24/175 [07:08<41:00, 16.29s/it, saved=sample_0524.pt][A
+[GPU 1] on             :  14%|█▍        | 25/175 [07:08<41:11, 16.48s/it, saved=sample_0524.pt][ADone in 16.9s.
+Generating 'a photo of computer on floor on a plain background' with seed 525
+0it [00:00, ?it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+[GPU 0] on             :  14%|█▍        | 25/175 [07:13<39:38, 15.86s/it, saved=sample_0025.pt][GPU 0] on             :  15%|█▍        | 26/175 [07:13<39:23, 15.86s/it, saved=sample_0025.pt]Done in 15.8s.
+Generating 'a photo of lamp on floor on a plain background' with seed 26
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.58it/s][A
+
+
+[GPU 3] on             :  14%|█▎        | 24/175 [07:00<41:16, 16.40s/it, saved=sample_1524.pt][A[A[A
+
+
+[GPU 3] on             :  14%|█▍        | 25/175 [07:00<40:53, 16.36s/it, saved=sample_1524.pt][A[A[A
+3it [00:00,  4.22it/s][ADone in 16.2s.
+Generating 'a photo of suv on road on a plain background' with seed 1525
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]
+4it [00:00,  4.06it/s][A4it [00:00,  4.26it/s]
+2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+
+
+[GPU 2] on             :  15%|█▍        | 26/175 [07:18<38:22, 15.45s/it, saved=sample_1026.pt][A[A
+
+[GPU 2] on             :  15%|█▌        | 27/175 [07:18<38:02, 15.42s/it, saved=sample_1026.pt][A[ADone in 15.3s.
+Generating 'a photo of shadow on floor on a plain background' with seed 1027
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.21it/s]4it [00:00,  4.00it/s]4it [00:00,  4.22it/s]
+
+[GPU 1] on             :  14%|█▍        | 25/175 [07:24<41:11, 16.48s/it, saved=sample_0525.pt][A
+[GPU 1] on             :  15%|█▍        | 26/175 [07:24<40:46, 16.42s/it, saved=sample_0525.pt][ADone in 16.2s.
+Generating 'a photo of computer on floor on a plain background' with seed 526
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s][GPU 0] on             :  15%|█▍        | 26/175 [07:28<39:23, 15.86s/it, saved=sample_0026.pt][GPU 0] on             :  15%|█▌        | 27/175 [07:28<38:51, 15.76s/it, saved=sample_0026.pt]3it [00:00,  4.19it/s]Done in 15.5s.
+Generating 'a photo of cables on floor on a plain background' with seed 27
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.20it/s][A
+4it [00:00,  4.03it/s][A4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :  14%|█▍        | 25/175 [07:16<40:53, 16.36s/it, saved=sample_1525.pt][A[A[A
+
+
+[GPU 3] on             :  15%|█▍        | 26/175 [07:16<40:38, 16.36s/it, saved=sample_1525.pt][A[A[ADone in 16.3s.
+Generating 'a photo of logo on building on a plain background' with seed 1526
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+
+
+[GPU 2] on             :  15%|█▌        | 27/175 [07:35<38:02, 15.42s/it, saved=sample_1027.pt][A[A
+
+[GPU 2] on             :  16%|█▌        | 28/175 [07:35<38:26, 15.69s/it, saved=sample_1027.pt][A[ADone in 16.3s.
+Generating 'a photo of mouse on table on a plain background' with seed 1028
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.21it/s]4it [00:00,  4.06it/s]4it [00:00,  4.25it/s]
+[GPU 0] on             :  15%|█▌        | 27/175 [07:44<38:51, 15.76s/it, saved=sample_0027.pt][GPU 0] on             :  16%|█▌        | 28/175 [07:44<38:45, 15.82s/it, saved=sample_0027.pt]Done in 15.9s.
+Generating 'a photo of books on shelf on a plain background' with seed 28
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+[GPU 1] on             :  15%|█▍        | 26/175 [07:41<40:46, 16.42s/it, saved=sample_0526.pt][A
+[GPU 1] on             :  15%|█▌        | 27/175 [07:41<40:59, 16.62s/it, saved=sample_0526.pt][A
+2it [00:00,  4.57it/s][ADone in 17.1s.
+Generating 'a photo of frame on desk on a plain background' with seed 527
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]
+3it [00:00,  4.21it/s][A2it [00:00,  4.55it/s]
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+3it [00:00,  4.19it/s]4it [00:00,  4.04it/s]4it [00:00,  4.23it/s]
+
+
+
+[GPU 3] on             :  15%|█▍        | 26/175 [07:34<40:38, 16.36s/it, saved=sample_1526.pt][A[A[A
+
+
+[GPU 3] on             :  15%|█▌        | 27/175 [07:34<40:52, 16.57s/it, saved=sample_1526.pt][A[A[ADone in 17.0s.
+Generating 'a photo of windows on building on a plain background' with seed 1527
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+
+
+[GPU 2] on             :  16%|█▌        | 28/175 [07:50<38:26, 15.69s/it, saved=sample_1028.pt][A[A
+
+[GPU 2] on             :  17%|█▋        | 29/175 [07:50<38:00, 15.62s/it, saved=sample_1028.pt][A[ADone in 15.4s.
+Generating 'a photo of printer on table on a plain background' with seed 1029
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]4it [00:00,  4.06it/s]4it [00:00,  4.25it/s]
+[GPU 0] on             :  16%|█▌        | 28/175 [08:01<38:45, 15.82s/it, saved=sample_0028.pt][GPU 0] on             :  17%|█▋        | 29/175 [08:01<38:44, 15.92s/it, saved=sample_0028.pt]Done in 16.1s.
+Generating 'a photo of computer on floor on a plain background' with seed 29
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+[GPU 1] on             :  15%|█▌        | 27/175 [07:58<40:59, 16.62s/it, saved=sample_0527.pt][A
+[GPU 1] on             :  16%|█▌        | 28/175 [07:58<40:23, 16.49s/it, saved=sample_0527.pt][A
+2it [00:00,  4.57it/s][ADone in 16.1s.
+Generating 'a photo of jacket on chair on a plain background' with seed 528
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]
+3it [00:00,  4.21it/s][A2it [00:00,  4.55it/s]
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+3it [00:00,  4.19it/s]4it [00:00,  4.00it/s]4it [00:00,  4.21it/s]
+
+
+
+[GPU 3] on             :  15%|█▌        | 27/175 [07:50<40:52, 16.57s/it, saved=sample_1527.pt][A[A[A
+
+
+[GPU 3] on             :  16%|█▌        | 28/175 [07:50<40:40, 16.61s/it, saved=sample_1527.pt][A[A[ADone in 16.6s.
+Generating 'a photo of drainage on road on a plain background' with seed 1528
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+
+
+[GPU 2] on             :  17%|█▋        | 29/175 [08:06<38:00, 15.62s/it, saved=sample_1029.pt][A[A
+
+[GPU 2] on             :  17%|█▋        | 30/175 [08:06<37:42, 15.60s/it, saved=sample_1029.pt][A[ADone in 15.5s.
+Generating 'a photo of computer monitor on table on a plain background' with seed 1030
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]2it [00:00,  4.57it/s]3it [00:00,  4.21it/s]4it [00:00,  4.06it/s]4it [00:00,  4.26it/s]

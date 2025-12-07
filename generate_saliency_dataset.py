@@ -75,55 +75,61 @@ def sample_data_for_gpu(predicate_samples, predicates, gpu_id, samples_per_gpu, 
     """
     Sample data for a specific GPU.
     Each GPU gets a different subset of the samples per class.
-    
-    For classes with >= SAMPLES_PER_CLASS: Each GPU gets samples_per_gpu unique samples
-    For classes with < SAMPLES_PER_CLASS: All samples are distributed evenly across GPUs,
-                                          with oversampling to reach the target count
+
+    This function ensures the per-GPU sample counts sum exactly to SAMPLES_PER_CLASS
+    (distributes the remainder across the first few GPUs).
+    For classes with >= SAMPLES_PER_CLASS: Each GPU gets a unique slice.
+    For classes with < SAMPLES_PER_CLASS: Oversample the available samples and
+    take the appropriate slice for this GPU.
     """
     gpu_data = {}
-    start_idx = gpu_id * samples_per_gpu
-    end_idx = start_idx + samples_per_gpu
-    
+
+    # Compute per-GPU allocation so total equals SAMPLES_PER_CLASS
+    base = SAMPLES_PER_CLASS // num_gpus
+    rem = SAMPLES_PER_CLASS % num_gpus
+    # Number of samples for this GPU
+    samples_for_this_gpu = base + (1 if gpu_id < rem else 0)
+    # Start index is sum of allocations of previous GPUs
+    start_idx = base * gpu_id + min(gpu_id, rem)
+    end_idx = start_idx + samples_for_this_gpu
+
     for pred in predicates:
         available = predicate_samples[pred]
         num_available = len(available)
-        
+
         if num_available >= SAMPLES_PER_CLASS:
             # Enough samples: take a unique slice for this GPU
             gpu_data[pred] = available[start_idx:end_idx]
         else:
             # Not enough samples: oversample by repeating the dataset
-            # This ensures all GPUs get work and we reach the target sample count
             import random
-            
-            # Calculate how many samples this GPU should process
-            samples_for_this_gpu = samples_per_gpu
-            
+
             # Create an oversampled list by repeating available samples
             repetitions_needed = (SAMPLES_PER_CLASS + num_available - 1) // num_available
             oversampled = available * repetitions_needed
-            
-            # Shuffle to avoid order bias
-            random.seed(42 + gpu_id)  # Deterministic but different per GPU
+
+            # Shuffle to avoid order bias (different seed per GPU)
+            random.seed(42 + gpu_id)
             random.shuffle(oversampled)
-            
+
             # Take this GPU's slice from the oversampled data
             gpu_data[pred] = oversampled[start_idx:end_idx]
-    
+
     return gpu_data
 
 
-def generate_saliency_maps_worker(gpu_id, gpu_data, predicates, output_dir, layer_config_name, layer_indices):
+def generate_saliency_maps_worker(gpu_id, gpu_data, predicates, output_dir, layer_config_name, layer_indices, all_predicates):
     """
     Worker function that runs on a single GPU.
     
     Args:
         gpu_id: GPU device ID (0-3)
         gpu_data: Dictionary mapping predicate -> list of samples for this GPU
-        predicates: List of all predicate names
+        predicates: List of predicate names to generate (filtered)
         output_dir: Base output directory
         layer_config_name: Name of layer config (early/middle/late)
         layer_indices: List of layer indices to use
+        all_predicates: Full list of 24 predicates (for global class ID mapping)
     """
     device = f"cuda:{gpu_id}"
     print(f"[GPU {gpu_id}] Starting worker on {device}")
@@ -139,7 +145,9 @@ def generate_saliency_maps_worker(gpu_id, gpu_data, predicates, output_dir, laye
     layer_output_dir = Path(output_dir) / layer_config_name
     
     # Process each predicate
-    for pred_idx, predicate in enumerate(predicates):
+    for predicate in predicates:
+        # Use global class ID from full 24-predicate list
+        pred_idx = all_predicates.index(predicate)
         samples = gpu_data[predicate]
         
         if len(samples) == 0:
@@ -307,13 +315,15 @@ def main():
         print(f"Processing {layer_config_name}: layers {layer_indices}")
         print(f"{'='*80}\n")
         
-        # Check for resume mode
+        # Check for resume mode - determine which predicates to actually generate for this layer
+        predicates_for_this_layer = predicates_to_generate.copy()
+        
         if args.resume:
             from pathlib import Path
             layer_output_dir = Path(args.output_dir) / layer_config_name
             completed_predicates = []
             
-            for pred in predicates_to_generate:
+            for pred in predicates_for_this_layer:
                 pred_idx = predicates.index(pred)
                 pred_dir = layer_output_dir / f"class_{pred_idx:02d}_{pred.replace('/', '_')}"
                 if pred_dir.exists():
@@ -322,14 +332,14 @@ def main():
                         completed_predicates.append(pred)
                         print(f"✓ Skipping {pred} - already has {num_samples} samples")
             
-            # Remove completed predicates
-            predicates_to_generate = [p for p in predicates_to_generate if p not in completed_predicates]
+            # Remove completed predicates for this layer
+            predicates_for_this_layer = [p for p in predicates_for_this_layer if p not in completed_predicates]
             
-            if not predicates_to_generate:
+            if not predicates_for_this_layer:
                 print(f"\n✓ All classes already completed for {layer_config_name}!")
                 continue
             
-            print(f"\n📝 Resuming generation for {len(predicates_to_generate)} remaining classes")
+            print(f"\n📝 Resuming generation for {len(predicates_for_this_layer)} remaining classes")
         
         # Set multiprocessing start method
         mp.set_start_method('spawn', force=True)
@@ -337,13 +347,13 @@ def main():
         # Create processes for each GPU
         processes = []
         for gpu_id in range(NUM_GPUS):
-            # Sample data for this GPU (only for predicates we're generating)
-            gpu_data = sample_data_for_gpu(predicate_samples, predicates_to_generate, gpu_id, SAMPLES_PER_GPU, NUM_GPUS)
+            # Sample data for this GPU (only for predicates we're generating for this layer)
+            gpu_data = sample_data_for_gpu(predicate_samples, predicates_for_this_layer, gpu_id, SAMPLES_PER_GPU, NUM_GPUS)
             
             # Create process
             p = mp.Process(
                 target=generate_saliency_maps_worker,
-                args=(gpu_id, gpu_data, predicates_to_generate, args.output_dir, layer_config_name, layer_indices)
+                args=(gpu_id, gpu_data, predicates_for_this_layer, args.output_dir, layer_config_name, layer_indices, predicates)
             )
             processes.append(p)
             p.start()

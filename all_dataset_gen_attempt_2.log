@@ -1,0 +1,717 @@
+Loading data from /home/namanb/SBILab/CSE677/Project/SGRel-DiT-Scene-Graph-Aware-Relation-Analysis-in-Diffusion-Transformers/relation-analysis/outputs/stage_a/vg_stage_a_full.jsonl...
+Organizing by predicate:   0%|          | 0/1342859 [00:00<?, ?it/s]Organizing by predicate:  21%|██        | 278093/1342859 [00:00<00:00, 2780800.05it/s]Organizing by predicate:  50%|████▉     | 669744/1342859 [00:00<00:00, 3448747.40it/s]Organizing by predicate:  84%|████████▍ | 1131317/1342859 [00:00<00:00, 3981560.21it/s]Organizing by predicate: 100%|██████████| 1342859/1342859 [00:00<00:00, 3920751.07it/s]
+
+Found 24 predicates:
+  above               :  54393 samples
+  around/near         :  67126 samples
+  behind              :  40452 samples
+  below               :  23187 samples
+  carrying            :   4799 samples
+  drinking            :    647 samples ⚠️  (will oversample 647 samples to reach 700)
+  eating              :   4507 samples
+  hanging from        :  13810 samples
+  holding             :  37909 samples
+  in                  : 231977 samples
+  in front of         :  13367 samples
+  left of             :    614 samples ⚠️  (will oversample 614 samples to reach 700)
+  looking at          :   6541 samples
+  on                  : 668005 samples
+  playing with        :    914 samples
+  pulling             :   1178 samples
+  pushing             :    430 samples ⚠️  (will oversample 430 samples to reach 700)
+  riding              :   7580 samples
+  right of            :    401 samples ⚠️  (will oversample 401 samples to reach 700)
+  sitting on          :  13893 samples
+  standing on         :   7647 samples
+  touching            :   1133 samples
+  using               :   1759 samples
+  wearing             : 140590 samples
+
+⚠️  WARNING: 4 classes have fewer than 700 samples.
+   These classes will be oversampled (with shuffling) to reach the target count.
+   Small classes: drinking (647), left of (614), pushing (430), right of (401)
+
+🎯 Generating all 24 classes
+
+Generating datasets for: ['early_layers', 'middle_layers', 'late_layers']
+Using 3 GPUs with 233 samples per GPU per class
+Output directory: /home/namanb/SBILab/CSE677/Project/saliency_datasets
+
+
+================================================================================
+Processing early_layers: layers [0, 1, 2, 3, 4, 5, 6]
+================================================================================
+
+✓ Skipping above - already has 2000 samples
+✓ Skipping around/near - already has 2000 samples
+
+📝 Resuming generation for 22 remaining classes
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+`torch_dtype` is deprecated! Use `dtype` instead!
+You are using the default legacy behaviour of the <class 'transformers.models.t5.tokenization_t5.T5Tokenizer'>. This is expected, and simply means that the `legacy` (previous) behavior will be used so nothing changes for you. If you want to use the new behaviour, set `legacy=False`. This should only be set if you understand what it means, and thoroughly read the reason why this was added as explained in https://github.com/huggingface/transformers/pull/24565
+`torch_dtype` is deprecated! Use `dtype` instead!
+[GPU 1] Starting worker on cuda:1
+[GPU 1] Loading ConceptAttentionFluxPipeline...
+Init model
+Loading checkpoint
+Init AE
+
+[GPU 1] behind         :   0%|          | 0/233 [00:00<?, ?it/s][AGenerating 'a photo of palm tree behind light fixture on a plain background' with seed 500
+0it [00:00, ?it/s]1it [00:00,  3.47it/s]2it [00:00,  4.67it/s]3it [00:00,  4.26it/s]4it [00:00,  4.08it/s]4it [00:00,  4.12it/s]
+[GPU 2] Starting worker on cuda:2
+[GPU 2] Loading ConceptAttentionFluxPipeline...
+Init model
+Loading checkpoint
+Init AE
+
+
+[GPU 2] behind         :   0%|          | 0/233 [00:00<?, ?it/s][A[AGenerating 'a photo of trees behind people on a plain background' with seed 1000
+0it [00:00, ?it/s]1it [00:00,  3.48it/s]2it [00:00,  4.68it/s][GPU 0] Starting worker on cuda:0
+[GPU 0] Loading ConceptAttentionFluxPipeline...
+Init model
+Loading checkpoint
+Init AE
+[GPU 0] behind         :   0%|          | 0/234 [00:00<?, ?it/s]3it [00:00,  4.27it/s]4it [00:00,  4.07it/s]4it [00:00,  4.12it/s]
+Generating 'a photo of parking meter behind man on a plain background' with seed 0
+
+0it [00:00, ?it/s][A
+1it [00:00,  3.42it/s][A
+2it [00:00,  4.63it/s][A
+3it [00:00,  4.24it/s][A
+4it [00:00,  4.08it/s][A4it [00:00,  4.11it/s]
+
+[GPU 1] behind         :   0%|          | 0/233 [00:18<?, ?it/s, saved=sample_0500.pt][A
+[GPU 1] behind         :   0%|          | 1/233 [00:18<1:09:39, 18.01s/it, saved=sample_0500.pt][ADone in 18.0s.
+Generating 'a photo of statue behind sandwich board on a plain background' with seed 501
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.55it/s]3it [00:00,  4.20it/s]4it [00:00,  4.05it/s]4it [00:00,  4.24it/s]
+
+
+[GPU 2] behind         :   0%|          | 0/233 [00:16<?, ?it/s, saved=sample_1000.pt][A[A
+
+[GPU 2] behind         :   0%|          | 1/233 [00:16<1:03:59, 16.55s/it, saved=sample_1000.pt][A[ADone in 16.5s.
+Generating 'a photo of trees behind tents on a plain background' with seed 1001
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]2it [00:00,  4.57it/s]3it [00:00,  4.21it/s]4it [00:00,  4.06it/s]4it [00:00,  4.25it/s]
+[GPU 0] behind         :   0%|          | 0/234 [00:19<?, ?it/s, saved=sample_0000.pt][GPU 0] behind         :   0%|          | 1/234 [00:19<1:13:47, 19.00s/it, saved=sample_0000.pt]Done in 19.0s.
+Generating 'a photo of bikes behind man on a plain background' with seed 1
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.06it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] behind         :   0%|          | 1/233 [00:34<1:09:39, 18.01s/it, saved=sample_0501.pt][A
+[GPU 1] behind         :   1%|          | 2/233 [00:34<1:06:49, 17.36s/it, saved=sample_0501.pt][ADone in 16.9s.
+Generating 'a photo of large boat behind small boats on a plain background' with seed 502
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]
+
+[GPU 2] behind         :   0%|          | 1/233 [00:32<1:03:59, 16.55s/it, saved=sample_1001.pt][A[A
+
+[GPU 2] behind         :   1%|          | 2/233 [00:32<1:02:11, 16.16s/it, saved=sample_1001.pt][A[A3it [00:00,  4.20it/s]Done in 15.8s.
+Generating 'a photo of tree behind fence on a plain background' with seed 1002
+0it [00:00, ?it/s]1it [00:00,  6.23it/s]4it [00:00,  4.04it/s]4it [00:00,  4.24it/s]
+2it [00:00,  4.58it/s]3it [00:00,  4.21it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+[GPU 0] behind         :   0%|          | 1/234 [00:36<1:13:47, 19.00s/it, saved=sample_0001.pt][GPU 0] behind         :   1%|          | 2/234 [00:36<1:11:10, 18.41s/it, saved=sample_0001.pt]Done in 18.0s.
+Generating 'a photo of lamp behind couch on a plain background' with seed 2
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :   1%|          | 2/233 [00:48<1:02:11, 16.16s/it, saved=sample_1002.pt][A[A
+
+[GPU 2] behind         :   1%|▏         | 3/233 [00:48<1:01:01, 15.92s/it, saved=sample_1002.pt][A[A
+[GPU 1] behind         :   1%|          | 2/233 [00:51<1:06:49, 17.36s/it, saved=sample_0502.pt][A
+[GPU 1] behind         :   1%|▏         | 3/233 [00:51<1:05:03, 16.97s/it, saved=sample_0502.pt][ADone in 15.6s.
+Generating 'a photo of tree behind fence on a plain background' with seed 1003
+0it [00:00, ?it/s]Done in 16.5s.
+Generating 'a photo of building behind yacht on a plain background' with seed 503
+0it [00:00, ?it/s]1it [00:00,  6.22it/s]1it [00:00,  6.18it/s]2it [00:00,  4.57it/s]2it [00:00,  4.55it/s]3it [00:00,  4.21it/s]3it [00:00,  4.20it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+4it [00:00,  4.04it/s]4it [00:00,  4.23it/s]
+[GPU 0] behind         :   1%|          | 2/234 [00:54<1:11:10, 18.41s/it, saved=sample_0002.pt][GPU 0] behind         :   1%|▏         | 3/234 [00:54<1:09:10, 17.97s/it, saved=sample_0002.pt]Done in 17.4s.
+Generating 'a photo of cereal behind water bottle on a plain background' with seed 3
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.06it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :   1%|▏         | 3/233 [01:04<1:01:01, 15.92s/it, saved=sample_1003.pt][A[A
+
+[GPU 2] behind         :   2%|▏         | 4/233 [01:04<1:01:23, 16.09s/it, saved=sample_1003.pt][A[ADone in 16.3s.
+Generating 'a photo of van behind road sign on a plain background' with seed 1004
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.56it/s]
+[GPU 1] behind         :   1%|▏         | 3/233 [01:08<1:05:03, 16.97s/it, saved=sample_0503.pt][A
+[GPU 1] behind         :   2%|▏         | 4/233 [01:08<1:04:55, 17.01s/it, saved=sample_0503.pt][A3it [00:00,  4.20it/s]Done in 17.0s.
+Generating 'a photo of tree behind wall on a plain background' with seed 504
+0it [00:00, ?it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.20it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+[GPU 0] behind         :   1%|▏         | 3/234 [01:10<1:09:10, 17.97s/it, saved=sample_0003.pt][GPU 0] behind         :   2%|▏         | 4/234 [01:10<1:06:40, 17.39s/it, saved=sample_0003.pt]Done in 16.5s.
+Generating 'a photo of wall behind computer monitor on a plain background' with seed 4
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.20it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :   2%|▏         | 4/233 [01:20<1:01:23, 16.09s/it, saved=sample_1004.pt][A[A
+
+[GPU 2] behind         :   2%|▏         | 5/233 [01:20<1:00:54, 16.03s/it, saved=sample_1004.pt][A[ADone in 15.9s.
+Generating 'a photo of banner behind tree on a plain background' with seed 1005
+0it [00:00, ?it/s]1it [00:00,  6.24it/s]2it [00:00,  4.57it/s]3it [00:00,  4.21it/s]4it [00:00,  4.04it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] behind         :   2%|▏         | 4/233 [01:24<1:04:55, 17.01s/it, saved=sample_0504.pt][A
+[GPU 1] behind         :   2%|▏         | 5/233 [01:24<1:03:39, 16.75s/it, saved=sample_0504.pt][ADone in 16.3s.
+Generating 'a photo of tree behind wall on a plain background' with seed 505
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+[GPU 0] behind         :   2%|▏         | 4/234 [01:28<1:06:40, 17.39s/it, saved=sample_0004.pt][GPU 0] behind         :   2%|▏         | 5/234 [01:28<1:06:47, 17.50s/it, saved=sample_0004.pt]Done in 17.7s.
+Generating 'a photo of monitor behind mouse on a plain background' with seed 5
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.20it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.24it/s]
+
+
+[GPU 2] behind         :   2%|▏         | 5/233 [01:35<1:00:54, 16.03s/it, saved=sample_1005.pt][A[A
+
+[GPU 2] behind         :   3%|▎         | 6/233 [01:35<59:42, 15.78s/it, saved=sample_1005.pt]  [A[ADone in 15.3s.
+Generating 'a photo of sign behind glass on a plain background' with seed 1006
+0it [00:00, ?it/s]1it [00:00,  6.22it/s]2it [00:00,  4.56it/s]3it [00:00,  4.21it/s]4it [00:00,  4.04it/s]4it [00:00,  4.24it/s]
+
+[GPU 1] behind         :   2%|▏         | 5/233 [01:40<1:03:39, 16.75s/it, saved=sample_0505.pt][A
+[GPU 1] behind         :   3%|▎         | 6/233 [01:40<1:02:14, 16.45s/it, saved=sample_0505.pt][ADone in 15.8s.
+Generating 'a photo of tree behind man on a plain background' with seed 506
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.01it/s]4it [00:00,  4.22it/s]
+[GPU 0] behind         :   2%|▏         | 5/234 [01:45<1:06:47, 17.50s/it, saved=sample_0005.pt][GPU 0] behind         :   3%|▎         | 6/234 [01:45<1:05:43, 17.30s/it, saved=sample_0005.pt]Done in 16.9s.
+Generating 'a photo of building behind palm tree on a plain background' with seed 6
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.19it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.24it/s]
+
+
+[GPU 2] behind         :   3%|▎         | 6/233 [01:51<59:42, 15.78s/it, saved=sample_1006.pt][A[A
+
+[GPU 2] behind         :   3%|▎         | 7/233 [01:51<59:28, 15.79s/it, saved=sample_1006.pt][A[ADone in 15.8s.
+Generating 'a photo of taxi behind car on a plain background' with seed 1007
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.56it/s]3it [00:00,  4.20it/s]4it [00:00,  4.05it/s]4it [00:00,  4.24it/s]
+
+[GPU 1] behind         :   3%|▎         | 6/233 [01:57<1:02:14, 16.45s/it, saved=sample_0506.pt][A
+[GPU 1] behind         :   3%|▎         | 7/233 [01:57<1:01:52, 16.43s/it, saved=sample_0506.pt][ADone in 16.3s.
+Generating 'a photo of fence behind trees on a plain background' with seed 507
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+[GPU 0] behind         :   3%|▎         | 6/234 [02:02<1:05:43, 17.30s/it, saved=sample_0006.pt][GPU 0] behind         :   3%|▎         | 7/234 [02:02<1:05:27, 17.30s/it, saved=sample_0006.pt]Done in 17.3s.
+Generating 'a photo of van behind girls on a plain background' with seed 7
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.20it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.24it/s]
+
+
+[GPU 2] behind         :   3%|▎         | 7/233 [02:06<59:28, 15.79s/it, saved=sample_1007.pt][A[A
+
+[GPU 2] behind         :   3%|▎         | 8/233 [02:06<58:43, 15.66s/it, saved=sample_1007.pt][A[ADone in 15.3s.
+Generating 'a photo of tree-like greenery behind gray suv on a plain background' with seed 1008
+0it [00:00, ?it/s]1it [00:00,  6.19it/s]2it [00:00,  4.56it/s]3it [00:00,  4.21it/s]4it [00:00,  4.04it/s]4it [00:00,  4.24it/s]
+
+[GPU 1] behind         :   3%|▎         | 7/233 [02:12<1:01:52, 16.43s/it, saved=sample_0507.pt][A
+[GPU 1] behind         :   3%|▎         | 8/233 [02:12<1:00:37, 16.16s/it, saved=sample_0507.pt][ADone in 15.6s.
+Generating 'a photo of mountain behind car on a plain background' with seed 508
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] behind         :   3%|▎         | 7/234 [02:19<1:05:27, 17.30s/it, saved=sample_0007.pt][GPU 0] behind         :   3%|▎         | 8/234 [02:19<1:04:21, 17.09s/it, saved=sample_0007.pt]Done in 16.6s.
+Generating 'a photo of shadow behind woman on a plain background' with seed 8
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.55it/s][A
+3it [00:00,  4.20it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.24it/s]
+
+
+[GPU 2] behind         :   3%|▎         | 8/233 [02:22<58:43, 15.66s/it, saved=sample_1008.pt][A[A
+
+[GPU 2] behind         :   4%|▍         | 9/233 [02:22<58:15, 15.61s/it, saved=sample_1008.pt][A[ADone in 15.5s.
+Generating 'a photo of yellow cab behind crosswalk on a plain background' with seed 1009
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]2it [00:00,  4.56it/s]3it [00:00,  4.21it/s]4it [00:00,  4.05it/s]4it [00:00,  4.24it/s]
+
+[GPU 1] behind         :   3%|▎         | 8/233 [02:28<1:00:37, 16.16s/it, saved=sample_0508.pt][A
+[GPU 1] behind         :   4%|▍         | 9/233 [02:28<59:53, 16.04s/it, saved=sample_0508.pt]  [ADone in 15.7s.
+Generating 'a photo of mountain behind car on a plain background' with seed 509
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+[GPU 0] behind         :   3%|▎         | 8/234 [02:49<1:04:21, 17.09s/it, saved=sample_0008.pt][GPU 0] behind         :   4%|▍         | 9/234 [02:49<1:19:31, 21.21s/it, saved=sample_0008.pt]Done in 30.2s.
+Generating 'a photo of doorway behind chair on a plain background' with seed 9
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.17it/s][A
+2it [00:00,  4.55it/s][A
+3it [00:00,  4.19it/s][A
+
+[GPU 2] behind         :   4%|▍         | 9/233 [02:51<58:15, 15.61s/it, saved=sample_1009.pt][A[A
+
+[GPU 2] behind         :   4%|▍         | 10/233 [02:51<1:14:01, 19.92s/it, saved=sample_1009.pt][A[A
+4it [00:00,  4.04it/s][A4it [00:00,  4.24it/s]
+Done in 29.5s.
+Generating 'a photo of car behind taxi on a plain background' with seed 1010
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.53it/s]3it [00:00,  4.19it/s]4it [00:00,  4.04it/s]4it [00:00,  4.23it/s]
+
+[GPU 1] behind         :   4%|▍         | 9/233 [02:57<59:53, 16.04s/it, saved=sample_0509.pt][A
+[GPU 1] behind         :   4%|▍         | 10/233 [02:57<1:14:02, 19.92s/it, saved=sample_0509.pt][ADone in 28.5s.
+Generating 'a photo of tree behind mixer on a plain background' with seed 510
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  3.99it/s]4it [00:00,  4.19it/s]
+[GPU 0] behind         :   4%|▍         | 9/234 [03:19<1:19:31, 21.21s/it, saved=sample_0009.pt][GPU 0] behind         :   4%|▍         | 10/234 [03:19<1:29:22, 23.94s/it, saved=sample_0009.pt]Done in 30.0s.
+Generating 'a photo of tiles behind tv set on a plain background' with seed 10
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.13it/s][A
+2it [00:00,  4.53it/s][A
+3it [00:00,  4.18it/s][A
+4it [00:00,  3.99it/s][A4it [00:00,  4.19it/s]
+
+
+[GPU 2] behind         :   4%|▍         | 10/233 [03:23<1:14:01, 19.92s/it, saved=sample_1010.pt][A[A
+
+[GPU 2] behind         :   5%|▍         | 11/233 [03:23<1:27:05, 23.54s/it, saved=sample_1010.pt][A[ADone in 31.7s.
+Generating 'a photo of car behind taxi on a plain background' with seed 1011
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]
+[GPU 1] behind         :   4%|▍         | 10/233 [03:28<1:14:02, 19.92s/it, saved=sample_0510.pt][A
+[GPU 1] behind         :   5%|▍         | 11/233 [03:28<1:26:33, 23.39s/it, saved=sample_0510.pt][A4it [00:01,  2.62it/s]4it [00:01,  3.12it/s]
+Done in 30.7s.
+Generating 'a photo of building behind park on a plain background' with seed 511
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.52it/s]3it [00:00,  4.17it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] behind         :   4%|▍         | 10/234 [03:51<1:29:22, 23.94s/it, saved=sample_0010.pt][GPU 0] behind         :   5%|▍         | 11/234 [03:51<1:37:26, 26.22s/it, saved=sample_0010.pt]Done in 31.3s.
+Generating 'a photo of truck behind car on a plain background' with seed 11
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.17it/s][A
+2it [00:00,  4.54it/s][A
+3it [00:00,  4.19it/s][A
+4it [00:00,  4.01it/s][A4it [00:00,  4.21it/s]
+
+
+[GPU 2] behind         :   5%|▍         | 11/233 [03:54<1:27:05, 23.54s/it, saved=sample_1011.pt][A[A
+
+[GPU 2] behind         :   5%|▌         | 12/233 [03:54<1:34:36, 25.68s/it, saved=sample_1011.pt][A[ADone in 30.5s.
+Generating 'a photo of step behind trash can on a plain background' with seed 1012
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.53it/s]3it [00:00,  4.19it/s]4it [00:01,  3.14it/s]4it [00:01,  3.56it/s]
+
+[GPU 1] behind         :   5%|▍         | 11/233 [03:59<1:26:33, 23.39s/it, saved=sample_0511.pt][A
+[GPU 1] behind         :   5%|▌         | 12/233 [03:59<1:34:26, 25.64s/it, saved=sample_0511.pt][ADone in 30.7s.
+Generating 'a photo of building behind bushes on a plain background' with seed 512
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.52it/s]3it [00:00,  4.17it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] behind         :   5%|▍         | 11/234 [04:21<1:37:26, 26.22s/it, saved=sample_0011.pt][GPU 0] behind         :   5%|▌         | 12/234 [04:21<1:41:34, 27.45s/it, saved=sample_0011.pt]Done in 30.2s.
+Generating 'a photo of curtain behind lamp on a plain background' with seed 12
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.11it/s][A
+2it [00:00,  4.53it/s][A
+3it [00:00,  4.19it/s][A
+4it [00:01,  2.93it/s][A4it [00:01,  3.38it/s]
+
+
+[GPU 2] behind         :   5%|▌         | 12/233 [04:27<1:34:36, 25.68s/it, saved=sample_1012.pt][A[A
+
+[GPU 2] behind         :   6%|▌         | 13/233 [04:27<1:42:41, 28.01s/it, saved=sample_1012.pt][A[ADone in 33.3s.
+Generating 'a photo of grass behind bench on a plain background' with seed 1013
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.53it/s]3it [00:00,  4.19it/s]4it [00:00,  4.00it/s]4it [00:00,  4.20it/s]
+
+[GPU 1] behind         :   5%|▌         | 12/233 [04:33<1:34:26, 25.64s/it, saved=sample_0512.pt][A
+[GPU 1] behind         :   6%|▌         | 13/233 [04:33<1:43:27, 28.22s/it, saved=sample_0512.pt][ADone in 33.5s.
+Generating 'a photo of parking meter behind car on a plain background' with seed 513
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] behind         :   5%|▌         | 12/234 [04:50<1:41:34, 27.45s/it, saved=sample_0012.pt][GPU 0] behind         :   6%|▌         | 13/234 [04:50<1:42:28, 27.82s/it, saved=sample_0012.pt]Done in 28.6s.
+Generating 'a photo of wall behind lamp on a plain background' with seed 13
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.15it/s][A
+2it [00:00,  4.55it/s][A
+3it [00:00,  4.20it/s][A
+
+[GPU 2] behind         :   6%|▌         | 13/233 [04:52<1:42:41, 28.01s/it, saved=sample_1013.pt][A[A
+
+[GPU 2] behind         :   6%|▌         | 14/233 [04:52<1:38:40, 27.04s/it, saved=sample_1013.pt][A[A
+4it [00:00,  4.04it/s][A4it [00:00,  4.24it/s]
+Done in 24.7s.
+Generating 'a photo of buildings behind trees on a plain background' with seed 1014
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.55it/s]
+[GPU 1] behind         :   6%|▌         | 13/233 [04:56<1:43:27, 28.22s/it, saved=sample_0513.pt][A
+[GPU 1] behind         :   6%|▌         | 14/233 [04:56<1:37:14, 26.64s/it, saved=sample_0513.pt][ADone in 22.9s.
+Generating 'a photo of cotton candy behind plastic on a plain background' with seed 514
+0it [00:00, ?it/s]3it [00:00,  4.19it/s]1it [00:00,  6.13it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+2it [00:00,  4.52it/s]3it [00:00,  4.17it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] behind         :   6%|▌         | 13/234 [05:06<1:42:28, 27.82s/it, saved=sample_0013.pt][GPU 0] behind         :   6%|▌         | 14/234 [05:06<1:29:51, 24.51s/it, saved=sample_0013.pt]Done in 16.8s.
+Generating 'a photo of window behind woman on a plain background' with seed 14
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.56it/s][A
+
+[GPU 2] behind         :   6%|▌         | 14/233 [05:08<1:38:40, 27.04s/it, saved=sample_1014.pt][A[A
+
+[GPU 2] behind         :   6%|▋         | 15/233 [05:08<1:26:35, 23.83s/it, saved=sample_1014.pt][A[ADone in 16.4s.
+Generating 'a photo of building behind tree line on a plain background' with seed 1015
+0it [00:00, ?it/s]
+3it [00:00,  4.20it/s][A1it [00:00,  6.20it/s]
+[GPU 1] behind         :   6%|▌         | 14/233 [05:12<1:37:14, 26.64s/it, saved=sample_0514.pt][A
+[GPU 1] behind         :   6%|▋         | 15/233 [05:12<1:25:26, 23.52s/it, saved=sample_0514.pt][A
+4it [00:00,  4.03it/s][A4it [00:00,  4.23it/s]
+2it [00:00,  4.56it/s]Done in 16.2s.
+Generating 'a photo of building behind tree on a plain background' with seed 515
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]3it [00:00,  4.20it/s]2it [00:00,  4.55it/s]4it [00:00,  4.05it/s]4it [00:00,  4.24it/s]
+3it [00:00,  4.20it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+
+
+[GPU 2] behind         :   6%|▋         | 15/233 [05:30<1:26:35, 23.83s/it, saved=sample_1015.pt][A[A
+
+[GPU 2] behind         :   7%|▋         | 16/233 [05:30<1:24:13, 23.29s/it, saved=sample_1015.pt][A[ADone in 22.0s.
+Generating 'a photo of building behind trees on a plain background' with seed 1016
+0it [00:00, ?it/s]
+[GPU 1] behind         :   6%|▋         | 15/233 [05:34<1:25:26, 23.52s/it, saved=sample_0515.pt][A
+[GPU 1] behind         :   7%|▋         | 16/233 [05:34<1:23:12, 23.01s/it, saved=sample_0515.pt][A[GPU 0] behind         :   6%|▌         | 14/234 [05:29<1:29:51, 24.51s/it, saved=sample_0014.pt][GPU 0] behind         :   6%|▋         | 15/234 [05:29<1:27:45, 24.04s/it, saved=sample_0014.pt]1it [00:00,  6.13it/s]Done in 21.8s.
+Generating 'a photo of wires behind screen on a plain background' with seed 516
+0it [00:00, ?it/s]Done in 22.9s.
+Generating 'a photo of tree behind building on a plain background' with seed 15
+
+0it [00:00, ?it/s][A2it [00:00,  4.52it/s]1it [00:00,  6.11it/s]
+1it [00:00,  6.19it/s][A3it [00:00,  4.18it/s]2it [00:00,  4.52it/s]
+2it [00:00,  4.56it/s][A4it [00:00,  4.03it/s]4it [00:00,  4.22it/s]
+3it [00:00,  4.18it/s]
+3it [00:00,  4.19it/s][A4it [00:00,  4.01it/s]4it [00:00,  4.20it/s]
+
+4it [00:00,  3.97it/s][A4it [00:00,  4.19it/s]
+[GPU 0] behind         :   6%|▋         | 15/234 [05:45<1:27:45, 24.04s/it, saved=sample_0015.pt][GPU 0] behind         :   7%|▋         | 16/234 [05:45<1:18:23, 21.58s/it, saved=sample_0015.pt]Done in 15.8s.
+Generating 'a photo of tree behind building on a plain background' with seed 16
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+
+[GPU 2] behind         :   7%|▋         | 16/233 [05:48<1:24:13, 23.29s/it, saved=sample_1016.pt][A[A
+
+[GPU 2] behind         :   7%|▋         | 17/233 [05:48<1:17:20, 21.48s/it, saved=sample_1016.pt][A[A
+4it [00:00,  4.03it/s][A4it [00:00,  4.24it/s]
+Done in 17.2s.
+Generating 'a photo of car behind black car on a plain background' with seed 1017
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]
+[GPU 1] behind         :   7%|▋         | 16/233 [05:51<1:23:12, 23.01s/it, saved=sample_0516.pt][A
+[GPU 1] behind         :   7%|▋         | 17/233 [05:51<1:16:46, 21.33s/it, saved=sample_0516.pt][ADone in 17.4s.
+Generating 'a photo of building behind canopy on a plain background' with seed 517
+0it [00:00, ?it/s]2it [00:00,  4.57it/s]1it [00:00,  6.17it/s]3it [00:00,  4.21it/s]2it [00:00,  4.54it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] behind         :   7%|▋         | 16/234 [06:00<1:18:23, 21.58s/it, saved=sample_0016.pt][GPU 0] behind         :   7%|▋         | 17/234 [06:00<1:10:23, 19.47s/it, saved=sample_0016.pt]Done in 14.5s.
+Generating 'a photo of tree behind building on a plain background' with seed 17
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.04it/s][A4it [00:00,  4.24it/s]
+
+
+[GPU 2] behind         :   7%|▋         | 17/233 [06:04<1:17:20, 21.48s/it, saved=sample_1017.pt][A[A
+
+[GPU 2] behind         :   8%|▊         | 18/233 [06:04<1:11:33, 19.97s/it, saved=sample_1017.pt][A[ADone in 16.4s.
+Generating 'a photo of tree behind fence on a plain background' with seed 1018
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]
+[GPU 1] behind         :   7%|▋         | 17/233 [06:08<1:16:46, 21.33s/it, saved=sample_0517.pt][A
+[GPU 1] behind         :   8%|▊         | 18/233 [06:08<1:11:20, 19.91s/it, saved=sample_0517.pt][A2it [00:00,  4.56it/s]Done in 16.6s.
+Generating 'a photo of wall behind stapler on a plain background' with seed 518
+0it [00:00, ?it/s]3it [00:00,  4.21it/s]1it [00:00,  6.15it/s]4it [00:00,  4.05it/s]4it [00:00,  4.24it/s]
+2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.22it/s]
+[GPU 0] behind         :   7%|▋         | 17/234 [06:15<1:10:23, 19.47s/it, saved=sample_0017.pt][GPU 0] behind         :   8%|▊         | 18/234 [06:15<1:05:35, 18.22s/it, saved=sample_0017.pt]Done in 15.3s.
+Generating 'a photo of pink building behind tree on a plain background' with seed 18
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :   8%|▊         | 18/233 [06:21<1:11:33, 19.97s/it, saved=sample_1018.pt][A[A
+
+[GPU 2] behind         :   8%|▊         | 19/233 [06:21<1:07:54, 19.04s/it, saved=sample_1018.pt][A[ADone in 16.8s.
+Generating 'a photo of tree behind fence on a plain background' with seed 1019
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]2it [00:00,  4.57it/s]
+[GPU 1] behind         :   8%|▊         | 18/233 [06:25<1:11:20, 19.91s/it, saved=sample_0518.pt][A
+[GPU 1] behind         :   8%|▊         | 19/233 [06:25<1:07:58, 19.06s/it, saved=sample_0518.pt][A3it [00:00,  4.21it/s]Done in 17.0s.
+Generating 'a photo of fence behind field on a plain background' with seed 519
+0it [00:00, ?it/s]4it [00:00,  4.04it/s]4it [00:00,  4.24it/s]
+1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] behind         :   8%|▊         | 18/234 [06:33<1:05:35, 18.22s/it, saved=sample_0018.pt][GPU 0] behind         :   8%|▊         | 19/234 [06:33<1:05:08, 18.18s/it, saved=sample_0018.pt]Done in 18.1s.
+Generating 'a photo of zebra behind zebra on a plain background' with seed 19
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.02it/s][A4it [00:00,  4.23it/s]
+
+
+[GPU 2] behind         :   8%|▊         | 19/233 [06:37<1:07:54, 19.04s/it, saved=sample_1019.pt][A[A
+
+[GPU 2] behind         :   9%|▊         | 20/233 [06:37<1:04:38, 18.21s/it, saved=sample_1019.pt][A[ADone in 16.2s.
+Generating 'a photo of tree behind fence on a plain background' with seed 1020
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]2it [00:00,  4.57it/s]
+[GPU 1] behind         :   8%|▊         | 19/233 [06:41<1:07:58, 19.06s/it, saved=sample_0519.pt][A
+[GPU 1] behind         :   9%|▊         | 20/233 [06:41<1:04:44, 18.24s/it, saved=sample_0519.pt][A3it [00:00,  4.21it/s]Done in 16.3s.
+Generating 'a photo of building behind hedges on a plain background' with seed 520
+0it [00:00, ?it/s]4it [00:00,  4.04it/s]4it [00:00,  4.24it/s]
+1it [00:00,  6.16it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.22it/s]
+[GPU 0] behind         :   8%|▊         | 19/234 [06:48<1:05:08, 18.18s/it, saved=sample_0019.pt][GPU 0] behind         :   9%|▊         | 20/234 [06:48<1:01:40, 17.29s/it, saved=sample_0019.pt]Done in 15.2s.
+Generating 'a photo of building behind zebra on a plain background' with seed 20
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.22it/s][A
+2it [00:00,  4.58it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.04it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :   9%|▊         | 20/233 [06:53<1:04:38, 18.21s/it, saved=sample_1020.pt][A[A
+
+[GPU 2] behind         :   9%|▉         | 21/233 [06:53<1:02:00, 17.55s/it, saved=sample_1020.pt][A[ADone in 16.0s.
+Generating 'a photo of brick building behind trees on a plain background' with seed 1021
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]
+[GPU 1] behind         :   9%|▊         | 20/233 [06:57<1:04:44, 18.24s/it, saved=sample_0520.pt][A
+[GPU 1] behind         :   9%|▉         | 21/233 [06:57<1:02:11, 17.60s/it, saved=sample_0520.pt][A4it [00:00,  4.04it/s]4it [00:00,  4.25it/s]
+Done in 16.1s.
+Generating 'a photo of door behind monitors on a plain background' with seed 521
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.00it/s]4it [00:00,  4.20it/s]
+[GPU 0] behind         :   9%|▊         | 20/234 [07:04<1:01:40, 17.29s/it, saved=sample_0020.pt][GPU 0] behind         :   9%|▉         | 21/234 [07:04<59:25, 16.74s/it, saved=sample_0020.pt]  Done in 15.4s.
+Generating 'a photo of man behind van on a plain background' with seed 21
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.04it/s][A4it [00:00,  4.24it/s]
+
+
+[GPU 2] behind         :   9%|▉         | 21/233 [07:10<1:02:00, 17.55s/it, saved=sample_1021.pt][A[A
+
+[GPU 2] behind         :   9%|▉         | 22/233 [07:10<1:00:35, 17.23s/it, saved=sample_1021.pt][A[ADone in 16.5s.
+Generating 'a photo of car behind van on a plain background' with seed 1022
+0it [00:00, ?it/s]1it [00:00,  6.19it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]
+[GPU 1] behind         :   9%|▉         | 21/233 [07:14<1:02:11, 17.60s/it, saved=sample_0521.pt][A
+[GPU 1] behind         :   9%|▉         | 22/233 [07:14<1:00:53, 17.31s/it, saved=sample_0521.pt][A4it [00:00,  4.04it/s]4it [00:00,  4.24it/s]
+Done in 16.6s.
+Generating 'a photo of bushes behind man on a plain background' with seed 522
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.54it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] behind         :   9%|▉         | 21/234 [07:19<59:25, 16.74s/it, saved=sample_0021.pt][GPU 0] behind         :   9%|▉         | 22/234 [07:19<57:45, 16.35s/it, saved=sample_0021.pt]Done in 15.4s.
+Generating 'a photo of sky behind building on a plain background' with seed 22
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :   9%|▉         | 22/233 [07:27<1:00:35, 17.23s/it, saved=sample_1022.pt][A[A
+
+[GPU 2] behind         :  10%|▉         | 23/233 [07:27<1:00:01, 17.15s/it, saved=sample_1022.pt][A[ADone in 16.9s.
+Generating 'a photo of crowd behind controlfencing on a plain background' with seed 1023
+0it [00:00, ?it/s]1it [00:00,  6.19it/s]2it [00:00,  4.57it/s]
+[GPU 1] behind         :   9%|▉         | 22/233 [07:31<1:00:53, 17.31s/it, saved=sample_0522.pt][A
+[GPU 1] behind         :  10%|▉         | 23/233 [07:31<59:54, 17.12s/it, saved=sample_0522.pt]  [A3it [00:00,  4.22it/s]Done in 16.6s.
+Generating 'a photo of items behind man on a plain background' with seed 523
+0it [00:00, ?it/s]4it [00:00,  4.03it/s]4it [00:00,  4.24it/s]
+1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] behind         :   9%|▉         | 22/234 [07:35<57:45, 16.35s/it, saved=sample_0022.pt][GPU 0] behind         :  10%|▉         | 23/234 [07:35<56:36, 16.10s/it, saved=sample_0022.pt]Done in 15.5s.
+Generating 'a photo of crane behind building on a plain background' with seed 23
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.06it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :  10%|▉         | 23/233 [07:42<1:00:01, 17.15s/it, saved=sample_1023.pt][A[A
+
+[GPU 2] behind         :  10%|█         | 24/233 [07:42<57:51, 16.61s/it, saved=sample_1023.pt]  [A[ADone in 15.3s.
+Generating 'a photo of electric tower behind city on a plain background' with seed 1024
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]2it [00:00,  4.57it/s]3it [00:00,  4.21it/s]
+[GPU 1] behind         :  10%|▉         | 23/233 [07:46<59:54, 17.12s/it, saved=sample_0523.pt][A
+[GPU 1] behind         :  10%|█         | 24/233 [07:46<57:56, 16.64s/it, saved=sample_0523.pt][A4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+Done in 15.5s.
+Generating 'a photo of shelf behind man on a plain background' with seed 524
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.22it/s]
+[GPU 0] behind         :  10%|▉         | 23/234 [07:51<56:36, 16.10s/it, saved=sample_0023.pt][GPU 0] behind         :  10%|█         | 24/234 [07:51<56:14, 16.07s/it, saved=sample_0023.pt]Done in 16.0s.
+Generating 'a photo of plant behind chair on a plain background' with seed 24
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.18it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.04it/s][A4it [00:00,  4.24it/s]
+
+
+[GPU 2] behind         :  10%|█         | 24/233 [07:58<57:51, 16.61s/it, saved=sample_1024.pt][A[A
+
+[GPU 2] behind         :  11%|█         | 25/233 [07:58<56:33, 16.31s/it, saved=sample_1024.pt][A[ADone in 15.6s.
+Generating 'a photo of city behind bridge on a plain background' with seed 1025
+0it [00:00, ?it/s]1it [00:00,  6.18it/s]2it [00:00,  4.56it/s]3it [00:00,  4.21it/s]4it [00:00,  4.05it/s]4it [00:00,  4.24it/s]
+
+[GPU 1] behind         :  10%|█         | 24/233 [08:02<57:56, 16.64s/it, saved=sample_0524.pt][A
+[GPU 1] behind         :  11%|█         | 25/233 [08:02<57:16, 16.52s/it, saved=sample_0524.pt][ADone in 16.2s.
+Generating 'a photo of door behind room on a plain background' with seed 525
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.02it/s]4it [00:00,  4.22it/s]
+[GPU 0] behind         :  10%|█         | 24/234 [08:06<56:14, 16.07s/it, saved=sample_0024.pt][GPU 0] behind         :  11%|█         | 25/234 [08:06<55:16, 15.87s/it, saved=sample_0024.pt]Done in 15.4s.
+Generating 'a photo of wall behind man on a plain background' with seed 25
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :  11%|█         | 25/233 [08:14<56:33, 16.31s/it, saved=sample_1025.pt][A[A
+
+[GPU 2] behind         :  11%|█         | 26/233 [08:14<56:11, 16.29s/it, saved=sample_1025.pt][A[ADone in 16.2s.
+Generating 'a photo of building behind bridge on a plain background' with seed 1026
+0it [00:00, ?it/s]1it [00:00,  6.19it/s]2it [00:00,  4.57it/s]3it [00:00,  4.21it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] behind         :  11%|█         | 25/233 [08:19<57:16, 16.52s/it, saved=sample_0525.pt][A
+[GPU 1] behind         :  11%|█         | 26/233 [08:19<57:30, 16.67s/it, saved=sample_0525.pt][ADone in 17.0s.
+Generating 'a photo of guitar case behind sofa on a plain background' with seed 526
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] behind         :  11%|█         | 25/234 [08:21<55:16, 15.87s/it, saved=sample_0025.pt][GPU 0] behind         :  11%|█         | 26/234 [08:21<54:12, 15.64s/it, saved=sample_0025.pt]Done in 15.1s.
+Generating 'a photo of windows behind racks on a plain background' with seed 26
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.24it/s]
+
+
+[GPU 2] behind         :  11%|█         | 26/233 [08:29<56:11, 16.29s/it, saved=sample_1026.pt][A[A
+
+[GPU 2] behind         :  12%|█▏        | 27/233 [08:29<55:14, 16.09s/it, saved=sample_1026.pt][A[ADone in 15.6s.
+Generating 'a photo of building behind bridge on a plain background' with seed 1027
+0it [00:00, ?it/s]1it [00:00,  6.22it/s]2it [00:00,  4.58it/s]3it [00:00,  4.22it/s]4it [00:00,  4.00it/s]4it [00:00,  4.22it/s]
+
+[GPU 1] behind         :  11%|█         | 26/233 [08:35<57:30, 16.67s/it, saved=sample_0526.pt][A
+[GPU 1] behind         :  12%|█▏        | 27/233 [08:35<56:33, 16.48s/it, saved=sample_0526.pt][ADone in 16.0s.
+Generating 'a photo of table behind person on a plain background' with seed 527
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.01it/s]4it [00:00,  4.22it/s]
+[GPU 0] behind         :  11%|█         | 26/234 [08:38<54:12, 15.64s/it, saved=sample_0026.pt][GPU 0] behind         :  12%|█▏        | 27/234 [08:38<54:28, 15.79s/it, saved=sample_0026.pt]Done in 16.1s.
+Generating 'a photo of windows behind trays on a plain background' with seed 27
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.06it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :  12%|█▏        | 27/233 [08:45<55:14, 16.09s/it, saved=sample_1027.pt][A[A
+
+[GPU 2] behind         :  12%|█▏        | 28/233 [08:45<54:42, 16.01s/it, saved=sample_1027.pt][A[ADone in 15.8s.
+Generating 'a photo of building behind bridge on a plain background' with seed 1028
+0it [00:00, ?it/s]1it [00:00,  6.20it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]4it [00:00,  4.06it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] behind         :  12%|█▏        | 27/233 [08:52<56:33, 16.48s/it, saved=sample_0527.pt][A
+[GPU 1] behind         :  12%|█▏        | 28/233 [08:52<55:53, 16.36s/it, saved=sample_0527.pt][ADone in 16.1s.
+Generating 'a photo of sky behind clouds on a plain background' with seed 528
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+[GPU 0] behind         :  12%|█▏        | 27/234 [08:53<54:28, 15.79s/it, saved=sample_0027.pt][GPU 0] behind         :  12%|█▏        | 28/234 [08:53<54:05, 15.75s/it, saved=sample_0027.pt]Done in 15.6s.
+Generating 'a photo of bin behind fence on a plain background' with seed 28
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :  12%|█▏        | 28/233 [09:01<54:42, 16.01s/it, saved=sample_1028.pt][A[A
+
+[GPU 2] behind         :  12%|█▏        | 29/233 [09:01<54:25, 16.01s/it, saved=sample_1028.pt][A[ADone in 16.0s.
+Generating 'a photo of building behind bridge on a plain background' with seed 1029
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] behind         :  12%|█▏        | 28/233 [09:08<55:53, 16.36s/it, saved=sample_0528.pt][A
+[GPU 1] behind         :  12%|█▏        | 29/233 [09:08<55:39, 16.37s/it, saved=sample_0528.pt][ADone in 16.4s.
+Generating 'a photo of clouds behind man on a plain background' with seed 529
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+[GPU 0] behind         :  12%|█▏        | 28/234 [09:09<54:05, 15.75s/it, saved=sample_0028.pt][GPU 0] behind         :  12%|█▏        | 29/234 [09:09<53:33, 15.68s/it, saved=sample_0028.pt]Done in 15.5s.
+Generating 'a photo of bin behind fence on a plain background' with seed 29
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :  12%|█▏        | 29/233 [09:17<54:25, 16.01s/it, saved=sample_1029.pt][A[A
+
+[GPU 2] behind         :  13%|█▎        | 30/233 [09:17<53:37, 15.85s/it, saved=sample_1029.pt][A[ADone in 15.4s.
+Generating 'a photo of building behind building on a plain background' with seed 1030
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]4it [00:00,  4.06it/s]4it [00:00,  4.26it/s]
+
+[GPU 1] behind         :  12%|█▏        | 29/233 [09:24<55:39, 16.37s/it, saved=sample_0529.pt][A
+[GPU 1] behind         :  13%|█▎        | 30/233 [09:24<54:41, 16.16s/it, saved=sample_0529.pt][ADone in 15.6s.
+Generating 'a photo of palm trees behind bushes on a plain background' with seed 530
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.54it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+[GPU 0] behind         :  12%|█▏        | 29/234 [09:25<53:33, 15.68s/it, saved=sample_0029.pt][GPU 0] behind         :  13%|█▎        | 30/234 [09:25<53:47, 15.82s/it, saved=sample_0029.pt]Done in 16.1s.
+Generating 'a photo of man behind fence on a plain background' with seed 30
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.24it/s]
+
+
+[GPU 2] behind         :  13%|█▎        | 30/233 [09:33<53:37, 15.85s/it, saved=sample_1030.pt][A[A
+
+[GPU 2] behind         :  13%|█▎        | 31/233 [09:33<53:33, 15.91s/it, saved=sample_1030.pt][A[ADone in 16.0s.
+Generating 'a photo of window behind person on a plain background' with seed 1031
+0it [00:00, ?it/s]1it [00:00,  6.21it/s]2it [00:00,  4.57it/s]3it [00:00,  4.22it/s]4it [00:00,  4.05it/s]4it [00:00,  4.25it/s]
+
+[GPU 1] behind         :  13%|█▎        | 30/233 [09:39<54:41, 16.16s/it, saved=sample_0530.pt][A
+[GPU 1] behind         :  13%|█▎        | 31/233 [09:39<53:53, 16.01s/it, saved=sample_0530.pt][ADone in 15.6s.
+Generating 'a photo of building behind dome on a plain background' with seed 531
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.55it/s]3it [00:00,  4.19it/s]4it [00:00,  4.03it/s]4it [00:00,  4.23it/s]
+[GPU 0] behind         :  13%|█▎        | 30/234 [09:41<53:47, 15.82s/it, saved=sample_0030.pt][GPU 0] behind         :  13%|█▎        | 31/234 [09:41<53:27, 15.80s/it, saved=sample_0030.pt]Done in 15.7s.
+Generating 'a photo of window behind balcon on a plain background' with seed 31
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+
+[GPU 2] behind         :  13%|█▎        | 31/233 [09:57<53:33, 15.91s/it, saved=sample_1031.pt][A[A
+
+[GPU 2] behind         :  14%|█▎        | 32/233 [09:57<1:01:46, 18.44s/it, saved=sample_1031.pt][A[ADone in 24.3s.
+Generating 'a photo of window behind person on a plain background' with seed 1032
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.55it/s]3it [00:00,  4.20it/s]4it [00:01,  3.03it/s]4it [00:01,  3.47it/s]
+
+[GPU 1] behind         :  13%|█▎        | 31/233 [10:09<53:53, 16.01s/it, saved=sample_0531.pt][A
+[GPU 1] behind         :  14%|█▎        | 32/233 [10:09<1:07:09, 20.05s/it, saved=sample_0531.pt][ADone in 29.4s.
+Generating 'a photo of man behind car on a plain background' with seed 532
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  3.99it/s]4it [00:00,  4.19it/s]
+/home/namanb/miniconda3/envs/cse677/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 3 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
