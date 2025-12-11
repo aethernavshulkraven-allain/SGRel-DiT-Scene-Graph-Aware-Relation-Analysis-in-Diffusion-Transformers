@@ -16,7 +16,7 @@ ROOT = Path('..').resolve()
 DATA_ROOT = ROOT.parent / 'saliency_datasets' / 'early_layers'
 assert DATA_ROOT.exists(), DATA_ROOT
 
-DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+DEVICE = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
 
 def _normalize(x, strategy):
     if strategy == 'none':
@@ -329,7 +329,7 @@ def main():
     for cfg in configs:
         print(f"\n=== Running {cfg['name']} ===")
         res=run_experiment({**cfg,
-                            'epochs':5,
+                            'epochs':100,
                             'batch_size':128,
                             'widen_factor':8,
                             'dropout':0.3,
