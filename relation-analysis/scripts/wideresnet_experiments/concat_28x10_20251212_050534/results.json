@@ -1,0 +1,24 @@
+{
+  "fusion_mode": "concat",
+  "best_val_acc": 0.8091269841269841,
+  "test_acc": 0.8119047619047619,
+  "test_loss": 0.8494078825390529,
+  "num_params": 36488600,
+  "config": {
+    "data_dir": "/home/namanb/SBILab/CSE677/Project/saliency_datasets/early_layers",
+    "output_dir": "wideresnet_experiments",
+    "test_size": 0.15,
+    "val_size": 0.15,
+    "fusion_mode": "concat",
+    "depth": 28,
+    "widen_factor": 10,
+    "dropout": 0.3,
+    "epochs": 50,
+    "batch_size": 64,
+    "lr": 0.01,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "num_workers": 4,
+    "seed": 42
+  }
+}

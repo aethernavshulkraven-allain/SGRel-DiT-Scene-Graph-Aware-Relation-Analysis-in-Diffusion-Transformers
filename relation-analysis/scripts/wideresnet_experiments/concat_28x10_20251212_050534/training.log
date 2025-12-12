@@ -1,0 +1,571 @@
+2025-12-12 05:05:34,369 - INFO - Experiment: concat_28x10_20251212_050534
+2025-12-12 05:05:34,369 - INFO - Arguments: {'data_dir': '/home/namanb/SBILab/CSE677/Project/saliency_datasets/early_layers', 'output_dir': 'wideresnet_experiments', 'test_size': 0.15, 'val_size': 0.15, 'fusion_mode': 'concat', 'depth': 28, 'widen_factor': 10, 'dropout': 0.3, 'epochs': 50, 'batch_size': 64, 'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005, 'num_workers': 4, 'seed': 42}
+2025-12-12 05:05:34,369 - INFO - Loading dataset...
+2025-12-12 05:05:34,556 - INFO - Creating WideResNet-28-10 with 6 input channels...
+2025-12-12 05:05:35,112 - INFO - Model has 36,488,600 parameters
+2025-12-12 05:05:35,113 - INFO - Starting training...
+2025-12-12 05:05:35,113 - INFO - 
+Epoch 1/50
+2025-12-12 05:05:35,113 - INFO - Learning rate: 0.010000
+2025-12-12 05:05:50,276 - INFO - Train Loss: 2.7090, Train Acc: 0.1873
+2025-12-12 05:05:50,276 - INFO - Val Loss: 2.5177, Val Acc: 0.2567
+2025-12-12 05:05:50,645 - INFO - Saved best model with val_acc: 0.2567
+2025-12-12 05:05:50,645 - INFO - 
+Epoch 2/50
+2025-12-12 05:05:50,645 - INFO - Learning rate: 0.009990
+2025-12-12 05:06:05,439 - INFO - Train Loss: 2.3365, Train Acc: 0.2965
+2025-12-12 05:06:05,439 - INFO - Val Loss: 2.4118, Val Acc: 0.2889
+2025-12-12 05:06:06,238 - INFO - Saved best model with val_acc: 0.2889
+2025-12-12 05:06:06,238 - INFO - 
+Epoch 3/50
+2025-12-12 05:06:06,238 - INFO - Learning rate: 0.009961
+2025-12-12 05:06:21,241 - INFO - Train Loss: 2.1094, Train Acc: 0.3591
+2025-12-12 05:06:21,242 - INFO - Val Loss: 2.0414, Val Acc: 0.3829
+2025-12-12 05:06:21,722 - INFO - Saved best model with val_acc: 0.3829
+2025-12-12 05:06:21,722 - INFO - 
+Epoch 4/50
+2025-12-12 05:06:21,722 - INFO - Learning rate: 0.009911
+2025-12-12 05:06:36,702 - INFO - Train Loss: 1.9081, Train Acc: 0.4214
+2025-12-12 05:06:36,702 - INFO - Val Loss: 1.9190, Val Acc: 0.4310
+2025-12-12 05:06:37,237 - INFO - Saved best model with val_acc: 0.4310
+2025-12-12 05:06:37,238 - INFO - 
+Epoch 5/50
+2025-12-12 05:06:37,238 - INFO - Learning rate: 0.009843
+2025-12-12 05:06:52,235 - INFO - Train Loss: 1.6997, Train Acc: 0.4815
+2025-12-12 05:06:52,235 - INFO - Val Loss: 1.7912, Val Acc: 0.4794
+2025-12-12 05:06:52,699 - INFO - Saved best model with val_acc: 0.4794
+2025-12-12 05:06:52,699 - INFO - 
+Epoch 6/50
+2025-12-12 05:06:52,699 - INFO - Learning rate: 0.009755
+2025-12-12 05:07:07,664 - INFO - Train Loss: 1.4490, Train Acc: 0.5518
+2025-12-12 05:07:07,665 - INFO - Val Loss: 2.0896, Val Acc: 0.4615
+2025-12-12 05:07:07,665 - INFO - 
+Epoch 7/50
+2025-12-12 05:07:07,665 - INFO - Learning rate: 0.009649
+2025-12-12 05:07:22,569 - INFO - Train Loss: 1.2425, Train Acc: 0.6158
+2025-12-12 05:07:22,570 - INFO - Val Loss: 1.3385, Val Acc: 0.5968
+2025-12-12 05:07:23,217 - INFO - Saved best model with val_acc: 0.5968
+2025-12-12 05:07:23,217 - INFO - 
+Epoch 8/50
+2025-12-12 05:07:23,217 - INFO - Learning rate: 0.009524
+2025-12-12 05:07:38,153 - INFO - Train Loss: 1.0760, Train Acc: 0.6665
+2025-12-12 05:07:38,154 - INFO - Val Loss: 1.3044, Val Acc: 0.6103
+2025-12-12 05:07:38,674 - INFO - Saved best model with val_acc: 0.6103
+2025-12-12 05:07:38,674 - INFO - 
+Epoch 9/50
+2025-12-12 05:07:38,674 - INFO - Learning rate: 0.009382
+2025-12-12 05:07:53,585 - INFO - Train Loss: 0.9635, Train Acc: 0.6946
+2025-12-12 05:07:53,585 - INFO - Val Loss: 1.2006, Val Acc: 0.6361
+2025-12-12 05:07:54,117 - INFO - Saved best model with val_acc: 0.6361
+2025-12-12 05:07:54,118 - INFO - 
+Epoch 10/50
+2025-12-12 05:07:54,118 - INFO - Learning rate: 0.009222
+2025-12-12 05:08:09,017 - INFO - Train Loss: 0.8836, Train Acc: 0.7200
+2025-12-12 05:08:09,017 - INFO - Val Loss: 1.0882, Val Acc: 0.6758
+2025-12-12 05:08:09,695 - INFO - Saved best model with val_acc: 0.6758
+2025-12-12 05:08:10,092 - INFO - 
+Epoch 11/50
+2025-12-12 05:08:10,092 - INFO - Learning rate: 0.009045
+2025-12-12 05:08:25,064 - INFO - Train Loss: 0.8043, Train Acc: 0.7405
+2025-12-12 05:08:25,065 - INFO - Val Loss: 1.0153, Val Acc: 0.6968
+2025-12-12 05:08:25,719 - INFO - Saved best model with val_acc: 0.6968
+2025-12-12 05:08:25,720 - INFO - 
+Epoch 12/50
+2025-12-12 05:08:25,720 - INFO - Learning rate: 0.008853
+2025-12-12 05:08:40,657 - INFO - Train Loss: 0.7317, Train Acc: 0.7648
+2025-12-12 05:08:40,657 - INFO - Val Loss: 1.0612, Val Acc: 0.6821
+2025-12-12 05:08:40,657 - INFO - 
+Epoch 13/50
+2025-12-12 05:08:40,657 - INFO - Learning rate: 0.008645
+2025-12-12 05:08:55,563 - INFO - Train Loss: 0.6680, Train Acc: 0.7867
+2025-12-12 05:08:55,563 - INFO - Val Loss: 0.9286, Val Acc: 0.7194
+2025-12-12 05:08:56,311 - INFO - Saved best model with val_acc: 0.7194
+2025-12-12 05:08:56,311 - INFO - 
+Epoch 14/50
+2025-12-12 05:08:56,312 - INFO - Learning rate: 0.008423
+2025-12-12 05:09:11,313 - INFO - Train Loss: 0.6049, Train Acc: 0.8030
+2025-12-12 05:09:11,313 - INFO - Val Loss: 0.9501, Val Acc: 0.7179
+2025-12-12 05:09:11,313 - INFO - 
+Epoch 15/50
+2025-12-12 05:09:11,313 - INFO - Learning rate: 0.008187
+2025-12-12 05:09:26,293 - INFO - Train Loss: 0.5396, Train Acc: 0.8259
+2025-12-12 05:09:26,293 - INFO - Val Loss: 0.8739, Val Acc: 0.7369
+2025-12-12 05:09:26,799 - INFO - Saved best model with val_acc: 0.7369
+2025-12-12 05:09:26,799 - INFO - 
+Epoch 16/50
+2025-12-12 05:09:26,799 - INFO - Learning rate: 0.007939
+2025-12-12 05:09:41,778 - INFO - Train Loss: 0.4919, Train Acc: 0.8402
+2025-12-12 05:09:41,778 - INFO - Val Loss: 0.9363, Val Acc: 0.7313
+2025-12-12 05:09:41,779 - INFO - 
+Epoch 17/50
+2025-12-12 05:09:41,779 - INFO - Learning rate: 0.007679
+2025-12-12 05:09:56,749 - INFO - Train Loss: 0.4392, Train Acc: 0.8554
+2025-12-12 05:09:56,749 - INFO - Val Loss: 0.9660, Val Acc: 0.7413
+2025-12-12 05:09:57,414 - INFO - Saved best model with val_acc: 0.7413
+2025-12-12 05:09:57,414 - INFO - 
+Epoch 18/50
+2025-12-12 05:09:57,414 - INFO - Learning rate: 0.007409
+2025-12-12 05:10:12,345 - INFO - Train Loss: 0.3873, Train Acc: 0.8736
+2025-12-12 05:10:12,345 - INFO - Val Loss: 0.8932, Val Acc: 0.7548
+2025-12-12 05:10:12,957 - INFO - Saved best model with val_acc: 0.7548
+2025-12-12 05:10:12,958 - INFO - 
+Epoch 19/50
+2025-12-12 05:10:12,958 - INFO - Learning rate: 0.007129
+2025-12-12 05:10:27,946 - INFO - Train Loss: 0.3477, Train Acc: 0.8851
+2025-12-12 05:10:27,946 - INFO - Val Loss: 0.9210, Val Acc: 0.7425
+2025-12-12 05:10:27,946 - INFO - 
+Epoch 20/50
+2025-12-12 05:10:27,946 - INFO - Learning rate: 0.006841
+2025-12-12 05:10:42,982 - INFO - Train Loss: 0.3191, Train Acc: 0.8947
+2025-12-12 05:10:42,983 - INFO - Val Loss: 0.9064, Val Acc: 0.7508
+2025-12-12 05:10:43,356 - INFO - 
+Epoch 21/50
+2025-12-12 05:10:43,357 - INFO - Learning rate: 0.006545
+2025-12-12 05:10:58,354 - INFO - Train Loss: 0.2591, Train Acc: 0.9160
+2025-12-12 05:10:58,355 - INFO - Val Loss: 0.8722, Val Acc: 0.7603
+2025-12-12 05:10:58,962 - INFO - Saved best model with val_acc: 0.7603
+2025-12-12 05:10:58,962 - INFO - 
+Epoch 22/50
+2025-12-12 05:10:58,962 - INFO - Learning rate: 0.006243
+2025-12-12 05:11:13,914 - INFO - Train Loss: 0.2381, Train Acc: 0.9241
+2025-12-12 05:11:13,915 - INFO - Val Loss: 0.9741, Val Acc: 0.7552
+2025-12-12 05:11:13,915 - INFO - 
+Epoch 23/50
+2025-12-12 05:11:13,915 - INFO - Learning rate: 0.005937
+2025-12-12 05:11:28,870 - INFO - Train Loss: 0.1885, Train Acc: 0.9418
+2025-12-12 05:11:28,870 - INFO - Val Loss: 0.8949, Val Acc: 0.7647
+2025-12-12 05:11:29,557 - INFO - Saved best model with val_acc: 0.7647
+2025-12-12 05:11:29,558 - INFO - 
+Epoch 24/50
+2025-12-12 05:11:29,558 - INFO - Learning rate: 0.005627
+2025-12-12 05:11:44,596 - INFO - Train Loss: 0.1655, Train Acc: 0.9479
+2025-12-12 05:11:44,596 - INFO - Val Loss: 0.9210, Val Acc: 0.7667
+2025-12-12 05:11:45,460 - INFO - Saved best model with val_acc: 0.7667
+2025-12-12 05:11:45,460 - INFO - 
+Epoch 25/50
+2025-12-12 05:11:45,460 - INFO - Learning rate: 0.005314
+2025-12-12 05:12:00,499 - INFO - Train Loss: 0.1320, Train Acc: 0.9616
+2025-12-12 05:12:00,500 - INFO - Val Loss: 0.9214, Val Acc: 0.7710
+2025-12-12 05:12:01,011 - INFO - Saved best model with val_acc: 0.7710
+2025-12-12 05:12:01,012 - INFO - 
+Epoch 26/50
+2025-12-12 05:12:01,012 - INFO - Learning rate: 0.005000
+2025-12-12 05:12:15,987 - INFO - Train Loss: 0.1151, Train Acc: 0.9680
+2025-12-12 05:12:15,988 - INFO - Val Loss: 0.9059, Val Acc: 0.7766
+2025-12-12 05:12:16,595 - INFO - Saved best model with val_acc: 0.7766
+2025-12-12 05:12:16,595 - INFO - 
+Epoch 27/50
+2025-12-12 05:12:16,595 - INFO - Learning rate: 0.004686
+2025-12-12 05:12:31,621 - INFO - Train Loss: 0.1028, Train Acc: 0.9704
+2025-12-12 05:12:31,621 - INFO - Val Loss: 0.8934, Val Acc: 0.7845
+2025-12-12 05:12:32,296 - INFO - Saved best model with val_acc: 0.7845
+2025-12-12 05:12:32,296 - INFO - 
+Epoch 28/50
+2025-12-12 05:12:32,296 - INFO - Learning rate: 0.004373
+2025-12-12 05:12:47,307 - INFO - Train Loss: 0.0806, Train Acc: 0.9793
+2025-12-12 05:12:47,307 - INFO - Val Loss: 0.9285, Val Acc: 0.7774
+2025-12-12 05:12:47,307 - INFO - 
+Epoch 29/50
+2025-12-12 05:12:47,307 - INFO - Learning rate: 0.004063
+2025-12-12 05:13:02,368 - INFO - Train Loss: 0.0674, Train Acc: 0.9847
+2025-12-12 05:13:02,369 - INFO - Val Loss: 0.9572, Val Acc: 0.7750
+2025-12-12 05:13:02,369 - INFO - 
+Epoch 30/50
+2025-12-12 05:13:02,369 - INFO - Learning rate: 0.003757
+2025-12-12 05:13:17,418 - INFO - Train Loss: 0.0570, Train Acc: 0.9883
+2025-12-12 05:13:17,418 - INFO - Val Loss: 0.8543, Val Acc: 0.7960
+2025-12-12 05:13:17,941 - INFO - Saved best model with val_acc: 0.7960
+2025-12-12 05:13:18,314 - INFO - 
+Epoch 31/50
+2025-12-12 05:13:18,315 - INFO - Learning rate: 0.003455
+2025-12-12 05:13:33,351 - INFO - Train Loss: 0.0451, Train Acc: 0.9912
+2025-12-12 05:13:33,352 - INFO - Val Loss: 0.8835, Val Acc: 0.7937
+2025-12-12 05:13:33,352 - INFO - 
+Epoch 32/50
+2025-12-12 05:13:33,352 - INFO - Learning rate: 0.003159
+2025-12-12 05:13:48,341 - INFO - Train Loss: 0.0351, Train Acc: 0.9949
+2025-12-12 05:13:48,341 - INFO - Val Loss: 0.8790, Val Acc: 0.7988
+2025-12-12 05:13:49,068 - INFO - Saved best model with val_acc: 0.7988
+2025-12-12 05:13:49,069 - INFO - 
+Epoch 33/50
+2025-12-12 05:13:49,069 - INFO - Learning rate: 0.002871
+2025-12-12 05:14:04,084 - INFO - Train Loss: 0.0352, Train Acc: 0.9942
+2025-12-12 05:14:04,085 - INFO - Val Loss: 0.8566, Val Acc: 0.8040
+2025-12-12 05:14:04,671 - INFO - Saved best model with val_acc: 0.8040
+2025-12-12 05:14:04,671 - INFO - 
+Epoch 34/50
+2025-12-12 05:14:04,671 - INFO - Learning rate: 0.002591
+2025-12-12 05:14:19,641 - INFO - Train Loss: 0.0304, Train Acc: 0.9946
+2025-12-12 05:14:19,641 - INFO - Val Loss: 0.8416, Val Acc: 0.8004
+2025-12-12 05:14:19,641 - INFO - 
+Epoch 35/50
+2025-12-12 05:14:19,641 - INFO - Learning rate: 0.002321
+2025-12-12 05:14:34,677 - INFO - Train Loss: 0.0293, Train Acc: 0.9949
+2025-12-12 05:14:34,677 - INFO - Val Loss: 0.8715, Val Acc: 0.8004
+2025-12-12 05:14:34,677 - INFO - 
+Epoch 36/50
+2025-12-12 05:14:34,677 - INFO - Learning rate: 0.002061
+2025-12-12 05:14:49,718 - INFO - Train Loss: 0.0254, Train Acc: 0.9968
+2025-12-12 05:14:49,718 - INFO - Val Loss: 0.8519, Val Acc: 0.7972
+2025-12-12 05:14:49,718 - INFO - 
+Epoch 37/50
+2025-12-12 05:14:49,718 - INFO - Learning rate: 0.001813
+2025-12-12 05:15:04,774 - INFO - Train Loss: 0.0224, Train Acc: 0.9969
+2025-12-12 05:15:04,775 - INFO - Val Loss: 0.8440, Val Acc: 0.8024
+2025-12-12 05:15:04,775 - INFO - 
+Epoch 38/50
+2025-12-12 05:15:04,775 - INFO - Learning rate: 0.001577
+2025-12-12 05:15:19,813 - INFO - Train Loss: 0.0208, Train Acc: 0.9976
+2025-12-12 05:15:19,813 - INFO - Val Loss: 0.8569, Val Acc: 0.8036
+2025-12-12 05:15:19,813 - INFO - 
+Epoch 39/50
+2025-12-12 05:15:19,813 - INFO - Learning rate: 0.001355
+2025-12-12 05:15:34,851 - INFO - Train Loss: 0.0180, Train Acc: 0.9979
+2025-12-12 05:15:34,851 - INFO - Val Loss: 0.8513, Val Acc: 0.7984
+2025-12-12 05:15:34,852 - INFO - 
+Epoch 40/50
+2025-12-12 05:15:34,852 - INFO - Learning rate: 0.001147
+2025-12-12 05:15:49,903 - INFO - Train Loss: 0.0182, Train Acc: 0.9979
+2025-12-12 05:15:49,903 - INFO - Val Loss: 0.8395, Val Acc: 0.8083
+2025-12-12 05:15:50,529 - INFO - Saved best model with val_acc: 0.8083
+2025-12-12 05:15:50,938 - INFO - 
+Epoch 41/50
+2025-12-12 05:15:50,939 - INFO - Learning rate: 0.000955
+2025-12-12 05:16:05,992 - INFO - Train Loss: 0.0173, Train Acc: 0.9986
+2025-12-12 05:16:05,992 - INFO - Val Loss: 0.8348, Val Acc: 0.8052
+2025-12-12 05:16:05,992 - INFO - 
+Epoch 42/50
+2025-12-12 05:16:05,992 - INFO - Learning rate: 0.000778
+2025-12-12 05:16:21,119 - INFO - Train Loss: 0.0157, Train Acc: 0.9987
+2025-12-12 05:16:21,119 - INFO - Val Loss: 0.8390, Val Acc: 0.8083
+2025-12-12 05:16:21,119 - INFO - 
+Epoch 43/50
+2025-12-12 05:16:21,119 - INFO - Learning rate: 0.000618
+2025-12-12 05:16:36,205 - INFO - Train Loss: 0.0154, Train Acc: 0.9989
+2025-12-12 05:16:36,205 - INFO - Val Loss: 0.8417, Val Acc: 0.8079
+2025-12-12 05:16:36,205 - INFO - 
+Epoch 44/50
+2025-12-12 05:16:36,205 - INFO - Learning rate: 0.000476
+2025-12-12 05:16:51,246 - INFO - Train Loss: 0.0157, Train Acc: 0.9986
+2025-12-12 05:16:51,247 - INFO - Val Loss: 0.8360, Val Acc: 0.8075
+2025-12-12 05:16:51,247 - INFO - 
+Epoch 45/50
+2025-12-12 05:16:51,247 - INFO - Learning rate: 0.000351
+2025-12-12 05:17:06,248 - INFO - Train Loss: 0.0140, Train Acc: 0.9993
+2025-12-12 05:17:06,249 - INFO - Val Loss: 0.8302, Val Acc: 0.8044
+2025-12-12 05:17:06,249 - INFO - 
+Epoch 46/50
+2025-12-12 05:17:06,249 - INFO - Learning rate: 0.000245
+2025-12-12 05:17:21,266 - INFO - Train Loss: 0.0152, Train Acc: 0.9986
+2025-12-12 05:17:21,266 - INFO - Val Loss: 0.8429, Val Acc: 0.8091
+2025-12-12 05:17:21,907 - INFO - Saved best model with val_acc: 0.8091
+2025-12-12 05:17:21,908 - INFO - 
+Epoch 47/50
+2025-12-12 05:17:21,908 - INFO - Learning rate: 0.000157
+2025-12-12 05:17:36,960 - INFO - Train Loss: 0.0142, Train Acc: 0.9991
+2025-12-12 05:17:36,960 - INFO - Val Loss: 0.8369, Val Acc: 0.8079
+2025-12-12 05:17:36,960 - INFO - 
+Epoch 48/50
+2025-12-12 05:17:36,960 - INFO - Learning rate: 0.000089
+2025-12-12 05:17:51,983 - INFO - Train Loss: 0.0139, Train Acc: 0.9993
+2025-12-12 05:17:51,983 - INFO - Val Loss: 0.8411, Val Acc: 0.8040
+2025-12-12 05:17:51,984 - INFO - 
+Epoch 49/50
+2025-12-12 05:17:51,984 - INFO - Learning rate: 0.000039
+2025-12-12 05:18:07,058 - INFO - Train Loss: 0.0151, Train Acc: 0.9986
+2025-12-12 05:18:07,058 - INFO - Val Loss: 0.8435, Val Acc: 0.8071
+2025-12-12 05:18:07,058 - INFO - 
+Epoch 50/50
+2025-12-12 05:18:07,058 - INFO - Learning rate: 0.000010
+2025-12-12 05:18:22,101 - INFO - Train Loss: 0.0138, Train Acc: 0.9994
+2025-12-12 05:18:22,101 - INFO - Val Loss: 0.8450, Val Acc: 0.8063
+2025-12-12 05:18:23,323 - INFO - 
+Evaluating on test set with best model...
+2025-12-12 05:18:24,552 - INFO - Test Loss: 0.8494, Test Acc: 0.8119
+2025-12-12 05:18:28,451 - INFO - 
+Classification Report:
+              precision    recall  f1-score   support
+
+       above       0.81      0.75      0.78       105
+ around_near       0.86      0.90      0.88       105
+      behind       0.79      0.76      0.78       105
+       below       0.65      0.52      0.58       105
+    carrying       0.73      0.89      0.80       105
+    drinking       0.94      0.95      0.95       105
+      eating       0.84      0.87      0.85       105
+hanging from       0.88      0.82      0.85       105
+     holding       0.74      0.74      0.74       105
+          in       0.74      0.70      0.72       105
+ in front of       0.90      0.96      0.93       105
+     left of       0.78      0.66      0.72       105
+  looking at       0.85      0.90      0.87       105
+          on       0.75      0.78      0.77       105
+playing with       0.86      0.82      0.84       105
+     pulling       0.80      0.86      0.83       105
+     pushing       0.88      0.91      0.90       105
+      riding       0.84      0.90      0.87       105
+    right of       0.65      0.63      0.64       105
+  sitting on       0.89      0.82      0.85       105
+ standing on       0.90      0.90      0.90       105
+    touching       0.69      0.76      0.72       105
+       using       0.81      0.77      0.79       105
+     wearing       0.86      0.90      0.88       105
+
+    accuracy                           0.81      2520
+   macro avg       0.81      0.81      0.81      2520
+weighted avg       0.81      0.81      0.81      2520
+
+2025-12-12 05:18:28,451 - INFO - 
+Training complete! Results saved to wideresnet_experiments/concat_28x10_20251212_050534
+2025-12-12 05:18:28,472 - INFO - Experiment: saliency_only_28x10_20251212_051828
+2025-12-12 05:18:28,472 - INFO - Arguments: {'data_dir': '/home/namanb/SBILab/CSE677/Project/saliency_datasets/early_layers', 'output_dir': 'wideresnet_experiments', 'test_size': 0.15, 'val_size': 0.15, 'fusion_mode': 'saliency_only', 'depth': 28, 'widen_factor': 10, 'dropout': 0.3, 'epochs': 50, 'batch_size': 64, 'lr': 0.01, 'momentum': 0.9, 'weight_decay': 0.0005, 'num_workers': 4, 'seed': 42}
+2025-12-12 05:18:28,472 - INFO - Loading dataset...
+2025-12-12 05:18:28,565 - INFO - Creating WideResNet-28-10 with 3 input channels...
+2025-12-12 05:18:28,882 - INFO - Model has 36,488,168 parameters
+2025-12-12 05:18:28,882 - INFO - Starting training...
+2025-12-12 05:18:28,883 - INFO - 
+Epoch 1/50
+2025-12-12 05:18:28,883 - INFO - Learning rate: 0.010000
+2025-12-12 05:18:43,912 - INFO - Train Loss: 2.9848, Train Acc: 0.1220
+2025-12-12 05:18:43,913 - INFO - Val Loss: 3.0650, Val Acc: 0.1266
+2025-12-12 05:18:44,412 - INFO - Saved best model with val_acc: 0.1266
+2025-12-12 05:18:44,412 - INFO - 
+Epoch 2/50
+2025-12-12 05:18:44,412 - INFO - Learning rate: 0.009990
+2025-12-12 05:18:59,456 - INFO - Train Loss: 2.6312, Train Acc: 0.2219
+2025-12-12 05:18:59,456 - INFO - Val Loss: 2.5291, Val Acc: 0.2397
+2025-12-12 05:19:00,074 - INFO - Saved best model with val_acc: 0.2397
+2025-12-12 05:19:00,074 - INFO - 
+Epoch 3/50
+2025-12-12 05:19:00,074 - INFO - Learning rate: 0.009961
+2025-12-12 05:19:15,189 - INFO - Train Loss: 2.2392, Train Acc: 0.3326
+2025-12-12 05:19:15,190 - INFO - Val Loss: 2.4540, Val Acc: 0.2992
+2025-12-12 05:19:15,857 - INFO - Saved best model with val_acc: 0.2992
+2025-12-12 05:19:15,858 - INFO - 
+Epoch 4/50
+2025-12-12 05:19:15,858 - INFO - Learning rate: 0.009911
+2025-12-12 05:19:30,913 - INFO - Train Loss: 1.7679, Train Acc: 0.4627
+2025-12-12 05:19:30,914 - INFO - Val Loss: 2.0156, Val Acc: 0.4262
+2025-12-12 05:19:31,730 - INFO - Saved best model with val_acc: 0.4262
+2025-12-12 05:19:31,730 - INFO - 
+Epoch 5/50
+2025-12-12 05:19:31,731 - INFO - Learning rate: 0.009843
+2025-12-12 05:19:46,854 - INFO - Train Loss: 1.5594, Train Acc: 0.5232
+2025-12-12 05:19:46,855 - INFO - Val Loss: 1.7931, Val Acc: 0.4758
+2025-12-12 05:19:47,606 - INFO - Saved best model with val_acc: 0.4758
+2025-12-12 05:19:47,606 - INFO - 
+Epoch 6/50
+2025-12-12 05:19:47,606 - INFO - Learning rate: 0.009755
+2025-12-12 05:20:02,711 - INFO - Train Loss: 1.4240, Train Acc: 0.5548
+2025-12-12 05:20:02,711 - INFO - Val Loss: 1.6051, Val Acc: 0.5409
+2025-12-12 05:20:03,299 - INFO - Saved best model with val_acc: 0.5409
+2025-12-12 05:20:03,299 - INFO - 
+Epoch 7/50
+2025-12-12 05:20:03,299 - INFO - Learning rate: 0.009649
+2025-12-12 05:20:18,392 - INFO - Train Loss: 1.3226, Train Acc: 0.5914
+2025-12-12 05:20:18,392 - INFO - Val Loss: 1.6353, Val Acc: 0.5401
+2025-12-12 05:20:18,392 - INFO - 
+Epoch 8/50
+2025-12-12 05:20:18,392 - INFO - Learning rate: 0.009524
+2025-12-12 05:20:33,490 - INFO - Train Loss: 1.2177, Train Acc: 0.6179
+2025-12-12 05:20:33,490 - INFO - Val Loss: 1.6786, Val Acc: 0.5266
+2025-12-12 05:20:33,490 - INFO - 
+Epoch 9/50
+2025-12-12 05:20:33,490 - INFO - Learning rate: 0.009382
+2025-12-12 05:20:48,561 - INFO - Train Loss: 1.1352, Train Acc: 0.6440
+2025-12-12 05:20:48,562 - INFO - Val Loss: 1.3969, Val Acc: 0.5877
+2025-12-12 05:20:49,320 - INFO - Saved best model with val_acc: 0.5877
+2025-12-12 05:20:49,320 - INFO - 
+Epoch 10/50
+2025-12-12 05:20:49,320 - INFO - Learning rate: 0.009222
+2025-12-12 05:21:04,425 - INFO - Train Loss: 1.0442, Train Acc: 0.6688
+2025-12-12 05:21:04,426 - INFO - Val Loss: 1.4319, Val Acc: 0.5762
+2025-12-12 05:21:04,921 - INFO - 
+Epoch 11/50
+2025-12-12 05:21:04,921 - INFO - Learning rate: 0.009045
+2025-12-12 05:21:20,014 - INFO - Train Loss: 0.9705, Train Acc: 0.6910
+2025-12-12 05:21:20,014 - INFO - Val Loss: 1.3778, Val Acc: 0.5984
+2025-12-12 05:21:20,615 - INFO - Saved best model with val_acc: 0.5984
+2025-12-12 05:21:20,616 - INFO - 
+Epoch 12/50
+2025-12-12 05:21:20,616 - INFO - Learning rate: 0.008853
+2025-12-12 05:21:35,740 - INFO - Train Loss: 0.8897, Train Acc: 0.7164
+2025-12-12 05:21:35,740 - INFO - Val Loss: 1.3213, Val Acc: 0.6310
+2025-12-12 05:21:36,533 - INFO - Saved best model with val_acc: 0.6310
+2025-12-12 05:21:36,533 - INFO - 
+Epoch 13/50
+2025-12-12 05:21:36,533 - INFO - Learning rate: 0.008645
+2025-12-12 05:21:51,606 - INFO - Train Loss: 0.8154, Train Acc: 0.7424
+2025-12-12 05:21:51,606 - INFO - Val Loss: 1.2646, Val Acc: 0.6448
+2025-12-12 05:21:52,192 - INFO - Saved best model with val_acc: 0.6448
+2025-12-12 05:21:52,193 - INFO - 
+Epoch 14/50
+2025-12-12 05:21:52,193 - INFO - Learning rate: 0.008423
+2025-12-12 05:22:07,279 - INFO - Train Loss: 0.7462, Train Acc: 0.7575
+2025-12-12 05:22:07,279 - INFO - Val Loss: 1.3888, Val Acc: 0.6250
+2025-12-12 05:22:07,279 - INFO - 
+Epoch 15/50
+2025-12-12 05:22:07,279 - INFO - Learning rate: 0.008187
+2025-12-12 05:22:22,310 - INFO - Train Loss: 0.6742, Train Acc: 0.7825
+2025-12-12 05:22:22,310 - INFO - Val Loss: 1.3063, Val Acc: 0.6341
+2025-12-12 05:22:22,310 - INFO - 
+Epoch 16/50
+2025-12-12 05:22:22,310 - INFO - Learning rate: 0.007939
+2025-12-12 05:22:37,409 - INFO - Train Loss: 0.5943, Train Acc: 0.8042
+2025-12-12 05:22:37,409 - INFO - Val Loss: 1.3358, Val Acc: 0.6480
+2025-12-12 05:22:38,124 - INFO - Saved best model with val_acc: 0.6480
+2025-12-12 05:22:38,124 - INFO - 
+Epoch 17/50
+2025-12-12 05:22:38,124 - INFO - Learning rate: 0.007679
+2025-12-12 05:22:53,222 - INFO - Train Loss: 0.5273, Train Acc: 0.8300
+2025-12-12 05:22:53,222 - INFO - Val Loss: 1.3138, Val Acc: 0.6460
+2025-12-12 05:22:53,222 - INFO - 
+Epoch 18/50
+2025-12-12 05:22:53,222 - INFO - Learning rate: 0.007409
+2025-12-12 05:23:08,362 - INFO - Train Loss: 0.4635, Train Acc: 0.8496
+2025-12-12 05:23:08,362 - INFO - Val Loss: 1.3146, Val Acc: 0.6560
+2025-12-12 05:23:09,084 - INFO - Saved best model with val_acc: 0.6560
+2025-12-12 05:23:09,084 - INFO - 
+Epoch 19/50
+2025-12-12 05:23:09,084 - INFO - Learning rate: 0.007129
+2025-12-12 05:23:24,244 - INFO - Train Loss: 0.4102, Train Acc: 0.8658
+2025-12-12 05:23:24,244 - INFO - Val Loss: 1.3448, Val Acc: 0.6508
+2025-12-12 05:23:24,244 - INFO - 
+Epoch 20/50
+2025-12-12 05:23:24,244 - INFO - Learning rate: 0.006841
+2025-12-12 05:23:39,365 - INFO - Train Loss: 0.3598, Train Acc: 0.8854
+2025-12-12 05:23:39,365 - INFO - Val Loss: 1.4548, Val Acc: 0.6496
+2025-12-12 05:23:39,872 - INFO - 
+Epoch 21/50
+2025-12-12 05:23:39,873 - INFO - Learning rate: 0.006545
+2025-12-12 05:23:54,942 - INFO - Train Loss: 0.2928, Train Acc: 0.9090
+2025-12-12 05:23:54,943 - INFO - Val Loss: 1.5033, Val Acc: 0.6429
+2025-12-12 05:23:54,943 - INFO - 
+Epoch 22/50
+2025-12-12 05:23:54,943 - INFO - Learning rate: 0.006243
+2025-12-12 05:24:10,015 - INFO - Train Loss: 0.2611, Train Acc: 0.9162
+2025-12-12 05:24:10,015 - INFO - Val Loss: 1.5071, Val Acc: 0.6480
+2025-12-12 05:24:10,015 - INFO - 
+Epoch 23/50
+2025-12-12 05:24:10,015 - INFO - Learning rate: 0.005937
+2025-12-12 05:24:25,106 - INFO - Train Loss: 0.2030, Train Acc: 0.9402
+2025-12-12 05:24:25,106 - INFO - Val Loss: 1.5159, Val Acc: 0.6615
+2025-12-12 05:24:25,857 - INFO - Saved best model with val_acc: 0.6615
+2025-12-12 05:24:25,858 - INFO - 
+Epoch 24/50
+2025-12-12 05:24:25,858 - INFO - Learning rate: 0.005627
+2025-12-12 05:24:40,968 - INFO - Train Loss: 0.1733, Train Acc: 0.9486
+2025-12-12 05:24:40,968 - INFO - Val Loss: 1.4841, Val Acc: 0.6671
+2025-12-12 05:24:41,632 - INFO - Saved best model with val_acc: 0.6671
+2025-12-12 05:24:41,632 - INFO - 
+Epoch 25/50
+2025-12-12 05:24:41,632 - INFO - Learning rate: 0.005314
+2025-12-12 05:24:56,764 - INFO - Train Loss: 0.1495, Train Acc: 0.9562
+2025-12-12 05:24:56,764 - INFO - Val Loss: 1.4495, Val Acc: 0.6774
+2025-12-12 05:24:57,341 - INFO - Saved best model with val_acc: 0.6774
+2025-12-12 05:24:57,341 - INFO - 
+Epoch 26/50
+2025-12-12 05:24:57,341 - INFO - Learning rate: 0.005000
+2025-12-12 05:25:12,400 - INFO - Train Loss: 0.1209, Train Acc: 0.9664
+2025-12-12 05:25:12,400 - INFO - Val Loss: 1.4540, Val Acc: 0.6813
+2025-12-12 05:25:13,011 - INFO - Saved best model with val_acc: 0.6813
+2025-12-12 05:25:13,011 - INFO - 
+Epoch 27/50
+2025-12-12 05:25:13,011 - INFO - Learning rate: 0.004686
+2025-12-12 05:25:28,035 - INFO - Train Loss: 0.0975, Train Acc: 0.9762
+2025-12-12 05:25:28,035 - INFO - Val Loss: 1.4387, Val Acc: 0.6837
+2025-12-12 05:25:28,669 - INFO - Saved best model with val_acc: 0.6837
+2025-12-12 05:25:28,669 - INFO - 
+Epoch 28/50
+2025-12-12 05:25:28,669 - INFO - Learning rate: 0.004373
+2025-12-12 05:25:43,737 - INFO - Train Loss: 0.0779, Train Acc: 0.9816
+2025-12-12 05:25:43,737 - INFO - Val Loss: 1.4279, Val Acc: 0.6869
+2025-12-12 05:25:44,555 - INFO - Saved best model with val_acc: 0.6869
+2025-12-12 05:25:44,556 - INFO - 
+Epoch 29/50
+2025-12-12 05:25:44,556 - INFO - Learning rate: 0.004063
+2025-12-12 05:25:59,648 - INFO - Train Loss: 0.0678, Train Acc: 0.9840
+2025-12-12 05:25:59,648 - INFO - Val Loss: 1.4539, Val Acc: 0.6952
+2025-12-12 05:26:00,563 - INFO - Saved best model with val_acc: 0.6952
+2025-12-12 05:26:00,563 - INFO - 
+Epoch 30/50
+2025-12-12 05:26:00,563 - INFO - Learning rate: 0.003757
+2025-12-12 05:26:15,693 - INFO - Train Loss: 0.0594, Train Acc: 0.9866
+2025-12-12 05:26:15,693 - INFO - Val Loss: 1.3901, Val Acc: 0.7036
+2025-12-12 05:26:16,570 - INFO - Saved best model with val_acc: 0.7036
+2025-12-12 05:26:16,982 - INFO - 
+Epoch 31/50
+2025-12-12 05:26:16,983 - INFO - Learning rate: 0.003455
+2025-12-12 05:26:32,024 - INFO - Train Loss: 0.0492, Train Acc: 0.9900
+2025-12-12 05:26:32,024 - INFO - Val Loss: 1.4491, Val Acc: 0.6960
+2025-12-12 05:26:32,024 - INFO - 
+Epoch 32/50
+2025-12-12 05:26:32,024 - INFO - Learning rate: 0.003159
+2025-12-12 05:26:47,073 - INFO - Train Loss: 0.0415, Train Acc: 0.9906
+2025-12-12 05:26:47,073 - INFO - Val Loss: 1.4212, Val Acc: 0.7000
+2025-12-12 05:26:47,074 - INFO - 
+Epoch 33/50
+2025-12-12 05:26:47,074 - INFO - Learning rate: 0.002871
+2025-12-12 05:27:02,174 - INFO - Train Loss: 0.0370, Train Acc: 0.9930
+2025-12-12 05:27:02,174 - INFO - Val Loss: 1.4520, Val Acc: 0.7016
+2025-12-12 05:27:02,174 - INFO - 
+Epoch 34/50
+2025-12-12 05:27:02,174 - INFO - Learning rate: 0.002591
+2025-12-12 05:27:17,253 - INFO - Train Loss: 0.0307, Train Acc: 0.9952
+2025-12-12 05:27:17,253 - INFO - Val Loss: 1.4267, Val Acc: 0.7016
+2025-12-12 05:27:17,253 - INFO - 
+Epoch 35/50
+2025-12-12 05:27:17,253 - INFO - Learning rate: 0.002321
+2025-12-12 05:27:32,313 - INFO - Train Loss: 0.0278, Train Acc: 0.9960
+2025-12-12 05:27:32,313 - INFO - Val Loss: 1.4080, Val Acc: 0.7024
+2025-12-12 05:27:32,313 - INFO - 
+Epoch 36/50
+2025-12-12 05:27:32,313 - INFO - Learning rate: 0.002061
+2025-12-12 05:27:47,379 - INFO - Train Loss: 0.0240, Train Acc: 0.9977
+2025-12-12 05:27:47,380 - INFO - Val Loss: 1.3890, Val Acc: 0.7060
+2025-12-12 05:27:48,084 - INFO - Saved best model with val_acc: 0.7060
+2025-12-12 05:27:48,084 - INFO - 
+Epoch 37/50
+2025-12-12 05:27:48,084 - INFO - Learning rate: 0.001813
+2025-12-12 05:28:03,181 - INFO - Train Loss: 0.0233, Train Acc: 0.9973
+2025-12-12 05:28:03,181 - INFO - Val Loss: 1.3795, Val Acc: 0.7103
+2025-12-12 05:28:03,942 - INFO - Saved best model with val_acc: 0.7103
+2025-12-12 05:28:03,942 - INFO - 
+Epoch 38/50
+2025-12-12 05:28:03,942 - INFO - Learning rate: 0.001577
+2025-12-12 05:28:19,028 - INFO - Train Loss: 0.0200, Train Acc: 0.9974
+2025-12-12 05:28:19,028 - INFO - Val Loss: 1.4128, Val Acc: 0.7075
+2025-12-12 05:28:19,028 - INFO - 
+Epoch 39/50
+2025-12-12 05:28:19,028 - INFO - Learning rate: 0.001355
+2025-12-12 05:28:34,161 - INFO - Train Loss: 0.0208, Train Acc: 0.9977
+2025-12-12 05:28:34,161 - INFO - Val Loss: 1.4060, Val Acc: 0.7071
+2025-12-12 05:28:34,161 - INFO - 
+Epoch 40/50
+2025-12-12 05:28:34,161 - INFO - Learning rate: 0.001147
+2025-12-12 05:28:49,238 - INFO - Train Loss: 0.0180, Train Acc: 0.9982
+2025-12-12 05:28:49,238 - INFO - Val Loss: 1.3905, Val Acc: 0.7111
+2025-12-12 05:28:49,849 - INFO - Saved best model with val_acc: 0.7111
+2025-12-12 05:28:50,133 - INFO - 
+Epoch 41/50
+2025-12-12 05:28:50,133 - INFO - Learning rate: 0.000955
+2025-12-12 05:29:05,219 - INFO - Train Loss: 0.0179, Train Acc: 0.9980
+2025-12-12 05:29:05,219 - INFO - Val Loss: 1.4086, Val Acc: 0.7107
+2025-12-12 05:29:05,219 - INFO - 
+Epoch 42/50
+2025-12-12 05:29:05,219 - INFO - Learning rate: 0.000778
+2025-12-12 05:29:20,368 - INFO - Train Loss: 0.0201, Train Acc: 0.9972
+2025-12-12 05:29:20,368 - INFO - Val Loss: 1.3919, Val Acc: 0.7083
+2025-12-12 05:29:20,368 - INFO - 
+Epoch 43/50
+2025-12-12 05:29:20,368 - INFO - Learning rate: 0.000618
+2025-12-12 05:29:35,428 - INFO - Train Loss: 0.0184, Train Acc: 0.9981
+2025-12-12 05:29:35,428 - INFO - Val Loss: 1.4177, Val Acc: 0.7060
+2025-12-12 05:29:35,428 - INFO - 
+Epoch 44/50
+2025-12-12 05:29:35,428 - INFO - Learning rate: 0.000476
+2025-12-12 05:29:50,522 - INFO - Train Loss: 0.0159, Train Acc: 0.9990
+2025-12-12 05:29:50,522 - INFO - Val Loss: 1.3918, Val Acc: 0.7099
+2025-12-12 05:29:50,522 - INFO - 
+Epoch 45/50
+2025-12-12 05:29:50,522 - INFO - Learning rate: 0.000351
