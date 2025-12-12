@@ -16,8 +16,8 @@ import numpy as np
 from train_wideresnet_saliency import main as train_main
 
 # Configuration
-DATA_DIR = "/home/namanb/SBILab/CSE677/Project/saliency_datasets/early_layers"
-OUTPUT_DIR = "wideresnet_experiments"
+DATA_DIR = "/home/namanb/SBILab/CSE677/Project/saliency_datasets/middle_layers"
+OUTPUT_DIR = "wideresnet_experiments_middle_layers"
 EPOCHS = 50
 BATCH_SIZE = 64
 DEPTH = 28

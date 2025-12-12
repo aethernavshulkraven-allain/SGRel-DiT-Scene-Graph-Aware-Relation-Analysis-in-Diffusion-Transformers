@@ -358,7 +358,7 @@ def plot_confusion_matrix(cm, class_names, save_path):
 # ==================== Main Training Loop ====================
 def main(args):
     # Setup
-    device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda:2' if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
     
     # Create output directory

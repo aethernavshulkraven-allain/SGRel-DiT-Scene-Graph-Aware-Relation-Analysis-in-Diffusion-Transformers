@@ -1,0 +1,24 @@
+{
+  "fusion_mode": "add",
+  "best_val_acc": 0.736904761904762,
+  "test_acc": 0.7476190476190476,
+  "test_loss": 1.2278352968276494,
+  "num_params": 36488168,
+  "config": {
+    "data_dir": "/home/namanb/SBILab/CSE677/Project/saliency_datasets/middle_layers",
+    "output_dir": "wideresnet_experiments_middle_layers",
+    "test_size": 0.15,
+    "val_size": 0.15,
+    "fusion_mode": "add",
+    "depth": 28,
+    "widen_factor": 10,
+    "dropout": 0.3,
+    "epochs": 50,
+    "batch_size": 64,
+    "lr": 0.01,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "num_workers": 4,
+    "seed": 42
+  }
+}

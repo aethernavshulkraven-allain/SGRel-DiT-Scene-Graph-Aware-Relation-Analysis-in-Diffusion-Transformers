@@ -4413,3 +4413,281 @@ Generating 'a photo of man eating ice cream on a plain background' with seed 329
 [GPU 1] eating         :  94%|█████████▍| 329/350 [1:22:50<05:19, 15.23s/it, saved=sample_0828.pt][ADone in 15.3s.
 Generating 'a photo of woman eating fruit salad on a plain background' with seed 829
 0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.17it/s]4it [00:00,  3.96it/s]4it [00:00,  4.17it/s]
+[GPU 0] eating         :  94%|█████████▍| 329/350 [1:23:01<05:24, 15.43s/it, saved=sample_0329.pt][GPU 0] eating         :  94%|█████████▍| 330/350 [1:23:01<05:05, 15.29s/it, saved=sample_0329.pt]Done in 14.9s.
+Generating 'a photo of man eating ice cream on a plain background' with seed 330
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  94%|█████████▍| 329/350 [1:23:06<05:19, 15.23s/it, saved=sample_0829.pt][A
+[GPU 1] eating         :  94%|█████████▍| 330/350 [1:23:06<05:06, 15.33s/it, saved=sample_0829.pt][ADone in 15.5s.
+Generating 'a photo of fox eating hen on a plain background' with seed 830
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  94%|█████████▍| 330/350 [1:23:16<05:05, 15.29s/it, saved=sample_0330.pt][GPU 0] eating         :  95%|█████████▍| 331/350 [1:23:16<04:49, 15.22s/it, saved=sample_0330.pt]Done in 15.0s.
+Generating 'a photo of fox eating hen on a plain background' with seed 331
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.04it/s][A4it [00:00,  4.24it/s]
+
+[GPU 1] eating         :  94%|█████████▍| 330/350 [1:23:21<05:06, 15.33s/it, saved=sample_0830.pt][A
+[GPU 1] eating         :  95%|█████████▍| 331/350 [1:23:21<04:53, 15.45s/it, saved=sample_0830.pt][ADone in 15.7s.
+Generating 'a photo of fox eating old woman on a plain background' with seed 831
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.52it/s]3it [00:00,  4.17it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  95%|█████████▍| 331/350 [1:23:32<04:49, 15.22s/it, saved=sample_0331.pt][GPU 0] eating         :  95%|█████████▍| 332/350 [1:23:32<04:34, 15.27s/it, saved=sample_0331.pt]Done in 15.4s.
+Generating 'a photo of fox eating hen on a plain background' with seed 332
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  95%|█████████▍| 331/350 [1:23:36<04:53, 15.45s/it, saved=sample_0831.pt][A
+[GPU 1] eating         :  95%|█████████▍| 332/350 [1:23:36<04:34, 15.25s/it, saved=sample_0831.pt][ADone in 14.8s.
+Generating 'a photo of fox eating hen on a plain background' with seed 832
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.52it/s]3it [00:00,  4.17it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  95%|█████████▍| 332/350 [1:23:47<04:34, 15.27s/it, saved=sample_0332.pt][GPU 0] eating         :  95%|█████████▌| 333/350 [1:23:47<04:18, 15.21s/it, saved=sample_0332.pt]Done in 15.0s.
+Generating 'a photo of woman eating hot dog on a plain background' with seed 333
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  95%|█████████▍| 332/350 [1:23:52<04:34, 15.25s/it, saved=sample_0832.pt][A
+[GPU 1] eating         :  95%|█████████▌| 333/350 [1:23:52<04:19, 15.26s/it, saved=sample_0832.pt][ADone in 15.2s.
+Generating 'a photo of fox eating hen on a plain background' with seed 833
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.53it/s]3it [00:00,  4.17it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  95%|█████████▌| 333/350 [1:24:02<04:18, 15.21s/it, saved=sample_0333.pt][GPU 0] eating         :  95%|█████████▌| 334/350 [1:24:02<04:05, 15.34s/it, saved=sample_0333.pt]Done in 15.6s.
+Generating 'a photo of woman eating hot dog on a plain background' with seed 334
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.04it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  95%|█████████▌| 333/350 [1:24:06<04:19, 15.26s/it, saved=sample_0833.pt][A
+[GPU 1] eating         :  95%|█████████▌| 334/350 [1:24:06<04:01, 15.12s/it, saved=sample_0833.pt][ADone in 14.7s.
+Generating 'a photo of fox eating hen on a plain background' with seed 834
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.52it/s]3it [00:00,  4.16it/s]4it [00:00,  4.00it/s]4it [00:00,  4.20it/s]
+[GPU 0] eating         :  95%|█████████▌| 334/350 [1:24:18<04:05, 15.34s/it, saved=sample_0334.pt][GPU 0] eating         :  96%|█████████▌| 335/350 [1:24:18<03:49, 15.33s/it, saved=sample_0334.pt]Done in 15.3s.
+Generating 'a photo of woman eating hot dog on a plain background' with seed 335
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.18it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  95%|█████████▌| 334/350 [1:24:22<04:01, 15.12s/it, saved=sample_0834.pt][A
+[GPU 1] eating         :  96%|█████████▌| 335/350 [1:24:22<03:48, 15.24s/it, saved=sample_0834.pt][ADone in 15.5s.
+Generating 'a photo of fox eating hen on a plain background' with seed 835
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.52it/s]3it [00:00,  4.17it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  96%|█████████▌| 335/350 [1:24:33<03:49, 15.33s/it, saved=sample_0335.pt][GPU 0] eating         :  96%|█████████▌| 336/350 [1:24:33<03:36, 15.47s/it, saved=sample_0335.pt]Done in 15.8s.
+Generating 'a photo of sheep eating grass on a plain background' with seed 336
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  96%|█████████▌| 335/350 [1:24:37<03:48, 15.24s/it, saved=sample_0835.pt][A
+[GPU 1] eating         :  96%|█████████▌| 336/350 [1:24:37<03:33, 15.27s/it, saved=sample_0835.pt][ADone in 15.3s.
+Generating 'a photo of fox eating hen on a plain background' with seed 836
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.52it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  96%|█████████▌| 336/350 [1:24:49<03:36, 15.47s/it, saved=sample_0336.pt][GPU 0] eating         :  96%|█████████▋| 337/350 [1:24:49<03:19, 15.38s/it, saved=sample_0336.pt]Done in 15.1s.
+Generating 'a photo of giraffe eating grass on a plain background' with seed 337
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  96%|█████████▌| 336/350 [1:24:53<03:33, 15.27s/it, saved=sample_0836.pt][A
+[GPU 1] eating         :  96%|█████████▋| 337/350 [1:24:53<03:19, 15.37s/it, saved=sample_0836.pt][ADone in 15.6s.
+Generating 'a photo of fox eating hen on a plain background' with seed 837
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.53it/s]3it [00:00,  4.17it/s]4it [00:00,  4.00it/s]4it [00:00,  4.20it/s]
+[GPU 0] eating         :  96%|█████████▋| 337/350 [1:25:04<03:19, 15.38s/it, saved=sample_0337.pt][GPU 0] eating         :  97%|█████████▋| 338/350 [1:25:04<03:03, 15.30s/it, saved=sample_0337.pt]Done in 15.1s.
+Generating 'a photo of fox eating hen on a plain background' with seed 338
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.24it/s]
+
+[GPU 1] eating         :  96%|█████████▋| 337/350 [1:25:08<03:19, 15.37s/it, saved=sample_0837.pt][A
+[GPU 1] eating         :  97%|█████████▋| 338/350 [1:25:08<03:03, 15.27s/it, saved=sample_0837.pt][ADone in 15.0s.
+Generating 'a photo of sheep eating grass on a plain background' with seed 838
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  3.95it/s]4it [00:00,  4.17it/s]
+[GPU 0] eating         :  97%|█████████▋| 338/350 [1:25:19<03:03, 15.30s/it, saved=sample_0338.pt][GPU 0] eating         :  97%|█████████▋| 339/350 [1:25:19<02:48, 15.34s/it, saved=sample_0338.pt]Done in 15.4s.
+Generating 'a photo of zebra eating grassland on a plain background' with seed 339
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  97%|█████████▋| 338/350 [1:25:23<03:03, 15.27s/it, saved=sample_0838.pt][A
+[GPU 1] eating         :  97%|█████████▋| 339/350 [1:25:23<02:48, 15.28s/it, saved=sample_0838.pt][ADone in 15.3s.
+Generating 'a photo of sheep eating grass on a plain background' with seed 839
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.52it/s]3it [00:00,  4.17it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  97%|█████████▋| 339/350 [1:25:34<02:48, 15.34s/it, saved=sample_0339.pt][GPU 0] eating         :  97%|█████████▋| 340/350 [1:25:34<02:32, 15.23s/it, saved=sample_0339.pt]Done in 14.9s.
+Generating 'a photo of fox eating hen on a plain background' with seed 340
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.03it/s][A4it [00:00,  4.23it/s]
+
+[GPU 1] eating         :  97%|█████████▋| 339/350 [1:25:38<02:48, 15.28s/it, saved=sample_0839.pt][A
+[GPU 1] eating         :  97%|█████████▋| 340/350 [1:25:38<02:32, 15.22s/it, saved=sample_0839.pt][ADone in 15.1s.
+Generating 'a photo of girl eating donut on a plain background' with seed 840
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.17it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  97%|█████████▋| 340/350 [1:25:49<02:32, 15.23s/it, saved=sample_0340.pt][GPU 0] eating         :  97%|█████████▋| 341/350 [1:25:49<02:17, 15.27s/it, saved=sample_0340.pt]Done in 15.3s.
+Generating 'a photo of girl eating donut on a plain background' with seed 341
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.04it/s][A4it [00:00,  4.24it/s]
+
+[GPU 1] eating         :  97%|█████████▋| 340/350 [1:25:53<02:32, 15.22s/it, saved=sample_0840.pt][A
+[GPU 1] eating         :  97%|█████████▋| 341/350 [1:25:53<02:16, 15.18s/it, saved=sample_0840.pt][ADone in 15.1s.
+Generating 'a photo of girl eating donut on a plain background' with seed 841
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.17it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  97%|█████████▋| 341/350 [1:26:05<02:17, 15.27s/it, saved=sample_0341.pt][GPU 0] eating         :  98%|█████████▊| 342/350 [1:26:05<02:02, 15.28s/it, saved=sample_0341.pt]Done in 15.3s.
+Generating 'a photo of zebra eating grass on a plain background' with seed 342
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.18it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  97%|█████████▋| 341/350 [1:26:09<02:16, 15.18s/it, saved=sample_0841.pt][A
+[GPU 1] eating         :  98%|█████████▊| 342/350 [1:26:09<02:02, 15.29s/it, saved=sample_0841.pt][ADone in 15.5s.
+Generating 'a photo of fox eating hen on a plain background' with seed 842
+0it [00:00, ?it/s]1it [00:00,  6.14it/s]2it [00:00,  4.52it/s]3it [00:00,  4.17it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  98%|█████████▊| 342/350 [1:26:20<02:02, 15.28s/it, saved=sample_0342.pt][GPU 0] eating         :  98%|█████████▊| 343/350 [1:26:20<01:46, 15.16s/it, saved=sample_0342.pt]Done in 14.9s.
+Generating 'a photo of zebra eating dinner on a plain background' with seed 343
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  98%|█████████▊| 342/350 [1:26:24<02:02, 15.29s/it, saved=sample_0842.pt][A
+[GPU 1] eating         :  98%|█████████▊| 343/350 [1:26:24<01:46, 15.15s/it, saved=sample_0842.pt][ADone in 14.8s.
+Generating 'a photo of cow eating grass on a plain background' with seed 843
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.52it/s]3it [00:00,  4.18it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  98%|█████████▊| 343/350 [1:26:35<01:46, 15.16s/it, saved=sample_0343.pt][GPU 0] eating         :  98%|█████████▊| 344/350 [1:26:35<01:30, 15.14s/it, saved=sample_0343.pt]Done in 15.0s.
+Generating 'a photo of zebra eating grass on a plain background' with seed 344
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  98%|█████████▊| 343/350 [1:26:39<01:46, 15.15s/it, saved=sample_0843.pt][A
+[GPU 1] eating         :  98%|█████████▊| 344/350 [1:26:39<01:31, 15.21s/it, saved=sample_0843.pt][ADone in 15.3s.
+Generating 'a photo of cow eating grass on a plain background' with seed 844
+0it [00:00, ?it/s]1it [00:00,  6.13it/s]2it [00:00,  4.52it/s]3it [00:00,  4.17it/s]4it [00:00,  3.93it/s]4it [00:00,  4.15it/s]
+[GPU 0] eating         :  98%|█████████▊| 344/350 [1:26:50<01:30, 15.14s/it, saved=sample_0344.pt][GPU 0] eating         :  99%|█████████▊| 345/350 [1:26:50<01:16, 15.29s/it, saved=sample_0344.pt]Done in 15.6s.
+Generating 'a photo of girl eating pizza on a plain background' with seed 345
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  98%|█████████▊| 344/350 [1:26:54<01:31, 15.21s/it, saved=sample_0844.pt][A
+[GPU 1] eating         :  99%|█████████▊| 345/350 [1:26:54<01:16, 15.21s/it, saved=sample_0844.pt][ADone in 15.2s.
+Generating 'a photo of cow eating grass on a plain background' with seed 845
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.53it/s]3it [00:00,  4.17it/s]4it [00:00,  4.00it/s]4it [00:00,  4.20it/s]
+[GPU 0] eating         :  99%|█████████▊| 345/350 [1:27:05<01:16, 15.29s/it, saved=sample_0345.pt][GPU 0] eating         :  99%|█████████▉| 346/350 [1:27:05<01:00, 15.11s/it, saved=sample_0345.pt]Done in 14.7s.
+Generating 'a photo of boy eating sandwich on a plain background' with seed 346
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.04it/s][A4it [00:00,  4.24it/s]
+
+[GPU 1] eating         :  99%|█████████▊| 345/350 [1:27:10<01:16, 15.21s/it, saved=sample_0845.pt][A
+[GPU 1] eating         :  99%|█████████▉| 346/350 [1:27:10<01:01, 15.32s/it, saved=sample_0845.pt][ADone in 15.5s.
+Generating 'a photo of cow eating grass on a plain background' with seed 846
+0it [00:00, ?it/s]1it [00:00,  6.16it/s]2it [00:00,  4.52it/s]3it [00:00,  4.17it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  99%|█████████▉| 346/350 [1:27:20<01:00, 15.11s/it, saved=sample_0346.pt][GPU 0] eating         :  99%|█████████▉| 347/350 [1:27:20<00:45, 15.13s/it, saved=sample_0346.pt]Done in 15.1s.
+Generating 'a photo of boy eating meal on a plain background' with seed 347
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.04it/s][A4it [00:00,  4.24it/s]
+
+[GPU 1] eating         :  99%|█████████▉| 346/350 [1:27:25<01:01, 15.32s/it, saved=sample_0846.pt][A
+[GPU 1] eating         :  99%|█████████▉| 347/350 [1:27:25<00:45, 15.21s/it, saved=sample_0846.pt][ADone in 14.9s.
+Generating 'a photo of fox eating hen on a plain background' with seed 847
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.52it/s]3it [00:00,  4.17it/s]4it [00:00,  4.02it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  99%|█████████▉| 347/350 [1:27:36<00:45, 15.13s/it, saved=sample_0347.pt][GPU 0] eating         :  99%|█████████▉| 348/350 [1:27:36<00:30, 15.28s/it, saved=sample_0347.pt]Done in 15.6s.
+Generating 'a photo of boy eating sandwich on a plain background' with seed 348
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.21it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.03it/s][A4it [00:00,  4.24it/s]
+
+[GPU 1] eating         :  99%|█████████▉| 347/350 [1:27:40<00:45, 15.21s/it, saved=sample_0847.pt][A
+[GPU 1] eating         :  99%|█████████▉| 348/350 [1:27:40<00:30, 15.27s/it, saved=sample_0847.pt][ADone in 15.4s.
+Generating 'a photo of man eating donut on a plain background' with seed 848
+0it [00:00, ?it/s]1it [00:00,  6.17it/s]2it [00:00,  4.54it/s]3it [00:00,  4.18it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         :  99%|█████████▉| 348/350 [1:27:51<00:30, 15.28s/it, saved=sample_0348.pt][GPU 0] eating         : 100%|█████████▉| 349/350 [1:27:51<00:15, 15.15s/it, saved=sample_0348.pt]Done in 14.8s.
+Generating 'a photo of cows eating grass on a plain background' with seed 349
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.20it/s][A
+2it [00:00,  4.57it/s][A
+3it [00:00,  4.22it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         :  99%|█████████▉| 348/350 [1:27:55<00:30, 15.27s/it, saved=sample_0848.pt][A
+[GPU 1] eating         : 100%|█████████▉| 349/350 [1:27:55<00:15, 15.15s/it, saved=sample_0848.pt][ADone in 14.8s.
+Generating 'a photo of man eating donut on a plain background' with seed 849
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+[GPU 0] eating         : 100%|█████████▉| 349/350 [1:28:06<00:15, 15.15s/it, saved=sample_0349.pt][GPU 0] eating         : 100%|██████████| 350/350 [1:28:06<00:00, 15.17s/it, saved=sample_0349.pt][GPU 0] eating         : 100%|██████████| 350/350 [1:28:06<00:00, 15.10s/it, saved=sample_0349.pt]
+Done in 15.2s.
+[GPU 0] hanging from   :   0%|          | 0/350 [00:00<?, ?it/s]Generating 'a photo of fringe hanging from shawl on a plain background' with seed 0
+
+0it [00:00, ?it/s][A
+1it [00:00,  6.19it/s][A
+2it [00:00,  4.56it/s][A
+3it [00:00,  4.21it/s][A
+4it [00:00,  4.05it/s][A4it [00:00,  4.25it/s]
+
+[GPU 1] eating         : 100%|█████████▉| 349/350 [1:28:10<00:15, 15.15s/it, saved=sample_0849.pt][A
+[GPU 1] eating         : 100%|██████████| 350/350 [1:28:10<00:00, 15.15s/it, saved=sample_0849.pt][A[GPU 1] eating         : 100%|██████████| 350/350 [1:28:10<00:00, 15.12s/it, saved=sample_0849.pt]
+Done in 15.1s.
+
+[GPU 1] hanging from   :   0%|          | 0/350 [00:00<?, ?it/s][AGenerating 'a photo of mirror hanging from wall on a plain background' with seed 500
+0it [00:00, ?it/s]1it [00:00,  6.15it/s]2it [00:00,  4.53it/s]3it [00:00,  4.18it/s]4it [00:00,  4.01it/s]4it [00:00,  4.21it/s]
+/home/namanb/miniconda3/envs/cse677/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 2 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

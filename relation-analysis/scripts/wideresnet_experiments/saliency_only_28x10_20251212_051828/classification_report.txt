@@ -1,0 +1,30 @@
+              precision    recall  f1-score   support
+
+       above       0.64      0.70      0.67       105
+ around_near       0.67      0.70      0.69       105
+      behind       0.68      0.62      0.65       105
+       below       0.53      0.45      0.49       105
+    carrying       0.82      0.81      0.81       105
+    drinking       0.88      0.93      0.91       105
+      eating       0.72      0.77      0.74       105
+hanging from       0.86      0.74      0.80       105
+     holding       0.60      0.59      0.60       105
+          in       0.62      0.53      0.57       105
+ in front of       0.86      0.91      0.89       105
+     left of       0.49      0.41      0.45       105
+  looking at       0.79      0.70      0.74       105
+          on       0.75      0.70      0.72       105
+playing with       0.61      0.81      0.70       105
+     pulling       0.75      0.75      0.75       105
+     pushing       0.72      0.80      0.76       105
+      riding       0.74      0.88      0.80       105
+    right of       0.50      0.50      0.50       105
+  sitting on       0.65      0.81      0.72       105
+ standing on       0.87      0.79      0.83       105
+    touching       0.55      0.43      0.48       105
+       using       0.77      0.74      0.76       105
+     wearing       0.83      0.88      0.85       105
+
+    accuracy                           0.71      2520
+   macro avg       0.70      0.71      0.70      2520
+weighted avg       0.70      0.71      0.70      2520
