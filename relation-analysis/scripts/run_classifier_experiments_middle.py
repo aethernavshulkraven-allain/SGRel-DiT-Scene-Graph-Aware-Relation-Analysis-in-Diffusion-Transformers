@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-"""Batch experiments for saliency/cross-attention relation classifier."""
 import json
 import random
 from pathlib import Path
@@ -381,18 +380,21 @@ def run_experiment(cfg):
 
 
 def main():
+    base_modes = [
+        {'name':'saliency','mode':'saliency'},
+        {'name':'cross','mode':'cross'},
+        {'name':'concat','mode':'concat'},
+        {'name':'triple','mode':'triple'},
+        {'name':'diff','mode':'diff'},
+    ]
     configs=[
-        {'name':'saliency','mode':'saliency','arch':'wrn'},
-        {'name':'cross','mode':'cross','arch':'wrn'},
-        {'name':'concat','mode':'concat','arch':'wrn'},
-        {'name':'triple','mode':'triple','arch':'wrn'},
-        {'name':'diff','mode':'diff','arch':'wrn'},
+        # WRN (all modes including late)
+        *[{**m, 'arch':'wrn'} for m in base_modes],
         {'name':'late','mode':'late','arch':'wrn'},
-        # lightweight baselines
-        {'name':'saliency_tinycnn','mode':'saliency','arch':'tiny_cnn'},
-        {'name':'concat_tinycnn','mode':'concat','arch':'tiny_cnn'},
-        {'name':'saliency_mlp','mode':'saliency','arch':'mlp'},
-        {'name':'concat_mlp','mode':'concat','arch':'mlp'},
+        # Tiny CNN baselines (same modes as base)
+        *[{**m, 'name':f"{m['name']}_tinycnn", 'arch':'tiny_cnn'} for m in base_modes],
+        # MLP baselines (same modes as base)
+        *[{**m, 'name':f"{m['name']}_mlp", 'arch':'mlp'} for m in base_modes],
     ]
     results=[]
     for cfg in configs:
