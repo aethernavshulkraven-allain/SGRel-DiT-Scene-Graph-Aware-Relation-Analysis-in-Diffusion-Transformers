@@ -16,7 +16,7 @@ ROOT = Path('..').resolve()
 DATA_ROOT = ROOT.parent / 'saliency_datasets' / 'early_layers'
 assert DATA_ROOT.exists(), DATA_ROOT
 
-DEVICE = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
+DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def _normalize(x, strategy):
     if strategy == 'none':
@@ -194,6 +194,53 @@ class DualWRN(nn.Module):
         return 0.5*(self.sal(s)+self.cross(c))
 
 
+class TinyCNN(nn.Module):
+    """Lightweight convnet for 32x32 inputs."""
+    def __init__(self, in_channels, num_classes=24):
+        super().__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(in_channels, 32, 3, padding=1),
+            nn.BatchNorm2d(32),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(32, 64, 3, padding=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2),
+            nn.Conv2d(64, 128, 3, padding=1),
+            nn.BatchNorm2d(128),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2)
+        )
+        self.classifier = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1),
+            nn.Flatten(),
+            nn.Linear(128, num_classes)
+        )
+
+    def forward(self, x):
+        return self.classifier(self.features(x))
+
+
+class SimpleMLP(nn.Module):
+    """Flattened MLP baseline."""
+    def __init__(self, in_channels, num_classes=24, hidden1=512, hidden2=256, dropout=0.3):
+        super().__init__()
+        input_dim = in_channels * 32 * 32
+        self.net = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(input_dim, hidden1),
+            nn.ReLU(inplace=True),
+            nn.Dropout(dropout),
+            nn.Linear(hidden1, hidden2),
+            nn.ReLU(inplace=True),
+            nn.Dropout(dropout),
+            nn.Linear(hidden2, num_classes),
+        )
+
+    def forward(self, x):
+        return self.net(x)
+
+
 def maybe_augment(x, hflip=False):
     if not hflip:
         return x
@@ -261,17 +308,34 @@ def run_experiment(cfg):
     zero_obj = cfg.get('zero_object', False)
     shuffle = cfg.get('shuffle', False)
     save_ckpt = cfg.get('save_ckpt', True)
+    arch = cfg.get('arch', 'wrn')
 
     train_loader, val_loader = build_loaders(
         DATA_ROOT, mode, norm=norm, smooth_kernel=smooth, batch_size=batch_size,
         balanced=balanced, zero_subject=zero_sub, zero_predicate=zero_pred,
         zero_object=zero_obj, shuffle=shuffle
     )
-    if mode=='late':
-        model=DualWRN(widen_factor=widen, dropRate=drop).to(DEVICE)
+    in_ch_map={'saliency':3,'cross':3,'concat':6,'triple':9,'diff':6}
+    if arch == 'wrn':
+        if mode=='late':
+            model=DualWRN(widen_factor=widen, dropRate=drop).to(DEVICE)
+        else:
+            in_ch=in_ch_map[mode]
+            model=WideResNet(depth=28,num_classes=24,widen_factor=widen,dropRate=drop,in_channels=in_ch).to(DEVICE)
+    elif arch == 'tiny_cnn':
+        if mode=='late':
+            model=DualWRN(widen_factor=widen, dropRate=drop).to(DEVICE)
+        else:
+            in_ch=in_ch_map[mode]
+            model=TinyCNN(in_channels=in_ch, num_classes=24).to(DEVICE)
+    elif arch == 'mlp':
+        if mode=='late':
+            model=DualWRN(widen_factor=widen, dropRate=drop).to(DEVICE)
+        else:
+            in_ch=in_ch_map[mode]
+            model=SimpleMLP(in_channels=in_ch, num_classes=24, dropout=drop).to(DEVICE)
     else:
-        in_ch={'saliency':3,'cross':3,'concat':6,'triple':9,'diff':6}[mode]
-        model=WideResNet(depth=28,num_classes=24,widen_factor=widen,dropRate=drop,in_channels=in_ch).to(DEVICE)
+        raise ValueError(f'Unknown arch: {arch}')
     criterion=nn.CrossEntropyLoss()
     opt=torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=wd)
     sched=CosineAnnealingLR(opt, T_max=epochs)
@@ -304,7 +368,7 @@ def run_experiment(cfg):
             'O' if zero_obj else '',
             'R' if shuffle else ''
         ]) or 'none'
-        ckpt_name = f"wrn_mode-{mode}_norm-{norm}_smooth-{smooth}_abl-{ablation_tag}.pt"
+        ckpt_name = f"{arch}_mode-{mode}_norm-{norm}_smooth-{smooth}_abl-{ablation_tag}.pt"
         torch.save(model.state_dict(), ckpt_dir / ckpt_name)
 
     return {
@@ -317,13 +381,21 @@ def run_experiment(cfg):
 
 
 def main():
-    configs=[
+    base_modes = [
         {'name':'saliency','mode':'saliency'},
         {'name':'cross','mode':'cross'},
         {'name':'concat','mode':'concat'},
         {'name':'triple','mode':'triple'},
         {'name':'diff','mode':'diff'},
-        {'name':'late','mode':'late'},
+    ]
+    configs=[
+        # WRN (all modes including late)
+        *[{**m, 'arch':'wrn'} for m in base_modes],
+        {'name':'late','mode':'late','arch':'wrn'},
+        # Tiny CNN baselines (same modes as base)
+        *[{**m, 'name':f\"{m['name']}_tinycnn\", 'arch':'tiny_cnn'} for m in base_modes],
+        # MLP baselines (same modes as base)
+        *[{**m, 'name':f\"{m['name']}_mlp\", 'arch':'mlp'} for m in base_modes],
     ]
     results=[]
     for cfg in configs:
