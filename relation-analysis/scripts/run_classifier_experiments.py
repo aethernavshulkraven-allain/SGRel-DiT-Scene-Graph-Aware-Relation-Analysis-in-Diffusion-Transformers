@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-"""Batch experiments for saliency/cross-attention relation classifier."""
 import json
 import random
 from pathlib import Path
@@ -393,9 +392,9 @@ def main():
         *[{**m, 'arch':'wrn'} for m in base_modes],
         {'name':'late','mode':'late','arch':'wrn'},
         # Tiny CNN baselines (same modes as base)
-        *[{**m, 'name':f\"{m['name']}_tinycnn\", 'arch':'tiny_cnn'} for m in base_modes],
+        *[{**m, 'name':f"{m['name']}_tinycnn", 'arch':'tiny_cnn'} for m in base_modes],
         # MLP baselines (same modes as base)
-        *[{**m, 'name':f\"{m['name']}_mlp\", 'arch':'mlp'} for m in base_modes],
+        *[{**m, 'name':f"{m['name']}_mlp", 'arch':'mlp'} for m in base_modes],
     ]
     results=[]
     for cfg in configs:
