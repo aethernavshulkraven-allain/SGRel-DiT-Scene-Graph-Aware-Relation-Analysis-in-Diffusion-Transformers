@@ -35,6 +35,25 @@ def parse_args():
     p.add_argument("--height", type=int, default=1024, help="Output image height")
     p.add_argument("--width", type=int, default=1024, help="Output image width")
     p.add_argument("--cpu-offload", action="store_true", help="Enable sequential CPU offload to save GPU memory")
+    p.add_argument("--lora-checkpoint", type=str, default=None, help="Optional LoRA checkpoint (.pt) to load for evaluation")
+    p.add_argument("--graph-mode", type=str, default=None, choices=["token", "temb"], help="Enable graph conditioning in this mode")
+    p.add_argument("--block-start", type=int, default=7, help="First Flux double-block index (inclusive) for graph+LoRA")
+    p.add_argument("--block-end", type=int, default=13, help="Last Flux double-block index (exclusive) for graph+LoRA")
+    p.add_argument("--lora-rank", type=int, default=None, help="LoRA rank (if not stored in checkpoint)")
+    p.add_argument("--lora-alpha", type=float, default=None, help="LoRA alpha (if not stored in checkpoint)")
+    p.add_argument(
+        "--vocab-path",
+        type=str,
+        default=str(REPO_ROOT / "SGDiff" / "datasets" / "vg" / "vocab.json"),
+        help="SGDiff VG vocab.json path (for graph encoder)",
+    )
+    p.add_argument(
+        "--cgip-ckpt",
+        type=str,
+        default=str(REPO_ROOT / "SGDiff" / "pretrained" / "sip_vg.pt"),
+        help="SGDiff CGIP checkpoint path (for graph encoder)",
+    )
+    p.add_argument("--graph-encoder-device", type=str, default="cpu", help="Device for SGDiff graph encoder (cpu|cuda)")
     return p.parse_args()
 
 
@@ -57,6 +76,15 @@ def main():
         height=args.height,
         width=args.width,
         enable_cpu_offload=args.cpu_offload,
+        lora_checkpoint=Path(args.lora_checkpoint) if args.lora_checkpoint else None,
+        graph_mode=args.graph_mode,
+        block_start=args.block_start,
+        block_end=args.block_end,
+        lora_rank=args.lora_rank,
+        lora_alpha=args.lora_alpha,
+        vocab_path=Path(args.vocab_path) if (args.graph_mode or args.lora_checkpoint) else None,
+        cgip_ckpt=Path(args.cgip_ckpt) if (args.graph_mode or args.lora_checkpoint) else None,
+        graph_encoder_device=args.graph_encoder_device,
     )
     runner = StageBRunner(cfg)
     runner.run()

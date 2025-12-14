@@ -26,6 +26,17 @@ class StageBConfig:
     width: int = 1024
     enable_cpu_offload: bool = False
 
+    # Optional: evaluate a graph-conditioned + LoRA-adapted Flux checkpoint (full sampling stays in Stage B).
+    lora_checkpoint: Optional[Path] = None
+    graph_mode: Optional[str] = None  # token|temb
+    block_start: int = 7
+    block_end: int = 13
+    lora_rank: Optional[int] = None
+    lora_alpha: Optional[float] = None
+    vocab_path: Optional[Path] = None
+    cgip_ckpt: Optional[Path] = None
+    graph_encoder_device: str = "cpu"
+
     def resolved_layer_groups(self, num_layers: int = 19) -> dict:
         if self.layer_groups is not None:
             return self.layer_groups

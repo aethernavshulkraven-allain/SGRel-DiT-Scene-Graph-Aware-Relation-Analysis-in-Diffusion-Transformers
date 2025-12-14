@@ -1,19 +1,57 @@
-2025-12-14 06:41:19.094196: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-12-14 18:17:01.544471: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1765694479.113996  533380 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1765694479.120170  533380 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2025-12-14 06:41:19.140855: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+E0000 00:00:1765736221.563830  602612 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1765736221.569864  602612 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-12-14 18:17:01.589942: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 /home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/SGDiff/ldm/modules/cgip/cgip.py:48: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
   sd = torch.load(path, map_location="cpu")["state_dict"]
+================================================================================
+GRAPH-CONDITIONED FLUX TRAINING (TEACHER-FORCED + REL-RANK)
+================================================================================
+Device: cuda
+Mode: token
+LoRA rank: 16
+Blocks: 7-13
+Batch size: 1
+Learning rate: 0.0001
+Image size: 256x256
+lambda_rel_rank: 0.3
+alpha_gen_rel: 0.0
+================================================================================
+Train samples: 55886
+Val samples: 100
 Restored from /home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/SGDiff/pretrained/sip_vg.pt with 0 missing and 308 unexpected keys
-Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]
-Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][ALoading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 33.89it/s]
-Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00, 12.68it/s]`torch_dtype` is deprecated! Use `dtype` instead!
-Loading pipeline components...:  57%|█████▋    | 4/7 [00:00<00:00, 15.65it/s]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 62.01it/s]
-You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
-Loading pipeline components...:  86%|████████▌ | 6/7 [00:00<00:00, 10.18it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:00<00:00, 12.17it/s]
-Epoch 1/1:   0%|          | 0/62565 [00:00<?, ?it/s]/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][ALoading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 34.71it/s]
+Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00,  9.37it/s]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:00<00:00,  8.63it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 57.38it/s]
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:00<00:00, 11.08it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:00<00:00, 12.07it/s]
+
+Trainable params: 10,232,832 / 11,901,411,392 (0.09%)
+Canonical predicates: 24
+SGDiff-supported predicates: 16
+Unsupported under SGDiff vocab (8): ['drinking', 'left of', 'playing with', 'pulling', 'pushing', 'right of', 'touching', 'using']
+Epoch 1/1:   0%|          | 0/55886 [00:00<?, ?it/s]/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
   with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
-Epoch 1/1:   0%|          | 1/62565 [00:32<569:01:09, 32.74s/it]Epoch 1/1:   0%|          | 2/62565 [01:11<627:12:00, 36.09s/it]Epoch 1/1:   0%|          | 3/62565 [01:44<605:05:48, 34.82s/it]Epoch 1/1:   0%|          | 4/62565 [02:15<579:57:09, 33.37s/it]Epoch 1/1:   0%|          | 5/62565 [02:48<578:55:51, 33.31s/it]Epoch 1/1:   0%|          | 6/62565 [03:23<587:30:05, 33.81s/it]Epoch 1/1:   0%|          | 7/62565 [03:55<578:08:14, 33.27s/it]Epoch 1/1:   0%|          | 8/62565 [04:29<582:03:41, 33.50s/it]Epoch 1/1:   0%|          | 9/62565 [05:00<569:04:41, 32.75s/it]Epoch 1/1:   0%|          | 9/62565 [05:33<569:04:41, 32.75s/it, loss=3.975, acc=0.000]Epoch 1/1:   0%|          | 10/62565 [05:33<566:28:45, 32.60s/it, loss=3.975, acc=0.000]Epoch 1/1:   0%|          | 11/62565 [06:04<558:55:27, 32.17s/it, loss=3.975, acc=0.000]Epoch 1/1:   0%|          | 12/62565 [06:36<556:30:57, 32.03s/it, loss=3.975, acc=0.000]Epoch 1/1:   0%|          | 13/62565 [07:07<552:29:07, 31.80s/it, loss=3.975, acc=0.000]Epoch 1/1:   0%|          | 14/62565 [07:39<555:21:02, 31.96s/it, loss=3.975, acc=0.000]Epoch 1/1:   0%|          | 15/62565 [08:09<546:29:42, 31.45s/it, loss=3.975, acc=0.000]Epoch 1/1:   0%|          | 16/62565 [08:42<552:59:08, 31.83s/it, loss=3.975, acc=0.000]Epoch 1/1:   0%|          | 17/62565 [09:13<549:30:22, 31.63s/it, loss=3.975, acc=0.000]Epoch 1/1:   0%|          | 18/62565 [09:45<549:55:35, 31.65s/it, loss=3.975, acc=0.000]Epoch 1/1:   0%|          | 19/62565 [10:16<547:18:46, 31.50s/it, loss=3.975, acc=0.000]Epoch 1/1:   0%|          | 19/62565 [10:48<547:18:46, 31.50s/it, loss=3.889, acc=0.000]Epoch 1/1:   0%|          | 20/62565 [10:48<549:18:09, 31.62s/it, loss=3.889, acc=0.000]Epoch 1/1:   0%|          | 21/62565 [11:19<545:47:16, 31.42s/it, loss=3.889, acc=0.000]Epoch 1/1:   0%|          | 22/62565 [11:51<547:30:16, 31.51s/it, loss=3.889, acc=0.000]Epoch 1/1:   0%|          | 23/62565 [12:22<547:01:09, 31.49s/it, loss=3.889, acc=0.000]Epoch 1/1:   0%|          | 24/62565 [12:54<548:37:12, 31.58s/it, loss=3.889, acc=0.000]Epoch 1/1:   0%|          | 25/62565 [13:25<544:53:05, 31.37s/it, loss=3.889, acc=0.000]Epoch 1/1:   0%|          | 26/62565 [13:56<546:31:38, 31.46s/it, loss=3.889, acc=0.000]Epoch 1/1:   0%|          | 27/62565 [14:28<546:49:22, 31.48s/it, loss=3.889, acc=0.000]Epoch 1/1:   0%|          | 28/62565 [14:59<546:45:03, 31.47s/it, loss=3.889, acc=0.000]Epoch 1/1:   0%|          | 29/62565 [15:31<546:13:06, 31.44s/it, loss=3.889, acc=0.000]Epoch 1/1:   0%|          | 29/62565 [16:02<546:13:06, 31.44s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 30/62565 [16:02<544:23:11, 31.34s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 31/62565 [16:33<545:00:29, 31.38s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 32/62565 [17:05<545:39:43, 31.41s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 33/62565 [17:35<540:34:18, 31.12s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 34/62565 [18:07<543:17:59, 31.28s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 35/62565 [18:39<545:29:56, 31.41s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 36/62565 [19:09<541:44:46, 31.19s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 37/62565 [19:41<544:11:31, 31.33s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 38/62565 [20:13<547:11:33, 31.50s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 39/62565 [20:44<543:19:12, 31.28s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 39/62565 [21:14<543:19:12, 31.28s/it, loss=3.712, acc=0.000]Epoch 1/1:   0%|          | 40/62565 [21:14<538:11:07, 30.99s/it, loss=3.712, acc=0.000]Epoch 1/1:   0%|          | 41/62565 [21:45<539:04:31, 31.04s/it, loss=3.712, acc=0.000]Epoch 1/1:   0%|          | 42/62565 [22:15<535:24:45, 30.83s/it, loss=3.712, acc=0.000]Epoch 1/1:   0%|          | 43/62565 [22:46<533:17:23, 30.71s/it, loss=3.712, acc=0.000]Epoch 1/1:   0%|          | 44/62565 [23:16<530:36:47, 30.55s/it, loss=3.712, acc=0.000]Epoch 1/1:   0%|          | 45/62565 [23:48<535:47:40, 30.85s/it, loss=3.712, acc=0.000]Epoch 1/1:   0%|          | 46/62565 [24:18<532:53:08, 30.68s/it, loss=3.712, acc=0.000]Epoch 1/1:   0%|          | 47/62565 [24:49<532:45:47, 30.68s/it, loss=3.712, acc=0.000]Epoch 1/1:   0%|          | 48/62565 [25:19<530:02:25, 30.52s/it, loss=3.712, acc=0.000]Epoch 1/1:   0%|          | 49/62565 [25:49<529:32:54, 30.49s/it, loss=3.712, acc=0.000]Epoch 1/1:   0%|          | 49/62565 [26:20<529:32:54, 30.49s/it, loss=3.790, acc=0.000]Epoch 1/1:   0%|          | 50/62565 [26:20<529:06:41, 30.47s/it, loss=3.790, acc=0.000]Epoch 1/1:   0%|          | 51/62565 [26:51<534:39:44, 30.79s/it, loss=3.790, acc=0.000]Epoch 1/1:   0%|          | 52/62565 [27:22<533:40:44, 30.73s/it, loss=3.790, acc=0.000]Epoch 1/1:   0%|          | 53/62565 [27:53<534:24:38, 30.78s/it, loss=3.790, acc=0.000]Epoch 1/1:   0%|          | 54/62565 [28:23<532:03:39, 30.64s/it, loss=3.790, acc=0.000]Epoch 1/1:   0%|          | 55/62565 [28:53<530:53:28, 30.57s/it, loss=3.790, acc=0.000]Epoch 1/1:   0%|          | 56/62565 [29:24<530:11:34, 30.53s/it, loss=3.790, acc=0.000]Epoch 1/1:   0%|          | 57/62565 [29:55<533:00:51, 30.70s/it, loss=3.790, acc=0.000]Epoch 1/1:   0%|          | 58/62565 [30:25<531:34:48, 30.62s/it, loss=3.790, acc=0.000]Epoch 1/1:   0%|          | 59/62565 [30:57<536:21:24, 30.89s/it, loss=3.790, acc=0.000]Epoch 1/1:   0%|          | 59/62565 [31:27<536:21:24, 30.89s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 60/62565 [31:27<531:43:35, 30.63s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 61/62565 [31:58<535:52:20, 30.86s/it, loss=3.697, acc=0.000]Epoch 1/1:   0%|          | 62/62565 [32:29<533:27:49, 30.73s/it, loss=3.697, acc=0.000]
+Epoch 1/1:   0%|          | 0/55886 [27:20<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/relation-analysis/scripts/train_flux_graph_lora_diffusion.py", line 1074, in <module>
+    train(parse_args())
+  File "/home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/relation-analysis/scripts/train_flux_graph_lora_diffusion.py", line 888, in train
+    loss.backward()
+  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/_tensor.py", line 521, in backward
+    torch.autograd.backward(
+  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/autograd/__init__.py", line 289, in backward
+    _engine_run_backward(
+  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/autograd/graph.py", line 768, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 1120, in unpack_hook
+    frame.check_recomputed_tensors_match(gid)
+  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 857, in check_recomputed_tensors_match
+    raise CheckpointError(
+torch.utils.checkpoint.CheckpointError: torch.utils.checkpoint: A different number of tensors was saved during the original forward and recomputation.
+Number of tensors saved during forward: 113
+Number of tensors saved during recomputation: 81

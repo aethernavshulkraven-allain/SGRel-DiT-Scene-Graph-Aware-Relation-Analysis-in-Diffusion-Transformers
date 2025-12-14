@@ -13,17 +13,27 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from diffusers import FluxPipeline
 from relation_analysis.flux.graph_conditioned_flux import patch_flux_for_graph, set_graph_condition
-from relation_analysis.flux.lora import inject_lora
+from relation_analysis.flux.lora import LinearWithLoRA
 from relation_analysis.graph.sgdiff_encoder import SGDiffGraphEncoder
 
 
 def _inject_lora_into_blocks(transformer, block_indices, rank: int, alpha: float):
-    """Inject LoRA into middle blocks' attention layers."""
-    targets = ["to_q", "to_k", "to_v", "to_out", "add_q_proj", "add_k_proj", "add_v_proj", "to_add_out"]
+    """Inject LoRA into FluxAttention projections (to_q/to_k/to_v/to_out[0])."""
     for idx in block_indices:
         if idx < 0 or idx >= len(transformer.transformer_blocks):
             continue
-        inject_lora(transformer.transformer_blocks[idx], targets, rank=rank, alpha=alpha)
+        block = transformer.transformer_blocks[idx]
+        attn = getattr(block, "attn", None)
+        if attn is None:
+            continue
+        for name in ("to_q", "to_k", "to_v"):
+            proj = getattr(attn, name, None)
+            if isinstance(proj, torch.nn.Linear) and not isinstance(proj, LinearWithLoRA):
+                setattr(attn, name, LinearWithLoRA(proj, rank=rank, alpha=alpha))
+        to_out = getattr(attn, "to_out", None)
+        if isinstance(to_out, torch.nn.ModuleList) and len(to_out) > 0 and isinstance(to_out[0], torch.nn.Linear):
+            if not isinstance(to_out[0], LinearWithLoRA):
+                to_out[0] = LinearWithLoRA(to_out[0], rank=rank, alpha=alpha)
 
 
 def parse_args():

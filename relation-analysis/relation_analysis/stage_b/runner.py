@@ -1,10 +1,13 @@
 import json
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Optional, Tuple
 
 import torch
 from diffusers import FluxPipeline
 
+from relation_analysis.flux.graph_conditioned_flux import clear_graph_condition, patch_flux_for_graph, set_graph_condition
+from relation_analysis.flux.lora import LinearWithLoRA
+from relation_analysis.graph.sgdiff_encoder import SGDiffGraphEncoder
 from relation_analysis.schema import RelationTriple, StageAExample
 from relation_analysis.stage_b.config import StageBConfig
 from relation_analysis.stage_b.concepts import build_concept_inputs
@@ -48,12 +51,78 @@ class StageBRunner:
         self.config = config
         self.dtype = _dtype_from_str(config.dtype)
         self.device = torch.device(config.device)
+        self._graph_encoder: Optional[SGDiffGraphEncoder] = None
+
+    @staticmethod
+    def _inject_lora_into_blocks(transformer, block_indices, rank: int, alpha: float):
+        for idx in block_indices:
+            if idx < 0 or idx >= len(transformer.transformer_blocks):
+                continue
+            block = transformer.transformer_blocks[idx]
+            attn = getattr(block, "attn", None)
+            if attn is None:
+                continue
+            for name in ("to_q", "to_k", "to_v"):
+                proj = getattr(attn, name, None)
+                if isinstance(proj, torch.nn.Linear) and not isinstance(proj, LinearWithLoRA):
+                    setattr(attn, name, LinearWithLoRA(proj, rank=rank, alpha=alpha))
+            to_out = getattr(attn, "to_out", None)
+            if isinstance(to_out, torch.nn.ModuleList) and len(to_out) > 0 and isinstance(to_out[0], torch.nn.Linear):
+                if not isinstance(to_out[0], LinearWithLoRA):
+                    to_out[0] = LinearWithLoRA(to_out[0], rank=rank, alpha=alpha)
+
+    @staticmethod
+    def _extract_checkpoint_state_dict(obj) -> dict:
+        if isinstance(obj, dict):
+            for key in ("state_dict", "transformer_state_dict", "model_state_dict"):
+                if key in obj and isinstance(obj[key], dict):
+                    obj = obj[key]
+                    break
+        if not isinstance(obj, dict):
+            raise TypeError(f"Unsupported checkpoint type: {type(obj)}")
+        # Filter to tensor values only (some checkpoints may include nested dicts like 'classifier').
+        return {k: v for k, v in obj.items() if isinstance(v, torch.Tensor)}
+
+    @staticmethod
+    def _extract_checkpoint_config(obj) -> dict:
+        if isinstance(obj, dict) and isinstance(obj.get("config"), dict):
+            return obj["config"]
+        return {}
 
     def _load_pipeline(self) -> FluxPipeline:
         pipe = FluxPipeline.from_pretrained(
             self.config.model_id,
             torch_dtype=self.dtype,
         )
+
+        # Optional: load graph-conditioned LoRA checkpoint for evaluation.
+        cfg = self.config
+        ckpt_obj = None
+        ckpt_cfg: dict = {}
+        if cfg.lora_checkpoint is not None:
+            ckpt_obj = torch.load(cfg.lora_checkpoint, map_location="cpu", weights_only=False)
+            ckpt_cfg = self._extract_checkpoint_config(ckpt_obj)
+
+        graph_mode = cfg.graph_mode or ckpt_cfg.get("graph_mode")
+        block_start = int(ckpt_cfg.get("block_start", cfg.block_start))
+        block_end = int(ckpt_cfg.get("block_end", cfg.block_end))
+        lora_rank = cfg.lora_rank if cfg.lora_rank is not None else ckpt_cfg.get("lora_rank")
+        lora_alpha = cfg.lora_alpha if cfg.lora_alpha is not None else ckpt_cfg.get("lora_alpha")
+
+        if graph_mode is not None:
+            patch_flux_for_graph(pipe.transformer, mode=str(graph_mode), block_range=range(block_start, block_end))
+
+        if ckpt_obj is not None:
+            if lora_rank is None:
+                raise ValueError("LoRA checkpoint provided but lora_rank is unknown (pass --lora-rank or save config in checkpoint).")
+            if lora_alpha is None:
+                lora_alpha = float(lora_rank)
+            self._inject_lora_into_blocks(pipe.transformer, range(block_start, block_end), rank=int(lora_rank), alpha=float(lora_alpha))
+            state_dict = self._extract_checkpoint_state_dict(ckpt_obj)
+            missing, unexpected = pipe.transformer.load_state_dict(state_dict, strict=False)
+            if missing or unexpected:
+                print(f"[stage_b] Loaded LoRA checkpoint with missing={len(missing)} unexpected={len(unexpected)}")
+
         if self.config.enable_cpu_offload:
             pipe.enable_sequential_cpu_offload()
         else:
@@ -67,6 +136,15 @@ class StageBRunner:
         examples = load_stage_a_examples(cfg.stage_a_jsonl, cfg.max_examples)
         pipe = self._load_pipeline()
         gen = torch.Generator(device=self.device).manual_seed(cfg.seed)
+
+        if (cfg.graph_mode is not None or cfg.lora_checkpoint is not None) and cfg.vocab_path is not None and cfg.cgip_ckpt is not None:
+            self._graph_encoder = SGDiffGraphEncoder(
+                vocab_path=str(cfg.vocab_path),
+                ckpt_path=str(cfg.cgip_ckpt),
+                device=cfg.graph_encoder_device,
+            )
+        elif cfg.graph_mode is not None or cfg.lora_checkpoint is not None:
+            raise ValueError("Graph evaluation requested but vocab_path/cgip_ckpt not provided.")
 
         for idx, ex in enumerate(examples):
             self._run_one(pipe, ex, idx, gen)
@@ -87,6 +165,14 @@ class StageBRunner:
             "triple": ex.triple,
         }
 
+        if self._graph_encoder is not None:
+            triplet: Tuple[str, str, str] = (ex.triple.subject, ex.triple.predicate, ex.triple.object)
+            with torch.no_grad():
+                graph_local, graph_global = self._graph_encoder.encode_batch([triplet])
+            graph_local = graph_local.to(device=self.device, dtype=self.dtype)
+            graph_global = graph_global.to(device=self.device, dtype=self.dtype)
+            set_graph_condition(pipe.transformer, graph_local=graph_local, graph_global=graph_global)
+
         with torch.no_grad():
             with ConceptAttentionTracer(
                 pipe.transformer,
@@ -104,6 +190,9 @@ class StageBRunner:
                     height=self.config.height,
                     width=self.config.width,
                 )
+
+        if self._graph_encoder is not None:
+            clear_graph_condition(pipe.transformer)
 
         records = tracer.records
         payload = {"meta": meta}
