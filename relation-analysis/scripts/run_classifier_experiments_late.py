@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Middle-layer classifier sweep.
+Late-layer classifier sweep.
 
 This intentionally reuses the exact training/eval code from `run_classifier_experiments.py`
 and only swaps the dataset root + output JSON path.
@@ -12,7 +12,7 @@ from pathlib import Path
 import run_classifier_experiments as base
 
 ROOT = Path('..').resolve()
-DATA_ROOT = ROOT.parent / 'saliency_datasets' / 'middle_layers'
+DATA_ROOT = ROOT.parent / 'saliency_datasets' / 'late_layers'
 assert DATA_ROOT.exists(), DATA_ROOT
 
 
@@ -42,7 +42,7 @@ def main():
 
     results = []
     for cfg in configs:
-        print(f"\n=== Running {cfg['name']} (middle) ===")
+        print(f"\n=== Running {cfg['name']} (late) ===")
         res = run_experiment({**cfg,
                               'epochs': 100,
                               'batch_size': 128,
@@ -59,7 +59,7 @@ def main():
                               'save_ckpt': True})
         results.append(res)
 
-    out_path = Path('runs') / 'experiment_results_middle_full.json'
+    out_path = Path('runs') / 'experiment_results_late_full.json'
     out_path.parent.mkdir(exist_ok=True)
     out_path.write_text(json.dumps(results, indent=2))
     print('Saved results to', out_path.resolve())

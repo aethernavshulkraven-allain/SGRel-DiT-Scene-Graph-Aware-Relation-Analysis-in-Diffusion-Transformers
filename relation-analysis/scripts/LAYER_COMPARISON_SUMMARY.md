@@ -1,6 +1,6 @@
-# Early vs Middle layer WideResNet experiments
+# Early vs Middle vs Late layer classifier experiments
 
-- **Data**: Scene-graph relation saliency dumps. Early-layer set at `saliency_datasets/early_layers`; middle-layer set introduced by Sujal Suri (paths referenced in configs inside each run folder).
+- **Data**: Scene-graph relation saliency dumps. Early-layer set at `saliency_datasets/early_layers`; middle-layer set at `saliency_datasets/middle_layers`; late-layer set at `saliency_datasets/late_layers`.
 - **Model/protocol**: WideResNet-28-10, dropout 0.3, 50 epochs, batch 64, SGD (lr=0.01, momentum=0.9, wd=5e-4), splits 70/15/15. Fusion variants: saliency-only, attention-only, concat, add, multiply, weighted, max.
 - **Artifacts**:
   - Early runs: `relation-analysis/scripts/wideresnet_experiments/*/results.json` (+ logs/plots).
@@ -49,9 +49,29 @@ Middle layers (runs/experiment_results_middle_full.json):
 | mlp       | triple   | 0.705 |
 | mlp       | diff     | 0.700 |
 
+Late layers (runs/experiment_results_late_full.json):
+| Arch      | Mode     | Val acc |
+|-----------|----------|---------|
+| wrn       | saliency | 0.704 |
+| wrn       | cross    | 0.774 |
+| wrn       | concat   | 0.796 |
+| wrn       | triple   | 0.794 |
+| wrn       | diff     | 0.789 |
+| wrn       | late     | 0.794 |
+| tiny_cnn  | saliency | 0.660 |
+| tiny_cnn  | cross    | 0.719 |
+| tiny_cnn  | concat   | 0.787 |
+| tiny_cnn  | triple   | **0.804** |
+| tiny_cnn  | diff     | 0.774 |
+| mlp       | saliency | 0.620 |
+| mlp       | cross    | 0.691 |
+| mlp       | concat   | 0.742 |
+| mlp       | triple   | 0.724 |
+| mlp       | diff     | 0.744 |
+
 Legacy WRN-28x10 (50 epochs) with more fusions (add/multiply/weighted/max/attention) remain in `wideresnet_experiments/` and `wideresnet_experiments_middle_layers/` (see individual `results.json` for val/test splits).
 
 ## Takeaways
-- Latest 100-epoch sweeps show tiny CNN triple best on early (0.837), WRN triple best on middle (0.800), WRN late strong on early (0.827), WRN concat competitive on both (≥0.794).
+- Latest 100-epoch sweeps show tiny CNN triple best on early (0.837) and late (0.804), WRN triple best on middle (0.800), WRN late strong on early (0.827), WRN concat competitive across middle/late (≥0.794).
 - MLP baselines are substantially weaker than conv models but provide a lower-bound reference.
 - Older WRN-28x10 50-epoch runs (with add/multiply/weighted/max/attention) remain for comparison; concat still leads there. Check `wideresnet_experiments*/results.json` for test accuracies.
