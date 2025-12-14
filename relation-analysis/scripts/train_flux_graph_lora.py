@@ -72,7 +72,7 @@ from relation_analysis.graph.sgdiff_encoder import SGDiffGraphEncoder
 @dataclass
 class TrainConfig:
     model_id: str = "black-forest-labs/FLUX.1-schnell"
-    device: str = "cuda"
+    device: str = "cuda:3"
     dtype: str = "bfloat16"
     enable_cpu_offload: bool = True
     gradient_checkpointing: bool = True
@@ -193,8 +193,8 @@ def build_pipeline(cfg: TrainConfig, torch_dtype):
     # Overwrite tokenizers after load to bypass class check.
     pipe.tokenizer = clip_tok
     pipe.tokenizer_2 = t5_tok
-    if cfg.enable_cpu_offload and cfg.device == "cuda":
-        pipe.enable_model_cpu_offload()
+    if cfg.enable_cpu_offload and cfg.device.startswith("cuda"):
+        pipe.enable_model_cpu_offload(gpu_id=int(cfg.device.split(":")[1]) if ":" in cfg.device else 0)
     else:
         pipe = pipe.to(cfg.device, dtype=torch_dtype)
     pipe.set_progress_bar_config(disable=True)
@@ -304,7 +304,7 @@ def train(cfg: TrainConfig):
             loss, acc = run_batch(triples, labels)
             loss.backward()
             optim.step()
-            if cfg.enable_cpu_offload and cfg.device == "cuda":
+            if cfg.enable_cpu_offload and cfg.device.startswith("cuda"):
                 pipe.transformer.to("cpu")
                 torch.cuda.empty_cache()
             global_step += 1
@@ -320,7 +320,7 @@ def train(cfg: TrainConfig):
                 loss, acc = run_batch(triples, labels)
                 val_losses.append(loss.item())
                 val_accs.append(acc)
-                if cfg.enable_cpu_offload and cfg.device == "cuda":
+                if cfg.enable_cpu_offload and cfg.device.startswith("cuda"):
                     pipe.transformer.to("cpu")
                     torch.cuda.empty_cache()
         mean_val_loss = sum(val_losses) / max(1, len(val_losses))

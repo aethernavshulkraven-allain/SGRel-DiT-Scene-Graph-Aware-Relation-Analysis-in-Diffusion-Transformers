@@ -10,17 +10,17 @@ cd "$SCRIPT_DIR"
 
 mkdir -p runs
 
-export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
+# export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
 
 echo "Launching graph-conditioned Flux + LoRA (token concat) sequentially..."
 nohup python train_flux_graph_lora.py \
   --graph-mode token \
-  --epochs 1 \
-  --batch-size 1 \
+  --epochs 8 \
+  --batch-size 64 \
   --height 256 \
   --width 256 \
-  --cpu-offload \
-  --graph-encoder-device cpu \
+  --device cuda:3 \
+  --no-cpu-offload \
   > runs/graph_lora_token.log 2>&1 &
 PID_TOKEN=$!
 echo "Started token PID=${PID_TOKEN}"
@@ -33,8 +33,7 @@ nohup python train_flux_graph_lora.py \
   --batch-size 1 \
   --height 256 \
   --width 256 \
-  --cpu-offload \
-  --graph-encoder-device cpu \
+  --device cuda:3 \
   > runs/graph_lora_temb.log 2>&1 &
 PID_TEMB=$!
 
