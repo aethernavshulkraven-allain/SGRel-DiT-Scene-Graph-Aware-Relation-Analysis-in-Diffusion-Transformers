@@ -1,0 +1,35 @@
+2025-12-13 23:20:37.518721: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1765668037.538834  524979 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1765668037.545091  524979 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-12-13 23:20:37.567473: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/SGDiff/ldm/modules/cgip/cgip.py:48: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  sd = torch.load(path, map_location="cpu")["state_dict"]
+Restored from /home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/SGDiff/pretrained/sip_vg.pt with 0 missing and 308 unexpected keys
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  8.46it/s][ALoading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  9.73it/s]
+Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:02,  2.65it/s]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:01,  3.58it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 16.55it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 16.53it/s]
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:00<00:00,  5.43it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:00<00:00,  7.51it/s]
+Epoch 1/1:   0%|          | 0/62565 [00:00<?, ?it/s]Epoch 1/1:   0%|          | 0/62565 [00:47<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/relation-analysis/scripts/train_flux_graph_lora.py", line 412, in <module>
+    train(parse_args())
+  File "/home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/relation-analysis/scripts/train_flux_graph_lora.py", line 305, in train
+    loss, acc = run_batch(triples, labels)
+  File "/home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/relation-analysis/scripts/train_flux_graph_lora.py", line 278, in run_batch
+    sample = transformer(
+  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/relation-analysis/relation_analysis/flux/graph_conditioned_flux.py", line 57, in forward_with_graph
+    out = transformer._orig_forward(*args, **kwargs)
+  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
+    output = old_forward(*args, **kwargs)
+TypeError: FluxTransformer2DModel.forward() got multiple values for argument 'hidden_states'

@@ -7,27 +7,51 @@
   - Middle runs: `relation-analysis/scripts/wideresnet_experiments_middle_layers/*/results.json` (+ logs/plots).
   - Aggregated results (below) derived from the `results.json` files.
 
-## Validation vs Test accuracy
+## Validation accuracy (latest sweeps, 100 epochs, batch 128)
 
-| Layer set | Fusion mode      | Val acc | Test acc | Run dir |
-|-----------|------------------|---------|----------|---------|
-| early  | concat          | 0.8091 | 0.8119 | wideresnet_experiments/concat_28x10_20251212_050534 |
-| early  | max             | 0.7286 | 0.7321 | wideresnet_experiments/max_28x10_20251212_061010 |
-| early  | add             | 0.7103 | 0.7206 | wideresnet_experiments/add_28x10_20251212_054429 |
-| early  | multiply        | 0.7151 | 0.7099 | wideresnet_experiments/multiply_28x10_20251212_055718 |
-| early  | saliency_only   | 0.7135 | 0.7067 | wideresnet_experiments/saliency_only_28x10_20251212_051828 |
-| early  | weighted        | 0.7099 | 0.7206 | wideresnet_experiments/weighted_28x10_20251212_062304 |
-| early  | attention_only  | 0.6663 | 0.6730 | wideresnet_experiments/attention_only_28x10_20251212_053130 |
-| middle | concat          | 0.7909 | 0.7988 | wideresnet_experiments_middle_layers/concat_28x10_20251212_053640 |
-| middle | attention_only  | 0.7480 | 0.7575 | wideresnet_experiments_middle_layers/attention_only_28x10_20251212_060219 |
-| middle | max             | 0.7381 | 0.7381 | wideresnet_experiments_middle_layers/max_28x10_20251212_064035 |
-| middle | add             | 0.7369 | 0.7476 | wideresnet_experiments_middle_layers/add_28x10_20251212_061504 |
-| middle | weighted        | 0.7222 | 0.7131 | wideresnet_experiments_middle_layers/weighted_28x10_20251212_065326 |
-| middle | multiply        | 0.7234 | 0.7329 | wideresnet_experiments_middle_layers/multiply_28x10_20251212_062751 |
-| middle | saliency_only   | 0.6448 | 0.6425 | wideresnet_experiments_middle_layers/saliency_only_28x10_20251212_054930 |
+Early layers (runs/experiment_results.json):
+| Arch      | Mode     | Val acc |
+|-----------|----------|---------|
+| wrn       | saliency | 0.704 |
+| wrn       | cross    | 0.689 |
+| wrn       | concat   | 0.798 |
+| wrn       | triple   | 0.799 |
+| wrn       | diff     | 0.797 |
+| wrn       | late     | 0.827 |
+| tiny_cnn  | saliency | 0.680 |
+| tiny_cnn  | cross    | 0.688 |
+| tiny_cnn  | concat   | 0.830 |
+| tiny_cnn  | triple   | **0.837** |
+| tiny_cnn  | diff     | 0.829 |
+| mlp       | saliency | 0.604 |
+| mlp       | cross    | 0.564 |
+| mlp       | concat   | 0.733 |
+| mlp       | triple   | 0.727 |
+| mlp       | diff     | 0.749 |
+
+Middle layers (runs/experiment_results_middle_full.json):
+| Arch      | Mode     | Val acc |
+|-----------|----------|---------|
+| wrn       | saliency | 0.641 |
+| wrn       | cross    | 0.761 |
+| wrn       | concat   | 0.794 |
+| wrn       | triple   | **0.800** |
+| wrn       | diff     | 0.798 |
+| wrn       | late     | 0.796 |
+| tiny_cnn  | saliency | 0.578 |
+| tiny_cnn  | cross    | 0.729 |
+| tiny_cnn  | concat   | 0.787 |
+| tiny_cnn  | triple   | 0.798 |
+| tiny_cnn  | diff     | 0.795 |
+| mlp       | saliency | 0.551 |
+| mlp       | cross    | 0.636 |
+| mlp       | concat   | 0.698 |
+| mlp       | triple   | 0.705 |
+| mlp       | diff     | 0.700 |
+
+Legacy WRN-28x10 (50 epochs) with more fusions (add/multiply/weighted/max/attention) remain in `wideresnet_experiments/` and `wideresnet_experiments_middle_layers/` (see individual `results.json` for val/test splits).
 
 ## Takeaways
-- **Best overall**: Early-layer concat slightly leads (test 0.8119). Middle-layer concat is close (0.7988) and best within the middle set.
-- **Saliency-only vs attention-only**: Saliency-only outperforms attention-only on early layers; reversed on middle layers.
-- **Simple fusions (add/multiply/weighted/max)** trail concat for both layer sets but remain competitive; middle layers generally narrow the gap.
-- All runs used identical hyperparameters/splits; checkpoints, training logs, confusion matrices, and curves are stored in the respective run directories.
+- Latest 100-epoch sweeps show tiny CNN triple best on early (0.837), WRN triple best on middle (0.800), WRN late strong on early (0.827), WRN concat competitive on both (≥0.794).
+- MLP baselines are substantially weaker than conv models but provide a lower-bound reference.
+- Older WRN-28x10 50-epoch runs (with add/multiply/weighted/max/attention) remain for comparison; concat still leads there. Check `wideresnet_experiments*/results.json` for test accuracies.
