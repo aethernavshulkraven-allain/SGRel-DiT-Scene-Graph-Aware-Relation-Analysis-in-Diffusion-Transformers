@@ -80,7 +80,7 @@ class TrainConfig:
     device: str = "cuda"
     dtype: str = "bfloat16"
     enable_cpu_offload: bool = False
-    gradient_checkpointing: bool = True
+    gradient_checkpointing: bool = False  # Disabled: conflicts with graph conditioning
     graph_mode: str = "token"  # token|temb
     block_start: int = 7
     block_end: int = 13
@@ -379,15 +379,18 @@ def build_pipeline(cfg: TrainConfig, torch_dtype):
     pipe.tokenizer = clip_tok
     pipe.tokenizer_2 = t5_tok
     
-    # IMPORTANT: FluxPipeline includes very large text encoders (esp. T5). Moving the whole pipeline to GPU can OOM
-    # on 24GB cards. For training we only need the transformer on GPU (for gradients) and optionally the VAE for
-    # z0 encoding. We keep text encoders on CPU and move prompt embeddings to GPU.
+    # Move all components to GPU for faster text encoding
     if cfg.enable_cpu_offload and cfg.device.startswith("cuda"):
         pipe.enable_model_cpu_offload(gpu_id=int(cfg.device.split(":")[1]) if ":" in cfg.device else 0)
     else:
         if cfg.device.startswith("cuda"):
             pipe.transformer.to(cfg.device, dtype=torch_dtype)
             pipe.vae.to(cfg.device, dtype=torch_dtype)
+            # Move text encoders to GPU for faster encoding
+            if pipe.text_encoder is not None:
+                pipe.text_encoder.to(cfg.device, dtype=torch_dtype)
+            if pipe.text_encoder_2 is not None:
+                pipe.text_encoder_2.to(cfg.device, dtype=torch_dtype)
     
     pipe.set_progress_bar_config(disable=True)
     return pipe

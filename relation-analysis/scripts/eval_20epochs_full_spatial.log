@@ -1,0 +1,5 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/home/namanb/SBILab/CSE677/Project/SGRel-DiT-Scene-Graph-Aware-Relation-Analysis-in-Diffusion-Transformers/relation-analysis/scripts/evaluate_graph_lora_comprehensive.py", line 35, in <module>
+    from diffusers import FluxPipeline
+ModuleNotFoundError: No module named 'diffusers'

@@ -1,7 +1,7 @@
 {
   "seed": 42,
-  "train_h5": "/home/arnav_eph/practice/SGRel-DiT: Scene Graph\u2013Aware Relation Analysis in Diffusion Transformers/SGDiff/datasets/vg/train.h5",
-  "images_dir": "/home/arnav_eph/practice/SGRel-DiT: Scene Graph\u2013Aware Relation Analysis in Diffusion Transformers/SGDiff/datasets/vg/images",
+  "train_h5": "/home/namanb/SBILab/CSE677/Project/SGRel-DiT-Scene-Graph-Aware-Relation-Analysis-in-Diffusion-Transformers/SGDiff/datasets/vg/train.h5",
+  "images_dir": "/home/namanb/SBILab/CSE677/Project/SGRel-DiT-Scene-Graph-Aware-Relation-Analysis-in-Diffusion-Transformers/SGDiff/datasets/vg/images",
   "supported_canonical_predicates": [
     "above",
     "around/near",
