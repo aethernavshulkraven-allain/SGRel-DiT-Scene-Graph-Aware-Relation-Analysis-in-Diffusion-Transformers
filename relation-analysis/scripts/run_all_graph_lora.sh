@@ -18,6 +18,7 @@ cd "$SCRIPT_DIR"
 mkdir -p runs
 
 export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
+export PYTHONUNBUFFERED="${PYTHONUNBUFFERED:-1}"
 
 DEVICE="${DEVICE:-cuda}"
 DTYPE="${DTYPE:-bfloat16}"
@@ -39,6 +40,8 @@ MAX_VAL_SAMPLES="${MAX_VAL_SAMPLES:-100}"
 T_MIN="${T_MIN:-0.0}"
 T_MAX="${T_MAX:-1.0}"
 LATENT_CACHE_DIR="${LATENT_CACHE_DIR:-}"
+TRAIN_EXAMPLES_JSONL="${TRAIN_EXAMPLES_JSONL:-}"
+VAL_EXAMPLES_JSONL="${VAL_EXAMPLES_JSONL:-}"
 
 USE_NEGATIVE_GRAPH="${USE_NEGATIVE_GRAPH:-1}"
 LAMBDA_REL_RANK="${LAMBDA_REL_RANK:-0.3}"
@@ -47,6 +50,7 @@ ALPHA_GEN_REL="${ALPHA_GEN_REL:-0.0}"
 HARD_NEGATIVE_TOPK="${HARD_NEGATIVE_TOPK:-2}"
 CLASSIFIER_CKPT="${CLASSIFIER_CKPT:-}"
 CLASSIFIER_IN_SIZE="${CLASSIFIER_IN_SIZE:-32}"
+MAX_SEQUENCE_LENGTH="${MAX_SEQUENCE_LENGTH:-512}"
 
 EPOCHS_TOKEN="${EPOCHS_TOKEN:-1}"
 EPOCHS_TEMB="${EPOCHS_TEMB:-1}"
@@ -77,6 +81,7 @@ COMMON_ARGS=(
   --max-val-samples "${MAX_VAL_SAMPLES}"
   --t-min "${T_MIN}"
   --t-max "${T_MAX}"
+  --max-sequence-length "${MAX_SEQUENCE_LENGTH}"
 )
 
 if [[ "${CPU_OFFLOAD}" -eq 1 ]]; then
@@ -98,6 +103,12 @@ if [[ -n "${LATENT_CACHE_DIR}" ]]; then
 fi
 if [[ -n "${CLASSIFIER_CKPT}" ]]; then
   COMMON_ARGS+=(--classifier-ckpt "${CLASSIFIER_CKPT}")
+fi
+if [[ -n "${TRAIN_EXAMPLES_JSONL}" ]]; then
+  COMMON_ARGS+=(--train-examples-jsonl "${TRAIN_EXAMPLES_JSONL}")
+fi
+if [[ -n "${VAL_EXAMPLES_JSONL}" ]]; then
+  COMMON_ARGS+=(--val-examples-jsonl "${VAL_EXAMPLES_JSONL}")
 fi
 
 echo "Output dir: ${OUT_DIR}"

@@ -12,6 +12,7 @@ cd "${SCRIPT_DIR}"
 mkdir -p runs
 
 export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
+export PYTHONUNBUFFERED="${PYTHONUNBUFFERED:-1}"
 
 CKPT_DIR="${1:-${PROJECT_ROOT}/outputs/graph_flux_lora_diffusion/latest}"
 if [[ ! -d "${CKPT_DIR}" ]]; then
@@ -19,7 +20,7 @@ if [[ ! -d "${CKPT_DIR}" ]]; then
   exit 1
 fi
 
-INPUT="${INPUT:-${PROJECT_ROOT}/outputs/stage_a/vg_stage_a.jsonl}"
+INPUT="${INPUT:-${VAL_EXAMPLES_JSONL:-${PROJECT_ROOT}/outputs/stage_a/vg_stage_a.jsonl}}"
 MODEL_ID="${MODEL_ID:-black-forest-labs/FLUX.1-schnell}"
 DEVICE="${DEVICE:-cuda}"
 DTYPE="${DTYPE:-bfloat16}"

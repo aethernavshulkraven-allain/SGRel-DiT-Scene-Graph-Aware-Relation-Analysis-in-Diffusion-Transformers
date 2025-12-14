@@ -1,11 +1,9 @@
-2025-12-14 18:17:01.544471: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-12-14 19:17:26.897744: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1765736221.563830  602612 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1765736221.569864  602612 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2025-12-14 18:17:01.589942: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+E0000 00:00:1765739846.917618  607862 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1765739846.923756  607862 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-12-14 19:17:26.944091: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-/home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/SGDiff/ldm/modules/cgip/cgip.py:48: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  sd = torch.load(path, map_location="cpu")["state_dict"]
 ================================================================================
 GRAPH-CONDITIONED FLUX TRAINING (TEACHER-FORCED + REL-RANK)
 ================================================================================
@@ -19,39 +17,21 @@ Image size: 256x256
 lambda_rel_rank: 0.3
 alpha_gen_rel: 0.0
 ================================================================================
-Train samples: 55886
+Train samples: 800
 Val samples: 100
+/home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/SGDiff/ldm/modules/cgip/cgip.py:48: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  sd = torch.load(path, map_location="cpu")["state_dict"]
 Restored from /home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/SGDiff/pretrained/sip_vg.pt with 0 missing and 308 unexpected keys
-Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][ALoading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 33.75it/s]
+Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:00,  6.27it/s]`torch_dtype` is deprecated! Use `dtype` instead!
 
-Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][ALoading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 34.71it/s]
-Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00,  9.37it/s]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
-Loading pipeline components...:  57%|█████▋    | 4/7 [00:00<00:00,  8.63it/s]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 57.38it/s]
-Loading pipeline components...:  86%|████████▌ | 6/7 [00:00<00:00, 11.08it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:00<00:00, 12.07it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 61.90it/s]
+Loading pipeline components...:  57%|█████▋    | 4/7 [00:00<00:00, 14.02it/s]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+Loading pipeline components...: 100%|██████████| 7/7 [00:00<00:00, 12.36it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:00<00:00, 12.08it/s]
 
 Trainable params: 10,232,832 / 11,901,411,392 (0.09%)
 Canonical predicates: 24
 SGDiff-supported predicates: 16
 Unsupported under SGDiff vocab (8): ['drinking', 'left of', 'playing with', 'pulling', 'pushing', 'right of', 'touching', 'using']
-Epoch 1/1:   0%|          | 0/55886 [00:00<?, ?it/s]/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
-  with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
-Epoch 1/1:   0%|          | 0/55886 [27:20<?, ?it/s]
-Traceback (most recent call last):
-  File "/home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/relation-analysis/scripts/train_flux_graph_lora_diffusion.py", line 1074, in <module>
-    train(parse_args())
-  File "/home/arnav_eph/practice/SGRel-DiT: Scene Graph–Aware Relation Analysis in Diffusion Transformers/relation-analysis/scripts/train_flux_graph_lora_diffusion.py", line 888, in train
-    loss.backward()
-  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/_tensor.py", line 521, in backward
-    torch.autograd.backward(
-  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/autograd/__init__.py", line 289, in backward
-    _engine_run_backward(
-  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/autograd/graph.py", line 768, in _engine_run_backward
-    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
-  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 1120, in unpack_hook
-    frame.check_recomputed_tensors_match(gid)
-  File "/home/arnav_eph/miniconda3/envs/fluxb/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 857, in check_recomputed_tensors_match
-    raise CheckpointError(
-torch.utils.checkpoint.CheckpointError: torch.utils.checkpoint: A different number of tensors was saved during the original forward and recomputation.
-Number of tensors saved during forward: 113
-Number of tensors saved during recomputation: 81
+Epoch 1/1:   0%|          | 0/800 [00:00<?, ?it/s]

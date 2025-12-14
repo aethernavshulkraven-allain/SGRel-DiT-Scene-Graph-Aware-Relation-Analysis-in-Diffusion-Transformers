@@ -17,6 +17,7 @@ Note: the canonical predicate set is 24 classes, but the legacy SGDiff VG vocab 
 import argparse
 import contextlib
 import hashlib
+import json
 import os
 import random
 import sys
@@ -126,9 +127,16 @@ class TrainConfig:
     
     # Prompt template
     prompt_template: str = "a photo of {subject} {predicate} {object}"
+    max_sequence_length: int = 512
 
     # Optional speedups (plan_lora.md §5)
     latent_cache_dir: Optional[Path] = None  # if set, caches VAE latents z0 on disk
+
+    # Optional fixed example splits (tiny subsets for quick wins).
+    # If provided, training/validation draw from these JSONL files instead of scanning H5.
+    train_examples_jsonl: Optional[Path] = None
+    val_examples_jsonl: Optional[Path] = None
+    dry_run: bool = False
 
 
 class VGImageDataset(Dataset):
@@ -238,6 +246,51 @@ class VGImageDataset(Dataset):
         image = Image.open(img_path).convert("RGB")
         
         return image, str(rel_path), (subject, predicate, obj), canonical_predicate, int(class_id)
+
+
+class VGExamplesJSONLDataset(Dataset):
+    """Dataset backed by a JSONL list of fixed triplet examples.
+
+    Each JSONL line must contain:
+      - triple: {subject, predicate (canonical), object}
+      - meta: {image_rel_path, predicate_raw, class_id}
+    """
+
+    def __init__(self, examples_jsonl: Path, images_dir: str, max_samples: int = -1):
+        self.examples_jsonl = Path(examples_jsonl)
+        self.images_dir = Path(images_dir)
+        rows: List[dict] = []
+        with open(self.examples_jsonl, "r") as f:
+            for i, line in enumerate(f):
+                if max_samples > 0 and i >= max_samples:
+                    break
+                line = line.strip()
+                if not line:
+                    continue
+                rows.append(json.loads(line))
+        if not rows:
+            raise ValueError(f"No examples found in {self.examples_jsonl}")
+        self.rows = rows
+
+    def __len__(self):
+        return len(self.rows)
+
+    def __getitem__(self, idx):
+        row = self.rows[idx]
+        triple = row["triple"]
+        meta = row["meta"]
+        subject = triple["subject"]
+        obj = triple["object"]
+        canonical_predicate = triple["predicate"]
+        predicate_raw = meta["predicate_raw"]
+        class_id = int(meta["class_id"])
+        image_rel_path = meta["image_rel_path"]
+
+        img_path = self.images_dir / str(image_rel_path)
+        if not img_path.exists():
+            raise FileNotFoundError(f"VG image not found: {img_path}")
+        image = Image.open(img_path).convert("RGB")
+        return image, str(image_rel_path), (subject, predicate_raw, obj), canonical_predicate, int(class_id)
 
 
 def collate_images(batch):
@@ -488,8 +541,17 @@ def train(cfg: TrainConfig):
     print("=" * 80)
     
     # Data
-    train_ds = VGImageDataset(cfg.vocab_path, cfg.train_h5, cfg.vg_images_dir, max_samples=cfg.max_train_samples)
-    val_ds = VGImageDataset(cfg.vocab_path, cfg.val_h5, cfg.vg_images_dir, max_samples=cfg.max_val_samples)
+    if cfg.train_examples_jsonl is not None:
+        train_ds = VGExamplesJSONLDataset(
+            cfg.train_examples_jsonl, cfg.vg_images_dir, max_samples=cfg.max_train_samples
+        )
+    else:
+        train_ds = VGImageDataset(cfg.vocab_path, cfg.train_h5, cfg.vg_images_dir, max_samples=cfg.max_train_samples)
+
+    if cfg.val_examples_jsonl is not None:
+        val_ds = VGExamplesJSONLDataset(cfg.val_examples_jsonl, cfg.vg_images_dir, max_samples=cfg.max_val_samples)
+    else:
+        val_ds = VGImageDataset(cfg.vocab_path, cfg.val_h5, cfg.vg_images_dir, max_samples=cfg.max_val_samples)
     
     train_loader = DataLoader(train_ds, batch_size=cfg.batch_size, shuffle=True, 
                              num_workers=cfg.num_workers, collate_fn=collate_images)
@@ -498,6 +560,14 @@ def train(cfg: TrainConfig):
     
     print(f"Train samples: {len(train_ds)}")
     print(f"Val samples: {len(val_ds)}")
+
+    if cfg.dry_run:
+        img, key, triple, canon, cid = train_ds[0]
+        print("DRY RUN: first train example")
+        print(f"  image_key: {key}")
+        print(f"  triple: {triple}")
+        print(f"  canonical_predicate: {canon} (class_id={cid})")
+        return
     
     # Models
     graph_encoder = SGDiffGraphEncoder(vocab_path=cfg.vocab_path, ckpt_path=cfg.cgip_ckpt, 
@@ -606,7 +676,7 @@ def train(cfg: TrainConfig):
             prompt_2=None,
             device=text_device,
             num_images_per_prompt=1,
-            max_sequence_length=512,
+            max_sequence_length=int(cfg.max_sequence_length),
         )
         return prompt_embeds, pooled, text_ids
     
@@ -909,6 +979,12 @@ def train(cfg: TrainConfig):
                         "acc+": f"{acc_pos.item():.2f}",
                     }
                 )
+                # Also print a newline heartbeat so nohup logs advance even when tqdm output is suppressed.
+                print(
+                    f"[step {global_step}] loss={loss.item():.4f} gen={loss_gen.item():.4f} "
+                    f"rank={loss_rank.item():.4f} Δ={margin.item():.3f} acc+={acc_pos.item():.2f}",
+                    flush=True,
+                )
             
             # Validation
             if global_step % cfg.val_every == 0:
@@ -1001,6 +1077,12 @@ def parse_args() -> TrainConfig:
     p.add_argument("--cgip-ckpt", default=TrainConfig.cgip_ckpt)
     p.add_argument("--graph-encoder-device", default=TrainConfig.graph_encoder_device)
     p.add_argument("--prompt-template", default=TrainConfig.prompt_template)
+    p.add_argument(
+        "--max-sequence-length",
+        type=int,
+        default=TrainConfig.max_sequence_length,
+        help="T5 max sequence length for Flux prompt encoding (default 512). Lowering this speeds up CPU text encoding.",
+    )
     p.add_argument("--t-min", type=float, default=TrainConfig.t_min)
     p.add_argument("--t-max", type=float, default=TrainConfig.t_max)
     p.add_argument("--lambda-rel-rank", type=float, default=TrainConfig.lambda_rel_rank)
@@ -1023,6 +1105,23 @@ def parse_args() -> TrainConfig:
     p.add_argument("--max-train-samples", type=int, default=TrainConfig.max_train_samples)
     p.add_argument("--max-val-samples", type=int, default=TrainConfig.max_val_samples)
     p.add_argument("--latent-cache-dir", type=Path, default=TrainConfig.latent_cache_dir)
+    p.add_argument(
+        "--train-examples-jsonl",
+        type=Path,
+        default=TrainConfig.train_examples_jsonl,
+        help="Optional JSONL of fixed train examples (see make_vg_quickwin_split.py). Overrides H5 scanning.",
+    )
+    p.add_argument(
+        "--val-examples-jsonl",
+        type=Path,
+        default=TrainConfig.val_examples_jsonl,
+        help="Optional JSONL of fixed val/test examples (never used for gradients). Overrides val.h5 scanning.",
+    )
+    p.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Only validate dataset/split wiring and exit before loading Flux.",
+    )
     
     args = p.parse_args()
     
@@ -1060,6 +1159,7 @@ def parse_args() -> TrainConfig:
         classifier_ckpt=args.classifier_ckpt,
         classifier_in_size=args.classifier_in_size,
         prompt_template=args.prompt_template,
+        max_sequence_length=args.max_sequence_length,
         t_min=args.t_min,
         t_max=args.t_max,
         use_negative_graph=args.use_negative_graph,
@@ -1067,6 +1167,9 @@ def parse_args() -> TrainConfig:
         max_train_samples=args.max_train_samples,
         max_val_samples=args.max_val_samples,
         latent_cache_dir=args.latent_cache_dir,
+        train_examples_jsonl=args.train_examples_jsonl,
+        val_examples_jsonl=args.val_examples_jsonl,
+        dry_run=bool(args.dry_run),
     )
 
 
