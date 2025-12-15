@@ -83,8 +83,8 @@ To embed a discrete scene graph into continuous tokens we use a message-passing 
 \begin{align*}
 \mathbf{t}_{ij} &= [\mathbf{h}_i;\,\mathbf{p}_{ij};\,\mathbf{h}_j],\\
 [\Delta\mathbf{h}_i^{(ij)};\,\mathbf{p}'_{ij};\,\Delta\mathbf{h}_j^{(ij)}] &= f_{\mathrm{triple}}(\mathbf{t}_{ij}),\\
-		ilde{\mathbf{h}}_i &= \operatorname{Pool}_{j:(i,j)\in E}(\Delta\mathbf{h}_i^{(ij)}),\quad
-		ilde{\mathbf{h}}_j = \operatorname{Pool}_{i:(i,j)\in E}(\Delta\mathbf{h}_j^{(ij)}),\\
+	\tilde{\mathbf{h}}_i &= \operatorname{Pool}_{j:(i,j)\in E}(\Delta\mathbf{h}_i^{(ij)}),\quad
+	\tilde{\mathbf{h}}_j = \operatorname{Pool}_{i:(i,j)\in E}(\Delta\mathbf{h}_j^{(ij)}),\\
 \mathbf{h}'_i &= f_{\mathrm{obj}}(\tilde{\mathbf{h}}_i).
 \end{align*}
 Predicate embeddings $\mathbf{p}'_{ij}$ are updated by $f_{\mathrm{triple}}$. Here $f_{\mathrm{triple}}$ and $f_{\mathrm{obj}}$ are MLPs and $\operatorname{Pool}$ is sum/average pooling across incident edges. Stacking $L$ layers yields final object/predicate embeddings that are serialized into graph tokens $G$ and injected via cross-attention.
@@ -174,7 +174,7 @@ The dataset generator targets balanced classes (2000 samples per predicate). For
 \begin{figure}[ht]
 	\centering
 	\fbox{\parbox[c][0.22\textheight][c]{0.8\textwidth}{\centering Placeholder: teaser figure}}
-	\caption{Teaser: example conditioned generations and relation overlays (placeholder).}
+	\caption{Teaser: example conditioned generations and relation overlays.}
 	\label{fig:teaser}
 \end{figure}
 
