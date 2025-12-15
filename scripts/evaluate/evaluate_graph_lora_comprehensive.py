@@ -125,7 +125,7 @@ def generate_images(
     torch_dtype,
 ) -> Dict[str, List[Image.Image]]:
     """Generate images for positive and negative graphs."""
-    results = {"positive": [], "negative": [], "seeds": []}
+    results = {"positive": [], "negative": [], "seeds": [], "skipped": 0}
     
     transformer = pipe.transformer
     device = torch.device(cfg.device)
@@ -139,10 +139,17 @@ def generate_images(
             desc=f"Seed {seed}",
             leave=False
         ):
-            # Encode graphs
-            with torch.no_grad():
-                graph_local_pos, graph_global_pos = graph_encoder.encode_batch([triple_pos])
-                graph_local_neg, graph_global_neg = graph_encoder.encode_batch([triple_neg])
+            # Encode graphs - skip if unsupported predicate
+            try:
+                with torch.no_grad():
+                    graph_local_pos, graph_global_pos = graph_encoder.encode_batch([triple_pos])
+                    graph_local_neg, graph_global_neg = graph_encoder.encode_batch([triple_neg])
+            except ValueError as e:
+                # Skip samples with unsupported predicates
+                if "not in vocab" in str(e):
+                    results["skipped"] += 1
+                    continue
+                raise
             
             graph_local_pos = graph_local_pos.to(device=device, dtype=torch_dtype)
             graph_global_pos = graph_global_pos.to(device=device, dtype=torch_dtype)
