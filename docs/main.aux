@@ -1,0 +1,68 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{ho2020denoising,rombach_high-resolution_2022}
+\citation{conceptattn}
+\citation{blora}
+\citation{sgdiff}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{1}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Background and Notation}{1}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Transformers and Attention}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Scene Graphs}{2}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Method: SGRel-DiT}{2}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Graph-conditioned diffusion transformer}{2}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Graph encoder: triple convolution network}{2}{subsection.4.2}\protected@file@percent }
+\citation{conceptattn}
+\citation{blora}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}ConceptAttention side-stream and saliency readout}{3}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Relation-aware objectives}{3}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Parameter-efficient adaptation (LoRA)}{3}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Mathematical Details}{4}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Relation representation pooling}{4}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Joint training objective}{4}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Experiments}{4}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Datasets and splits}{4}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Data splits and balancing.}{5}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Metrics}{5}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Implementation details}{5}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Figures and tables}{5}{subsection.6.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Teaser: example conditioned generations and relation overlays.}}{5}{figure.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:teaser}{{1}{5}{Teaser: example conditioned generations and relation overlays}{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Pipeline overview: (Stage A) Visual Genome triples $\rightarrow $ prompts+concepts; (Stage B) ConceptAttention tracing $\rightarrow $ saliency maps; (Stage C) relation classifier training/evaluation.}}{6}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:pipeline}{{2}{6}{Pipeline overview: (Stage A) Visual Genome triples $\rightarrow $ prompts+concepts; (Stage B) ConceptAttention tracing $\rightarrow $ saliency maps; (Stage C) relation classifier training/evaluation}{figure.caption.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary of experimental settings and hyperparameters.}}{6}{table.caption.4}\protected@file@percent }
+\newlabel{tab:hyper}{{1}{6}{Summary of experimental settings and hyperparameters}{table.caption.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Results and Analysis}{6}{section.7}\protected@file@percent }
+\newlabel{sec:results}{{7}{6}{Results and Analysis}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Saliency-based relation classification}{6}{subsection.7.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Early-layer predicate classification accuracy (5 epochs).}}{6}{table.caption.5}\protected@file@percent }
+\newlabel{tab:wrn_results_early}{{2}{6}{Early-layer predicate classification accuracy (5 epochs)}{table.caption.5}{}}
+\citation{conceptattn}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Early vs middle vs late layer groups (longer sweeps)}{7}{subsection.7.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Layer-group comparison (validation accuracy, latest sweeps).}}{7}{table.caption.6}\protected@file@percent }
+\newlabel{tab:layer_sweeps}{{3}{7}{Layer-group comparison (validation accuracy, latest sweeps)}{table.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Graph-conditioned diffusion evaluation}{7}{subsection.7.3}\protected@file@percent }
+\newlabel{sec:graph_eval}{{7.3}{7}{Graph-conditioned diffusion evaluation}{subsection.7.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{Evaluation protocol (comprehensive run).}{7}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{7}{section.8}\protected@file@percent }
+\bibstyle{plainnat}
+\bibdata{references}
+\bibcite{sgdiff}{{1}{2024}{{Authors}}{{}}}
+\bibcite{conceptattn}{{2}{2025}{{Helbling et~al.}}{{Helbling, Meral, Hoover, Yanardag, and Chau}}}
+\bibcite{ho2020denoising}{{3}{2020}{{Ho et~al.}}{{Ho, Jain, and Abbeel}}}
+\bibcite{blora}{{4}{2024}{{Placeholder}}{{}}}
+\bibcite{rombach_high-resolution_2022}{{5}{2022}{{Rombach et~al.}}{{Rombach, Blattmann, Lorenz, Esser, and Ommer}}}
+\@writefile{toc}{\contentsline {paragraph}{Limitations.}{8}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Next steps.}{8}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusion}{8}{section.9}\protected@file@percent }
+\citation{conceptattn}
+\citation{blora}
+\citation{sgdiff}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Appendix: Additional math and derivations}{9}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Pseudocode (high level).}{9}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Additional plots/tables.}{9}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B}Attachment references}{9}{appendix.B}\protected@file@percent }
+\gdef \@abspage@last{9}
