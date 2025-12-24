@@ -1,0 +1,18 @@
+# Training artifacts / caches
+outputs/graph_flux_lora_diffusion/run_*/
+outputs/graph_lora_eval_full_sampling_*/
+outputs/latent_cache_*/
+outputs/_debug_*/
+
+# Local logs
+scripts/my_training*.log
+
+# Quick-win splits (generated)
+scripts/splits/*.jsonl
+scripts/splits/*_summary.json
+
+# Python cache
+__pycache__/
+**/__pycache__/
+.pytest_cache/
+

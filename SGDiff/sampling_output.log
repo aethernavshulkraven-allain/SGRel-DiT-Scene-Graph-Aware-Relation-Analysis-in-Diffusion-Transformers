@@ -1,0 +1,29 @@
+testset_ddim_sampler.py:280: DeprecationWarning: BILINEAR is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BILINEAR instead.
+  def __init__(self, size, interp=PIL.Image.BILINEAR):
+Loading model from ./pretrained_model.ckpt
+Traceback (most recent call last):
+  File "testset_ddim_sampler.py", line 321, in <module>
+    main()
+  File "testset_ddim_sampler.py", line 44, in main
+    model = get_model()
+  File "testset_ddim_sampler.py", line 22, in get_model
+    model = load_model_from_config(config, "./pretrained_model.ckpt")
+  File "testset_ddim_sampler.py", line 172, in load_model_from_config
+    model = instantiate_from_config(config.model)
+  File "/home/arnav_eph/practice/proj/SGDiff/ldm/util.py", line 85, in instantiate_from_config
+    return get_obj_from_str(config["target"])(**config.get("params", dict()))
+  File "/home/arnav_eph/practice/proj/SGDiff/ldm/util.py", line 93, in get_obj_from_str
+    return getattr(importlib.import_module(module, package=None), cls)
+  File "/home/arnav_eph/miniconda3/envs/sgdiff/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/arnav_eph/practice/proj/SGDiff/ldm/models/diffusion/ddpm.py", line 16, in <module>
+    from ldm.models.autoencoder import VQModelInterface, IdentityFirstStage, AutoencoderKL
+  File "/home/arnav_eph/practice/proj/SGDiff/ldm/models/autoencoder.py", line 6, in <module>
+    from taming.modules.vqvae.quantize import VectorQuantizer2 as VectorQuantizer
+ImportError: cannot import name 'VectorQuantizer2' from 'taming.modules.vqvae.quantize' (/home/arnav_eph/miniconda3/envs/sgdiff/lib/python3.7/site-packages/taming/modules/vqvae/quantize.py)
